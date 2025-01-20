@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/identity
+    username: root
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+jwt:
+  secret-key: 3eqxZFLkstpRO0R4tYAXAK9z5AXycfl8YLNB4eeiR0ugQ7760SJW8crh5ac0iTZPW6gMCUJlKtYwlN1hiJop0fIPksqCHu77C3bo96YdbvpnZEhw0VvU5hYFDXsXSNWfR8sOJ1LsLjRVgPnsYshuGTUSJz9ndFmqvRpawKSVD6w7PVChlvRxMKp2WdjYtzlfyG728JbwnSRt0VOxKOaizjXCPAlvDM7ejfaotShtfqj2r493vVMbovUn0g7fzhXt
