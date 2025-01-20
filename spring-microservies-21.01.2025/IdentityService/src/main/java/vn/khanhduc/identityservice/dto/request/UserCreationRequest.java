@@ -2,12 +2,10 @@ package vn.khanhduc.identityservice.dto.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Builder;
 import lombok.Getter;
 import java.io.Serializable;
 
 @Getter
-@Builder
 public class UserCreationRequest implements Serializable {
 
     @NotBlank(message = "FirstName cannot be blank")
