@@ -10,4 +10,6 @@ public interface JwtService {
     String generateRefreshToken(User user);
     String ExtractUserName(String accessToken);
     boolean verificationToken(String token, User user) throws ParseException, JOSEException;
+    String buildAuthority(User user);
+    String buildPermissions(User user);
 }

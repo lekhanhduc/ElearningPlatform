@@ -16,9 +16,7 @@ import vn.khanhduc.identityservice.service.JwtService;
 import java.text.ParseException;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
-import java.util.Date;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -38,6 +36,8 @@ public class JwtServiceImpl implements JwtService {
                 .issueTime(new Date())
                 .expirationTime(new Date(Instant.now().plus(60, ChronoUnit.MINUTES).toEpochMilli()))
                 .jwtID(UUID.randomUUID().toString())
+                .claim("Authority", buildAuthority(user))
+                .claim("Permission", buildPermissions(user))
                 .build();
 
         Payload payload = new Payload(claimsSet.toJSONObject());
@@ -101,4 +101,25 @@ public class JwtServiceImpl implements JwtService {
         }
         return signedJWT.verify(new MACVerifier(secretKey));
     }
+
+    @Override
+    public String buildAuthority(User user) {
+        StringJoiner joiner = new StringJoiner(", ");
+
+        user.getUserHasRoles().stream()
+                .map(r -> r.getRole().getName())
+                .forEach(joiner::add);
+        return joiner.toString();
+    }
+
+    @Override
+    public String buildPermissions(User user) {
+        StringJoiner joiner = new StringJoiner(", ");
+        user.getUserHasRoles().stream()
+                .flatMap(r -> r.getRole().getRoleHasPermissions().stream())
+                .map(p -> p.getPermission().getName())
+                .forEach(joiner::add);
+        return joiner.toString();
+    }
+
 }
