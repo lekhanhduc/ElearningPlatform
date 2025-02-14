@@ -24,7 +24,8 @@ public class SecurityConfiguration {
 
     private static final String[] White_List = {
             "/api/v1/auth/**",
-            "/api/v1/users-creation"
+            "/api/v1/users",
+            "/api/v1/users/**"
     };
 
     private final UserDetailServiceCustomizer userDetailServiceCustomizer;
@@ -65,4 +66,5 @@ public class SecurityConfiguration {
         authProvider.setPasswordEncoder(passwordEncoder());
         return authProvider;
     }
+
 }

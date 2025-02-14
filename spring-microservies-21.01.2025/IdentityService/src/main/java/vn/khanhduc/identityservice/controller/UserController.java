@@ -8,6 +8,7 @@ import vn.khanhduc.identityservice.dto.request.UserCreationRequest;
 import vn.khanhduc.identityservice.dto.response.ResponseData;
 import vn.khanhduc.identityservice.dto.response.UserCreationResponse;
 import vn.khanhduc.identityservice.dto.response.UserDetailResponse;
+import vn.khanhduc.identityservice.dto.response.UserProfileResponse;
 import vn.khanhduc.identityservice.service.UserService;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class UserController {
 
     private final UserService userService;
 
-    @PostMapping("/users-creation")
+    @PostMapping("/users")
     ResponseData<UserCreationResponse> createUser(@RequestBody @Valid UserCreationRequest request) {
         var result = userService.createUser(request);
 
@@ -38,4 +39,45 @@ public class UserController {
                 .data(result)
                 .build();
     }
+
+    @GetMapping("/users/{id}")
+    ResponseData<UserProfileResponse> getProfileWithRestClient(@PathVariable String id) {
+        var result = userService.getUserProfileByIdWithRestClient(id);
+        return ResponseData.<UserProfileResponse>builder()
+                .code(HttpStatus.CREATED.value())
+                .message("Get Profile User from Profile-Service")
+                .data(result)
+                .build();
+    }
+
+    @GetMapping("/users/template/{id}")
+    ResponseData<UserProfileResponse> getProfileWithRestTemplate(@PathVariable String id) {
+        var result = userService.getUserProfileByIdWithRestTemplate(id);
+        return ResponseData.<UserProfileResponse>builder()
+                .code(HttpStatus.CREATED.value())
+                .message("Get Profile User from Profile-Service")
+                .data(result)
+                .build();
+    }
+
+    @GetMapping("/users/webclient/{id}")
+    ResponseData<UserProfileResponse> getProfileWithWebClient(@PathVariable String id) {
+        var result = userService.getUserProfileByIdWithWebClient(id);
+        return ResponseData.<UserProfileResponse>builder()
+                .code(HttpStatus.CREATED.value())
+                .message("Get Profile User from Profile-Service")
+                .data(result)
+                .build();
+    }
+
+    @GetMapping("/users/openfeign/{id}")
+    ResponseData<UserProfileResponse> getProfileWithOpenFeign(@PathVariable String id) {
+        var result = userService.getUserProfileByIdWithOpenFeign(id);
+        return ResponseData.<UserProfileResponse>builder()
+                .code(HttpStatus.CREATED.value())
+                .message("Get Profile User from Profile-Service")
+                .data(result)
+                .build();
+    }
+
 }

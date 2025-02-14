@@ -1,0 +1,32 @@
+server:
+  port: 9191
+
+spring:
+  application:
+    name: API-GATEWAY
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+---
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: PROFILE-SERVICE
+          uri: lb://PROFILE-SERVICE
+          predicates:
+            - Path=/profile/**  # Yêu c?u s? ???c chuy?n ??n d?ch v? PROFILE-SERVICE
+
+        - id: IDENTITY-SERVICE
+          uri: lb://IDENTITY-SERVICE
+          predicates:
+            - Path=/identity/**  # Yêu c?u s? ???c chuy?n ??n d?ch v? IDENTITY-SERVICE
