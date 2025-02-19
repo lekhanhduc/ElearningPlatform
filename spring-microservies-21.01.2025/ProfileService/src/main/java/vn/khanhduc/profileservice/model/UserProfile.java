@@ -6,7 +6,6 @@ import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 import org.springframework.data.neo4j.core.schema.Property;
 import org.springframework.data.neo4j.core.support.UUIDStringGenerator;
-
 import java.io.Serializable;
 
 @Node("user-profile")
@@ -20,6 +19,9 @@ public class UserProfile implements Serializable {
     @Id
     @GeneratedValue(generatorClass = UUIDStringGenerator.class)
     private String id;
+
+    @Property(name = "user_id")
+    private Long userId;
 
     @Property(name = "first_name")
     private String firstName;

@@ -9,6 +9,7 @@ import java.io.Serializable;
 @Setter
 @Builder
 public class UserProfileResponse  implements Serializable {
+    private Long userId;
     private String firstName;
     private String lastName;
     private String phoneNumber;

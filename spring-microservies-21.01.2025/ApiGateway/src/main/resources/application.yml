@@ -6,6 +6,10 @@ spring:
     name: API-GATEWAY
 
 eureka:
+  instance:
+    prefer-ip-address: true   # Sử dụng IP thay vì hostname
+    ip-address: 127.0.0.1  # Cố định IP thành localhost
+    hostname: localhost  # Đảm bảo Eureka sử dụng localhost
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
@@ -17,16 +21,16 @@ management:
         include: "*"
 ---
 
-spring:
-  cloud:
-    gateway:
-      routes:
-        - id: PROFILE-SERVICE
-          uri: lb://PROFILE-SERVICE
-          predicates:
-            - Path=/profile/**  # Y�u c?u s? ???c chuy?n ??n d?ch v? PROFILE-SERVICE
-
-        - id: IDENTITY-SERVICE
-          uri: lb://IDENTITY-SERVICE
-          predicates:
-            - Path=/identity/**  # Y�u c?u s? ???c chuy?n ??n d?ch v? IDENTITY-SERVICE
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: PROFILE-SERVICE
+#          uri: lb://PROFILE-SERVICE
+#          predicates:
+#            - Path=/profile/**
+#
+#        - id: IDENTITY-SERVICE
+#          uri: lb://IDENTITY-SERVICE
+#          predicates:
+#            - Path=/identity/**

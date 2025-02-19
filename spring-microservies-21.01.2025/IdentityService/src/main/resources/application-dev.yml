@@ -1,13 +1,7 @@
-server:
-  port: 8080
-  servlet:
-    context-path: /identity
 spring:
   application:
     name: IDENTITY-SERVICE
-
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/identity
     username: root
     password: 123456
@@ -18,10 +12,14 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
 
-jwt:
-  secret-key: 3eqxZFLkstpRO0R4tYAXAK9z5AXycfl8YLNB4eeiR0ugQ7760SJW8crh5ac0iTZPW6gMCUJlKtYwlN1hiJop0fIPksqCHu77C3bo96YdbvpnZEhw0VvU5hYFDXsXSNWfR8sOJ1LsLjRVgPnsYshuGTUSJz9ndFmqvRpawKSVD6w7PVChlvRxMKp2WdjYtzlfyG728JbwnSRt0VOxKOaizjXCPAlvDM7ejfaotShtfqj2r493vVMbovUn0g7fzhXt
+  config:
+    import: "optional:configserver:http://localhost:8888"
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+jwt:
+  secret-key: ${JWT_SECRET_KEY}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -9,7 +9,8 @@ import java.io.Serializable;
 @Setter
 @Builder
 public class ProfileResponse implements Serializable {
-    private String firstName;
-    private String lastName;
-    private String phoneNumber;
+    private final Long userId;
+    private final String firstName;
+    private final String lastName;
+    private final String phoneNumber;
 }

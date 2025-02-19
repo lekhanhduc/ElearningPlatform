@@ -2,13 +2,11 @@ package vn.khanhduc.identityservice.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import vn.khanhduc.identityservice.common.UserStatus;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -27,12 +25,6 @@ public class User implements UserDetails, Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "first_name", nullable = false)
-    private String firstName;
-
-    @Column(name = "last_name", nullable = false)
-    private String lastName;
-
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
@@ -41,13 +33,6 @@ public class User implements UserDetails, Serializable {
 
     @Column(name = "refresh_token", columnDefinition = "TEXT")
     private String refreshToken;
-
-    @Column(name = "phone_number")
-    private String phoneNumber;
-
-    @Column(name = "birth_day")
-    @DateTimeFormat(pattern = "MM/dd/yyyy")
-    private LocalDate birthDate;
 
     @Enumerated(EnumType.STRING)
     private UserStatus userStatus;
@@ -65,7 +50,7 @@ public class User implements UserDetails, Serializable {
 
     @Override
     public String getUsername() {
-        return String.format("%s %s", firstName, lastName);
+        return this.email;
     }
 
     @Override

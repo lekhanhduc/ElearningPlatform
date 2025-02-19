@@ -31,8 +31,11 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    ResponseData<List<UserDetailResponse>> getAll() {
-        var result = userService.getAllUser();
+    ResponseData<List<UserDetailResponse>> getAll(
+            @RequestParam(name = "page", required = false, defaultValue = "1") int page,
+            @RequestParam(name = "page", required = false, defaultValue = "1") int size
+    ) {
+        var result = userService.getAllUser(page, size);
         return ResponseData.<List<UserDetailResponse>>builder()
                 .code(HttpStatus.CREATED.value())
                 .message("Get All User")

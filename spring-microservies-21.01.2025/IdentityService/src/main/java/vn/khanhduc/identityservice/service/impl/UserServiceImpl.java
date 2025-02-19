@@ -12,6 +12,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import vn.khanhduc.identityservice.common.UserStatus;
 import vn.khanhduc.identityservice.dto.request.ProfileCreateRequest;
 import vn.khanhduc.identityservice.dto.request.UserCreationRequest;
+import vn.khanhduc.identityservice.dto.response.PageResponse;
 import vn.khanhduc.identityservice.dto.response.UserCreationResponse;
 import vn.khanhduc.identityservice.dto.response.UserDetailResponse;
 import vn.khanhduc.identityservice.dto.response.UserProfileResponse;
@@ -46,41 +47,44 @@ public class UserServiceImpl implements UserService {
         User user = User.builder()
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .firstName(request.getFirstName())
-                .lastName(request.getLastName())
                 .userStatus(UserStatus.ACTIVE)
                 .build();
         userRepository.save(user);
         log.info("User created");
 
-        profileClient.createProfile(ProfileCreateRequest.builder()
-                        .firstName(user.getFirstName())
-                        .lastName(user.getLastName())
+        var response = profileClient.createProfile(ProfileCreateRequest.builder()
+                        .userId(user.getId())
+                        .firstName(request.getFirstName())
+                        .lastName(request.getLastName())
                         .phoneNumber(null)
                 .build());
+
+        log.info("Profile response {}", response);
 
         log.info("Profile created");
 
         // Can send email here with Kafka
 
         return UserCreationResponse.builder()
-                .firstName(user.getFirstName())
-                .lastName(user.getLastName())
-                .fullName(String.format("%s %s", user.getFirstName(), user.getLastName()))
+                .firstName(request.getFirstName())
+                .lastName(request.getLastName())
+                .fullName(String.format("%s %s", request.getFirstName(), request.getLastName()))
                 .email(user.getEmail())
                 .build();
     }
 
     @Override
-    public List<UserDetailResponse> getAllUser() {
+    public List<UserDetailResponse> getAllUser(int page, int size) {
+        var profiles = profileClient.getAllProfile(page, size);
+
         return userRepository.findAll()
                 .stream()
                 .map(user -> UserDetailResponse.builder()
-                        .firstName(user.getFirstName())
-                        .lastName(user.getLastName())
-                        .fullName(String.format("%s %s", user.getFirstName(), user.getLastName()))
+                        .firstName(profiles.getFirstName())
+                        .lastName(profiles.getLastName())
+                        .fullName(String.format("%s %s", profiles.getFirstName(), profiles.getLastName()))
                         .email(user.getEmail())
-                        .phone(user.getPhoneNumber())
+                        .phone(profiles.getPhoneNumber())
                         .build())
                 .toList();
     }
