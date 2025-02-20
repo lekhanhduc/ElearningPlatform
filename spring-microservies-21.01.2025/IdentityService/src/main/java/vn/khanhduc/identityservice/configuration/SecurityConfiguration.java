@@ -26,6 +26,7 @@ public class SecurityConfiguration {
 
     private static final String[] WHILE_LIST = {
             "/api/v1/auth/**",
+            "/message",
             "/api/v1/users",
             "/api/v1/users/**"
     };
