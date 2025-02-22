@@ -13,4 +13,5 @@ public class ProfileResponse implements Serializable {
     private final String firstName;
     private final String lastName;
     private final String phoneNumber;
+    private final String avatar;
 }

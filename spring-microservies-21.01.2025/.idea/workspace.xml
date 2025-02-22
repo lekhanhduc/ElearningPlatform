@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="10628ec2-7070-42e6-87d8-03b5e1ebdc77" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/AuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/WebClientConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/dto/response/ResponseData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/dto/response/TokenVerificationResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/repository/IdentityClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/service/IdentityService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EventBusService/src/main/java/com/example/eventbusservice/configuration/KafkaConsumerConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EventBusService/src/main/java/com/example/eventbusservice/configuration/KafkaProducerConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/common/SecurityUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/common/UserType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/InitApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/RedisConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/request/SaveUserRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/response/RefreshTokenResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/response/TokenVerificationResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/PermissionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/UserHasRoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/httpclient/UserClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/RedisService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/RedisServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/JwtAccessDined.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/JwtDecoderCustomizer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/SecurityConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/dto/response/ErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/com/example/userservice/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/com/example/userservice/dto/request/UserRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/com/example/userservice/dto/response/PageResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/com/example/userservice/dto/response/UserDetailResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/com/example/userservice/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/com/example/userservice/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/com/example/userservice/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/com/example/userservice/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/com/example/userservice/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ApiGateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ApiGateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/JwtDecoderCustomizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/JwtDecoderCustomizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/request/ProfileCreateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/request/ProfileCreateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/response/UserProfileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/response/UserProfileResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/exception/ErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/model/Group.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/model/UserHasGroup.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/AuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/AuthenticationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/JwtServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/JwtServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/dto/request/ProfileRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/dto/request/ProfileRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/dto/response/ProfileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/dto/response/ProfileResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/model/UserProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/model/UserProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/service/impl/UserProfileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/service/impl/UserProfileServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistryService/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistryService/src/main/resources/application.yaml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2tOWpr764NZZU5Qw8aEObHAC0Z5" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.configurations.included.in.services": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.BookServiceApplication">
+    <configuration name="BookServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="BookService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.bookservice.BookServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ConfigServer" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.configserver.ConfigServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EventBusServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="EventBusService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.eventbusservice.EventBusServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NotificationServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="NotificationService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.notificationservice.NotificationServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PaymentServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="PaymentService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.paymentservice.PaymentServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProfileServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ProfileService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.profileservice.ProfileServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegistryServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="RegistryService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.registryservice.RegistryServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchSericeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="SearchSerice" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.searchserice.SearchSericeApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="UserService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.userservice.UserServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.189" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.189" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="10628ec2-7070-42e6-87d8-03b5e1ebdc77" name="Changes" comment="" />
+      <created>1740223790102</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1740223790102</updated>
+      <workItem from="1740223793777" duration="717000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

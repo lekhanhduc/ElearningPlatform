@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import vn.khanhduc.profileservice.dto.request.ProfileRequest;
 import vn.khanhduc.profileservice.dto.response.PageResponse;
@@ -40,6 +41,7 @@ public class UserProfileServiceImpl implements UserProfileService {
                 .orElseThrow(() -> new ResourceNotFoundException("Profile Not Found"));
     }
 
+    @PreAuthorize("isAuthenticated() && hasAuthority('ADMIN')")
     @Override
     public PageResponse<ProfileResponse> getAllProfile(int page, int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by("userId").descending());
@@ -55,4 +57,5 @@ public class UserProfileServiceImpl implements UserProfileService {
                 .data(responses)
                 .build();
     }
+
 }

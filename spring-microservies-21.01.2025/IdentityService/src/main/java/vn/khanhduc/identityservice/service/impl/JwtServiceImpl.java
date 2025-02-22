@@ -13,6 +13,7 @@ import vn.khanhduc.identityservice.exception.ErrorCode;
 import vn.khanhduc.identityservice.exception.IdentityException;
 import vn.khanhduc.identityservice.model.User;
 import vn.khanhduc.identityservice.service.JwtService;
+import vn.khanhduc.identityservice.service.RedisService;
 import java.text.ParseException;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -26,9 +27,11 @@ public class JwtServiceImpl implements JwtService {
     @Value("${jwt.secret-key}")
     private String secretKey;
 
+    private final RedisService redisService;
+
     @Override
     public String generateAccessToken(User user) {
-        JWSHeader header = new JWSHeader(JWSAlgorithm.HS512);
+        JWSHeader header = new JWSHeader(JWSAlgorithm.HS256);
 
         JWTClaimsSet claimsSet =  new JWTClaimsSet.Builder()
                 .subject(user.getEmail())
@@ -36,8 +39,7 @@ public class JwtServiceImpl implements JwtService {
                 .issueTime(new Date())
                 .expirationTime(new Date(Instant.now().plus(60, ChronoUnit.MINUTES).toEpochMilli()))
                 .jwtID(UUID.randomUUID().toString())
-                .claim("Authority", buildAuthority(user))
-                .claim("Permission", buildPermissions(user))
+                .claim("authority", buildAuthority(user))
                 .build();
 
         Payload payload = new Payload(claimsSet.toJSONObject());
@@ -54,7 +56,7 @@ public class JwtServiceImpl implements JwtService {
 
     @Override
     public String generateRefreshToken(User user) {
-        JWSHeader header = new JWSHeader(JWSAlgorithm.HS256);
+        JWSHeader header = new JWSHeader(JWSAlgorithm.HS512);
 
         var claimsSet =  new JWTClaimsSet.Builder()
                 .subject(user.getEmail())
@@ -76,30 +78,24 @@ public class JwtServiceImpl implements JwtService {
     }
 
     @Override
-    public String ExtractUserName(String accessToken) {
-        try {
-            SignedJWT signedJWT = SignedJWT.parse(accessToken);
-            return signedJWT.getJWTClaimsSet().getSubject();
-        } catch (ParseException e) {
-            throw new IdentityException(ErrorCode.TOKEN_INVALID);
-        }
-    }
+    public SignedJWT verificationToken(String token) throws ParseException, JOSEException {
+        if (token == null || token.trim().isEmpty())
+            throw new IdentityException(ErrorCode.UNAUTHENTICATED);
 
-    @Override
-    public boolean verificationToken(String token, User user) throws ParseException, JOSEException {
-        SignedJWT signedJWT = SignedJWT.parse(token);
-        var email = signedJWT.getJWTClaimsSet().getSubject();
+        SignedJWT signedJWT = SignedJWT.parse(token); // nếu token bị chỉnh sửa nó sẽ throw exception tại đây và không chạy xuống dưới
+
+        if(redisService.getToken(signedJWT.getJWTClaimsSet().getJWTID()) != null) {
+            throw new IdentityException(ErrorCode.TOKEN_BLACK_LIST);
+        }
         var expiration = signedJWT.getJWTClaimsSet().getExpirationTime();
 
-        if( !Objects.equals(email, user.getEmail())) {
-            log.error("Email in token not match email system");
+        if(expiration.before(new Date()))
             throw new IdentityException(ErrorCode.TOKEN_INVALID);
-        }
-        if(expiration.before(new Date())) {
-            log.error("Token expired");
+
+        var verified = signedJWT.verify(new MACVerifier(secretKey));
+        if(!verified)
             throw new IdentityException(ErrorCode.TOKEN_INVALID);
-        }
-        return signedJWT.verify(new MACVerifier(secretKey));
+        return signedJWT;
     }
 
     @Override
@@ -120,6 +116,18 @@ public class JwtServiceImpl implements JwtService {
                 .map(p -> p.getPermission().getName())
                 .forEach(joiner::add);
         return joiner.toString();
+    }
+
+    @Override
+    public long extractTokenExpired(String token) {
+        try {
+            long expirationTime = SignedJWT.parse(token).getJWTClaimsSet()
+                    .getExpirationTime().getTime();
+            long now = System.currentTimeMillis();
+            return Math.max(expirationTime - now, 0);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

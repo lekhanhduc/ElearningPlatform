@@ -29,6 +29,9 @@ public class UserProfile implements Serializable {
     @Property(name = "last_name")
     private String lastName;
 
+    @Property(name = "avatar")
+    private String avatar;
+
     @Property(name = "phone_number")
     private String phoneNumber;
 }

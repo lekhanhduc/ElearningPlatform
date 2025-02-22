@@ -19,7 +19,7 @@ public class UserController {
 
     private final UserService userService;
 
-    @PostMapping("/users")
+    @PostMapping("/users/registration")
     ResponseData<UserCreationResponse> createUser(@RequestBody @Valid UserCreationRequest request) {
         var result = userService.createUser(request);
 

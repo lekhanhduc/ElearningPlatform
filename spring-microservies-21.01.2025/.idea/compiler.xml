@@ -2,23 +2,25 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="true" />
-      <profile name="Annotation profile for IdentityService" enabled="true">
+      <profile name="Annotation profile for ApiGateway" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar" />
         </processorPath>
-        <module name="IdentityService" />
+        <module name="ApiGateway" />
       </profile>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="RegistryService" />
-        <module name="ApiGateway" />
+        <module name="SearchSerice" />
+        <module name="EventBusService" />
         <module name="ConfigServer" />
+        <module name="RegistryService" />
+        <module name="PaymentService" />
       </profile>
       <profile name="Annotation profile for ProfileService" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -31,6 +33,15 @@
         </processorPath>
         <module name="ProfileService" />
       </profile>
+      <profile name="Annotation profile for IdentityService" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar" />
+        </processorPath>
+        <module name="IdentityService" />
+      </profile>
       <profile name="Annotation profile for NotificationService" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -38,6 +49,8 @@
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
         </processorPath>
+        <module name="BookService" />
+        <module name="UserService" />
         <module name="NotificationService" />
       </profile>
     </annotationProcessing>
@@ -45,11 +58,16 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ApiGateway" options="-parameters" />
+      <module name="BookService" options="-parameters" />
       <module name="ConfigServer" options="-parameters" />
+      <module name="EventBusService" options="-parameters" />
       <module name="IdentityService" options="-parameters" />
       <module name="NotificationService" options="-parameters" />
+      <module name="PaymentService" options="-parameters" />
       <module name="ProfileService" options="-parameters" />
       <module name="RegistryService" options="-parameters" />
+      <module name="SearchSerice" options="-parameters" />
+      <module name="UserService" options="-parameters" />
     </option>
   </component>
 </project>

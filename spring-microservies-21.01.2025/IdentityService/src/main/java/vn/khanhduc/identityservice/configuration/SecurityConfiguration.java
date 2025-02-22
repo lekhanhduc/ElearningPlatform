@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.task.TaskExecutor;
+import org.springframework.http.HttpMethod;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -16,6 +17,8 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
+import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.security.web.SecurityFilterChain;
 import vn.khanhduc.identityservice.service.UserDetailServiceCustomizer;
 
@@ -27,8 +30,7 @@ public class SecurityConfiguration {
     private static final String[] WHILE_LIST = {
             "/api/v1/auth/**",
             "/message",
-            "/api/v1/users",
-            "/api/v1/users/**"
+            "/api/v1/users/registration",
     };
 
     private final UserDetailServiceCustomizer userDetailServiceCustomizer;
@@ -45,10 +47,11 @@ public class SecurityConfiguration {
                 .cors(Customizer.withDefaults());
 
         http.authorizeHttpRequests(request -> request
-                .requestMatchers(WHILE_LIST).permitAll()
+                .requestMatchers(HttpMethod.POST, WHILE_LIST).permitAll()
                 .anyRequest().authenticated());
         http.oauth2ResourceServer(oauth2 -> oauth2
-                .jwt(jwtConfigurer -> jwtConfigurer.decoder(jwtDecoder))
+                .jwt(jwtConfigurer -> jwtConfigurer.decoder(jwtDecoder)
+                        .jwtAuthenticationConverter(jwtAuthenticationConverter()))
                 .authenticationEntryPoint(new JwtAuthenticationEntryPoint())
                 .accessDeniedHandler(new JwtAccessDined())
         );
@@ -68,6 +71,16 @@ public class SecurityConfiguration {
         authProvider.setUserDetailsService(userDetailServiceCustomizer);
         authProvider.setPasswordEncoder(passwordEncoder());
         return authProvider;
+    }
+
+    @Bean
+    public JwtAuthenticationConverter jwtAuthenticationConverter() {
+        JwtGrantedAuthoritiesConverter converter = new JwtGrantedAuthoritiesConverter();
+        converter.setAuthorityPrefix("");
+        converter.setAuthoritiesClaimName("authority");
+        JwtAuthenticationConverter authenticationConverter = new JwtAuthenticationConverter();
+        authenticationConverter.setJwtGrantedAuthoritiesConverter(converter);
+        return authenticationConverter;
     }
 
 //    @Bean

@@ -2,7 +2,9 @@ package vn.khanhduc.identityservice.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,19 +12,23 @@ import org.springframework.web.client.RestClient;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 import vn.khanhduc.identityservice.common.UserStatus;
+import vn.khanhduc.identityservice.common.UserType;
 import vn.khanhduc.identityservice.dto.request.ProfileCreateRequest;
 import vn.khanhduc.identityservice.dto.request.UserCreationRequest;
-import vn.khanhduc.identityservice.dto.response.PageResponse;
 import vn.khanhduc.identityservice.dto.response.UserCreationResponse;
 import vn.khanhduc.identityservice.dto.response.UserDetailResponse;
 import vn.khanhduc.identityservice.dto.response.UserProfileResponse;
 import vn.khanhduc.identityservice.exception.ErrorCode;
 import vn.khanhduc.identityservice.exception.IdentityException;
+import vn.khanhduc.identityservice.model.Role;
 import vn.khanhduc.identityservice.model.User;
+import vn.khanhduc.identityservice.model.UserHasRole;
+import vn.khanhduc.identityservice.repository.RoleRepository;
 import vn.khanhduc.identityservice.repository.UserRepository;
 import vn.khanhduc.identityservice.repository.httpclient.ProfileClient;
 import vn.khanhduc.identityservice.service.UserService;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -34,37 +40,38 @@ public class UserServiceImpl implements UserService {
     private final RestClient restClient;
     private final RestTemplate restTemplate;
     private final WebClient webClient;
+    private final RoleRepository roleRepository;
     private final ProfileClient profileClient;
 
     @Override
     @Transactional(rollbackFor = Exception.class)
     public UserCreationResponse createUser(UserCreationRequest request) {
-        log.info("User creation");
-        if(userRepository.existsByEmail(request.getEmail())) {
-            log.error("User already exists {}", request.getEmail());
-            throw new IdentityException(ErrorCode.USER_EXISTED);
-        }
         User user = User.builder()
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .userStatus(UserStatus.ACTIVE)
                 .build();
-        userRepository.save(user);
-        log.info("User created");
 
-        var response = profileClient.createProfile(ProfileCreateRequest.builder()
-                        .userId(user.getId())
-                        .firstName(request.getFirstName())
-                        .lastName(request.getLastName())
-                        .phoneNumber(null)
-                .build());
+        Role role = roleRepository.findByName(String.valueOf(UserType.USER))
+                        .orElseGet(() -> roleRepository.save(Role.builder().name(String.valueOf(UserType.USER)).build()));
+        UserHasRole userHasRole = UserHasRole.builder().role(role).user(user).build();
+        user.setUserHasRoles(Set.of(userHasRole));
+       try {
+           userRepository.save(user);
+           log.info("User created");
 
-        log.info("Profile response {}", response);
-
-        log.info("Profile created");
-
-        // Can send email here with Kafka
-
+           profileClient.createProfile(ProfileCreateRequest.builder()
+                   .userId(user.getId())
+                   .firstName(request.getFirstName())
+                   .lastName(request.getLastName())
+                   .phoneNumber(null)
+                   .avatar(null)
+                   .build());
+           log.info("Profile created");
+           // Can send email here with Kafka
+       } catch (DataIntegrityViolationException e) {
+           throw new IdentityException(ErrorCode.USER_EXISTED);
+       }
         return UserCreationResponse.builder()
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
@@ -73,6 +80,7 @@ public class UserServiceImpl implements UserService {
                 .build();
     }
 
+    @PreAuthorize("isAuthenticated() && hasAuthority('ADMIN')")
     @Override
     public List<UserDetailResponse> getAllUser(int page, int size) {
         var profiles = profileClient.getAllProfile(page, size);
