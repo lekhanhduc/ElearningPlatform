@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.reactive.function.client.WebClient;
 import vn.khanhduc.identityservice.common.UserStatus;
 import vn.khanhduc.identityservice.common.UserType;
@@ -60,13 +62,22 @@ public class UserServiceImpl implements UserService {
            userRepository.save(user);
            log.info("User created");
 
-           profileClient.createProfile(ProfileCreateRequest.builder()
+           var profileRequest = ProfileCreateRequest.builder()
                    .userId(user.getId())
                    .firstName(request.getFirstName())
                    .lastName(request.getLastName())
                    .phoneNumber(null)
                    .avatar(null)
-                   .build());
+                   .build();
+
+//           ServletRequestAttributes requestAttributes =
+//                   (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+//           assert requestAttributes != null;
+//           var authorization = requestAttributes.getRequest().getHeader("Authorization");
+//
+//           profileClient.createProfile(authorization, profileRequest);
+
+           profileClient.createProfile(profileRequest);
            log.info("Profile created");
            // Can send email here with Kafka
        } catch (DataIntegrityViolationException e) {

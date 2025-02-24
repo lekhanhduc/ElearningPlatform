@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import vn.khanhduc.identityservice.common.UserStatus;
 import vn.khanhduc.identityservice.common.UserType;
 import vn.khanhduc.identityservice.dto.request.ProfileCreateRequest;
@@ -58,6 +60,13 @@ public class InitApp {
                 userHasRole.setUser(user);
 
                 userRepository.save(user);
+
+//                ServletRequestAttributes requestAttributes =
+//                        (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+//                assert requestAttributes != null;
+//                var authorization = requestAttributes.getRequest().getHeader("Authorization");
+//
+//                profileClient.createProfile(authorization, profileRequest);
 
                 profileClient.createProfile(ProfileCreateRequest.builder()
                                 .userId(user.getId())

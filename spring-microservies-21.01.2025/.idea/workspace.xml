@@ -4,88 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10628ec2-7070-42e6-87d8-03b5e1ebdc77" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/AuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/WebClientConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/dto/response/ResponseData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/dto/response/TokenVerificationResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/repository/IdentityClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/service/IdentityService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EventBusService/src/main/java/com/example/eventbusservice/configuration/KafkaConsumerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EventBusService/src/main/java/com/example/eventbusservice/configuration/KafkaProducerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/common/SecurityUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/common/UserType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/InitApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/RedisConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/request/SaveUserRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/response/RefreshTokenResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/response/TokenVerificationResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/PermissionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/RoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/UserHasRoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/httpclient/UserClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/RedisService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/RedisServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/JwtAccessDined.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/JwtAuthenticationEntryPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/JwtDecoderCustomizer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/SecurityConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/dto/response/ErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/com/example/userservice/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/com/example/userservice/dto/request/UserRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/com/example/userservice/dto/response/PageResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/com/example/userservice/dto/response/UserDetailResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/com/example/userservice/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/com/example/userservice/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/com/example/userservice/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/com/example/userservice/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/com/example/userservice/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+    <list default="true" id="10628ec2-7070-42e6-87d8-03b5e1ebdc77" name="Changes" comment="Authentication and authorization with API Gate Way">
+      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/AuthenticationRequestInterceptor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiGateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ApiGateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ApiGateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/JwtAuthenticationEntryPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/JwtDecoderCustomizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/JwtDecoderCustomizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/request/ProfileCreateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/request/ProfileCreateRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/response/UserProfileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/response/UserProfileResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/exception/ErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/model/Group.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/model/UserHasGroup.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/AuthenticationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/JwtService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/AuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/AuthenticationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/JwtServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/JwtServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/InitApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/InitApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/httpclient/ProfileClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/httpclient/ProfileClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/dto/request/ProfileRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/dto/request/ProfileRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/dto/response/ProfileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/dto/response/ProfileResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/model/UserProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/model/UserProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/service/impl/UserProfileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/service/impl/UserProfileServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistryService/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistryService/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/SecurityConfiguration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2tOWpr764NZZU5Qw8aEObHAC0Z5" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -93,7 +39,17 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.ApiGatewayApplication.executor": "Run",
+    "Spring Boot.ConfigServerApplication.executor": "Run",
+    "Spring Boot.IdentityServiceApplication.executor": "Debug",
+    "Spring Boot.ProfileServiceApplication.executor": "Run",
+    "Spring Boot.RegistryServiceApplication.executor": "Run",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -105,6 +61,9 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -115,7 +74,14 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.BookServiceApplication">
+  <component name="RunManager" selected="Spring Boot.IdentityServiceApplication">
+    <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="ApiGateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.apigateway.ApiGatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BookServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="BookService" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.bookservice.BookServiceApplication" />
@@ -123,7 +89,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConfigServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <configuration name="ConfigServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="ConfigServer" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.configserver.ConfigServerApplication" />
       <method v="2">
@@ -133,6 +99,17 @@
     <configuration name="EventBusServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="EventBusService" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.eventbusservice.EventBusServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IdentityServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" value="dev" />
+      <envs>
+        <env name="JWT_SECRET_KEY" value="yzBxZweHfggkSTyQbM3PsllXfA7NmTaO3j8NpDVSmrL6AEGBy6FW5ZiocTXfwVyVY9evnPVGZzWKh2XHybncHCqz1bO6XrcQV2u4pJCvsS0SZJa5U2OxzArFgEMcsxkDTNfOd62Q1fomhsx8OlpWe5HOkyDDeN4SNPlMM1sCZm3j5LYLr9VzxlHG6YtMbQBbLvIBEIxR5cShyR7KMDjZJg3iE8YFhKa4UtXVMPXArxYruAx16BlET09UmuQvvkC2f8RvpJQeAZEyD6oTjHWcJfiO7UeaY2RluHn4b01TaxNdQbKlt1lBvxLVRysXIkYFPSiLWLbywBImUTXpQkY2iHFGPfBCBxvIQlCpRoAn32Yz5RdqGpHhxgHB3d5VqKly8mHIt7mCUJqKsDAIDEiQvLhxPOqFgfyyMCfhJGl69M4zlXD0DJiw3PKkFmjuI5wwyOVy8H6JSwKy7rEsmA353kwTzOwoLVdLZETvC8o6ibucvYrboRYrzAiatnu6t8Hi " />
+      </envs>
+      <module name="IdentityService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.identityservice.IdentityServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -179,6 +156,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Spring Boot.ApiGatewayApplication" />
+      <item itemvalue="Spring Boot.BookServiceApplication" />
+      <item itemvalue="Spring Boot.ConfigServerApplication" />
+      <item itemvalue="Spring Boot.IdentityServiceApplication" />
+      <item itemvalue="Spring Boot.EventBusServiceApplication" />
+      <item itemvalue="Spring Boot.NotificationServiceApplication" />
+      <item itemvalue="Spring Boot.PaymentServiceApplication" />
+      <item itemvalue="Spring Boot.ProfileServiceApplication" />
+      <item itemvalue="Spring Boot.RegistryServiceApplication" />
+      <item itemvalue="Spring Boot.SearchSericeApplication" />
+      <item itemvalue="Spring Boot.UserServiceApplication" />
+    </list>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -196,11 +186,26 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1740223790102</updated>
-      <workItem from="1740223793777" duration="717000" />
+      <workItem from="1740223793777" duration="3835000" />
+      <workItem from="1740374252347" duration="3730000" />
+      <workItem from="1740378858894" duration="3216000" />
     </task>
+    <task id="LOCAL-00001" summary="Authentication and authorization with API Gate Way">
+      <option name="closed" value="true" />
+      <created>1740232455318</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1740232455318</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Authentication and authorization with API Gate Way" />
+    <option name="LAST_COMMIT_MESSAGE" value="Authentication and authorization with API Gate Way" />
   </component>
 </project>

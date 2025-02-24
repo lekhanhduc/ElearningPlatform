@@ -3,14 +3,20 @@ package vn.khanhduc.identityservice.repository.httpclient;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import vn.khanhduc.identityservice.configuration.AuthenticationRequestInterceptor;
 import vn.khanhduc.identityservice.dto.request.ProfileCreateRequest;
 import vn.khanhduc.identityservice.dto.response.UserProfileResponse;
 
 //@FeignClient(value = "API-Client", url = "http://localhost:8081")
-@FeignClient(name = "PROFILE-SERVICE")
+@FeignClient(name = "PROFILE-SERVICE", configuration = {AuthenticationRequestInterceptor.class})
 public interface ProfileClient {
     @GetMapping("/profile/api/v1/profiles/{id}")
     UserProfileResponse getUserProfile(@PathVariable("id") String id);
+
+//    @PostMapping(value = "/profile/api/v1/internal/profiles", produces = MediaType.APPLICATION_JSON_VALUE)
+//    UserProfileResponse createProfile(
+//            @RequestHeader(name = "Authorization") String authorization,
+//            @RequestBody ProfileCreateRequest request);
 
     @PostMapping(value = "/profile/api/v1/internal/profiles", produces = MediaType.APPLICATION_JSON_VALUE)
     UserProfileResponse createProfile(@RequestBody ProfileCreateRequest request);
