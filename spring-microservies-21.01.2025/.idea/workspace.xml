@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10628ec2-7070-42e6-87d8-03b5e1ebdc77" name="Changes" comment="Authentication and authorization with API Gate Way">
-      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/AuthenticationRequestInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/CorsGlobalConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/InitApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/InitApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/httpclient/ProfileClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/httpclient/ProfileClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/repository/IdentityClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/repository/IdentityClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +46,7 @@
     "Spring Boot.IdentityServiceApplication.executor": "Debug",
     "Spring Boot.ProfileServiceApplication.executor": "Run",
     "Spring Boot.RegistryServiceApplication.executor": "Run",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "config-cors-for-api-gateway",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -188,7 +184,7 @@
       <updated>1740223790102</updated>
       <workItem from="1740223793777" duration="3835000" />
       <workItem from="1740374252347" duration="3730000" />
-      <workItem from="1740378858894" duration="3216000" />
+      <workItem from="1740378858894" duration="4670000" />
     </task>
     <task id="LOCAL-00001" summary="Authentication and authorization with API Gate Way">
       <option name="closed" value="true" />
