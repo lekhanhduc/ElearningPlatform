@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10628ec2-7070-42e6-87d8-03b5e1ebdc77" name="Changes" comment="Authentication and authorization with API Gate Way">
-      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/event/dto/NotificationEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/common/Channel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/event/dto/NotificationEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/common/Channel.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/common/Channel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/EmailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/impl/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/impl/EmailServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +22,8 @@
       <list>
         <option value="Interface" />
         <option value="package-info" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -51,7 +53,7 @@
     "Spring Boot.NotificationServiceApplication.executor": "Run",
     "Spring Boot.ProfileServiceApplication.executor": "Run",
     "Spring Boot.RegistryServiceApplication.executor": "Run",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "send-email-kafka",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Microservices/spring-microservies-21.01.2025/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration",

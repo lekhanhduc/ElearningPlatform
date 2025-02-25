@@ -4,7 +4,9 @@ import feign.FeignException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
+import vn.khanhduc.event.dto.NotificationEvent;
 import vn.khanhduc.notificationservice.dto.request.EmailRequest;
 import vn.khanhduc.notificationservice.dto.request.Recipient;
 import vn.khanhduc.notificationservice.dto.request.SendEmailRequest;
@@ -15,6 +17,7 @@ import vn.khanhduc.notificationservice.exception.NotificationException;
 import vn.khanhduc.notificationservice.repository.httpclient.EmailClient;
 import vn.khanhduc.notificationservice.service.EmailService;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -49,6 +52,32 @@ public class EmailServiceImpl implements EmailService {
             return emailClient.sendEmailWithBrevo(apiKey, emailRequest);
         }catch (FeignException e) {
             log.error("Send email with brevo failed {}",e.getMessage());
+            throw new NotificationException(ErrorCode.CANNOT_SEND_EMAIL);
+        }
+    }
+
+    @KafkaListener(topics = "user-onboard-success", groupId = "notification-group")
+    @Override
+    public EmailResponse sendMailWithKafka(NotificationEvent event) {
+        log.info("Message received: {}", event);
+
+        Map<String, Object> param = event.getParam();
+        EmailRequest emailRequest = EmailRequest.builder()
+                .sender(Sender.builder()
+                        .email(from)
+                        .name("Book Store")
+                        .build())
+                .to(List.of(Recipient.builder()
+                                .name(param.get("name").toString())
+                                .email(event.getRecipient())
+                        .build()))
+                .subject(param.get("subject").toString())
+                .htmlContent(param.get("body").toString())
+                .build();
+        try {
+            return emailClient.sendEmailWithBrevo(apiKey, emailRequest);
+        }catch (FeignException e) {
+            log.error("Send email with kafka failed {}",e.getMessage());
             throw new NotificationException(ErrorCode.CANNOT_SEND_EMAIL);
         }
     }

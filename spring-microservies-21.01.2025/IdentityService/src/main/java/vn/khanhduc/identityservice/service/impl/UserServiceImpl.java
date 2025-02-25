@@ -11,11 +11,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.reactive.function.client.WebClient;
 import vn.khanhduc.event.dto.NotificationEvent;
-import vn.khanhduc.identityservice.common.Channel;
 import vn.khanhduc.identityservice.common.UserStatus;
 import vn.khanhduc.identityservice.common.UserType;
 import vn.khanhduc.identityservice.dto.request.ProfileCreateRequest;
@@ -32,11 +29,9 @@ import vn.khanhduc.identityservice.repository.RoleRepository;
 import vn.khanhduc.identityservice.repository.UserRepository;
 import vn.khanhduc.identityservice.repository.httpclient.ProfileClient;
 import vn.khanhduc.identityservice.service.UserService;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
-
 import static vn.khanhduc.identityservice.common.Channel.EMAIL;
 
 @Service
@@ -89,6 +84,8 @@ public class UserServiceImpl implements UserService {
 
            var param = new HashMap<String, Object>();
            param.put("name", String.format("%s %s", request.getFirstName(), request.getLastName()));
+           param.put("subject", "Welcome to Bookstore");
+           param.put("body", "Hello " + request.getFirstName() + " " + request.getLastName());
            NotificationEvent event = NotificationEvent.builder()
                    .channel(EMAIL)
                    .recipient(user.getEmail())
