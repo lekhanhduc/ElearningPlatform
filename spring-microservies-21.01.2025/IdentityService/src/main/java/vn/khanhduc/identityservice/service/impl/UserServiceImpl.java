@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpMethod;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -44,6 +45,7 @@ public class UserServiceImpl implements UserService {
     private final WebClient webClient;
     private final RoleRepository roleRepository;
     private final ProfileClient profileClient;
+    private final KafkaTemplate<String, Object> kafkaTemplate;
 
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -74,12 +76,13 @@ public class UserServiceImpl implements UserService {
 //                   (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
 //           assert requestAttributes != null;
 //           var authorization = requestAttributes.getRequest().getHeader("Authorization");
-//
 //           profileClient.createProfile(authorization, profileRequest);
 
            profileClient.createProfile(profileRequest);
            log.info("Profile created");
-           // Can send email here with Kafka
+
+           kafkaTemplate.send("user-onboard-success", "Welcome our new member" + user.getEmail());
+
        } catch (DataIntegrityViolationException e) {
            throw new IdentityException(ErrorCode.USER_EXISTED);
        }

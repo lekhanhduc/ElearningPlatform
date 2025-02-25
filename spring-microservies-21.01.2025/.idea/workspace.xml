@@ -5,31 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10628ec2-7070-42e6-87d8-03b5e1ebdc77" name="Changes" comment="Authentication and authorization with API Gate Way">
-      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/configuration/JwtAccessDined.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/configuration/JwtAuthenticationEntryPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/configuration/JwtDecoderCustomizer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/configuration/SecurityConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/controller/EmailController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/dto/request/EmailRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/dto/request/Recipient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/dto/request/SendEmailRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/dto/request/Sender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/dto/response/EmailResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/dto/response/ErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/dto/response/ResponseData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/exception/ErrorCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/exception/GlobalHandlingException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/exception/NotificationException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/repository/httpclient/EmailClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/KafkaProducerConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/configuration/KafkaConsumerConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/AuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/GatewayConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/GatewayConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/init.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/resources/application-dev.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NotificationService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/NotificationServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/NotificationServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/EmailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/impl/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/impl/EmailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/controller/EmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/controller/EmailController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NotificationService/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,39 +42,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.ApiGatewayApplication.executor": "Run",
-    "Spring Boot.ConfigServerApplication.executor": "Run",
-    "Spring Boot.IdentityServiceApplication.executor": "Debug",
-    "Spring Boot.NotificationServiceApplication.executor": "Run",
-    "Spring Boot.ProfileServiceApplication.executor": "Run",
-    "Spring Boot.RegistryServiceApplication.executor": "Run",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Microservices/spring-microservies-21.01.2025/NotificationService/src/main/java/vn/khanhduc/notificationservice",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.configurations.included.in.services": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ApiGatewayApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ConfigServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.IdentityServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.NotificationServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ProfileServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.RegistryServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;config-setting-kafka&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Microservices/spring-microservies-21.01.2025/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Microservices\spring-microservies-21.01.2025\IdentityService\src\main\java\vn\khanhduc\identityservice\configuration" />
       <recent name="D:\Microservices\spring-microservies-21.01.2025\NotificationService\src\main\java\vn\khanhduc\notificationservice" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Microservices\spring-microservies-21.01.2025" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="vn.khanhduc.notificationservice.configuration" />
@@ -221,6 +215,7 @@
       <workItem from="1740223793777" duration="3835000" />
       <workItem from="1740374252347" duration="3730000" />
       <workItem from="1740378858894" duration="4670000" />
+      <workItem from="1740473668463" duration="439000" />
     </task>
     <task id="LOCAL-00001" summary="Authentication and authorization with API Gate Way">
       <option name="closed" value="true" />

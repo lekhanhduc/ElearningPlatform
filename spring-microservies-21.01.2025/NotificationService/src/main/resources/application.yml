@@ -7,9 +7,10 @@ spring:
       uri: mongodb://localhost:27017/notification-service?authSource=admin
       username: root
       password: 123456
-
+  kafka:
+    bootstrap-servers: localhost:9094
 server:
-  port: 8888
+  port: 8887
   servlet:
     context-path: /notification
 
