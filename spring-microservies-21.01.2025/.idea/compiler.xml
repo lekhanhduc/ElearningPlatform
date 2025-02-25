@@ -51,8 +51,9 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
         </processorPath>
         <module name="BookService" />
-        <module name="UserService" />
         <module name="NotificationService" />
+        <module name="UserService" />
+        <module name="PostService" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -68,6 +69,7 @@
       <module name="IdentityService" options="-parameters" />
       <module name="NotificationService" options="-parameters" />
       <module name="PaymentService" options="-parameters" />
+      <module name="PostService" options="-parameters" />
       <module name="ProfileService" options="-parameters" />
       <module name="RegistryService" options="-parameters" />
       <module name="SearchSerice" options="-parameters" />
