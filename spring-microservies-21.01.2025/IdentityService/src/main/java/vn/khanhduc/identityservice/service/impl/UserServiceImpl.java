@@ -14,6 +14,8 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.reactive.function.client.WebClient;
+import vn.khanhduc.event.dto.NotificationEvent;
+import vn.khanhduc.identityservice.common.Channel;
 import vn.khanhduc.identityservice.common.UserStatus;
 import vn.khanhduc.identityservice.common.UserType;
 import vn.khanhduc.identityservice.dto.request.ProfileCreateRequest;
@@ -30,8 +32,12 @@ import vn.khanhduc.identityservice.repository.RoleRepository;
 import vn.khanhduc.identityservice.repository.UserRepository;
 import vn.khanhduc.identityservice.repository.httpclient.ProfileClient;
 import vn.khanhduc.identityservice.service.UserService;
+
+import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
+
+import static vn.khanhduc.identityservice.common.Channel.EMAIL;
 
 @Service
 @RequiredArgsConstructor
@@ -81,7 +87,15 @@ public class UserServiceImpl implements UserService {
            profileClient.createProfile(profileRequest);
            log.info("Profile created");
 
-           kafkaTemplate.send("user-onboard-success", "Welcome our new member" + user.getEmail());
+           var param = new HashMap<String, Object>();
+           param.put("name", String.format("%s %s", request.getFirstName(), request.getLastName()));
+           NotificationEvent event = NotificationEvent.builder()
+                   .channel(EMAIL)
+                   .recipient(user.getEmail())
+                   .param(param)
+                   .build();
+
+           kafkaTemplate.send("user-onboard-success", event);
 
        } catch (DataIntegrityViolationException e) {
            throw new IdentityException(ErrorCode.USER_EXISTED);
