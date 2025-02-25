@@ -34,7 +34,7 @@ public class JwtServiceImpl implements JwtService {
         JWSHeader header = new JWSHeader(JWSAlgorithm.HS256);
 
         JWTClaimsSet claimsSet =  new JWTClaimsSet.Builder()
-                .subject(user.getEmail())
+                .subject(user.getId().toString())
                 .issuer("identity-service")
                 .issueTime(new Date())
                 .expirationTime(new Date(Instant.now().plus(60, ChronoUnit.MINUTES).toEpochMilli()))
@@ -59,7 +59,7 @@ public class JwtServiceImpl implements JwtService {
         JWSHeader header = new JWSHeader(JWSAlgorithm.HS512);
 
         var claimsSet =  new JWTClaimsSet.Builder()
-                .subject(user.getEmail())
+                .subject(user.getId().toString())
                 .issuer("identity-service")
                 .issueTime(new Date())
                 .expirationTime(new Date(Instant.now().plus(14, ChronoUnit.DAYS).toEpochMilli()))
