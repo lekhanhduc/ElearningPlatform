@@ -22,6 +22,9 @@ spring:
     import: optional:configserver:http://localhost:8888
     name: identity-service
 
+  kafka:
+    bootstrap-servers: localhost:9094
+
   rabbitmq:
     host: localhost
     port: 5672

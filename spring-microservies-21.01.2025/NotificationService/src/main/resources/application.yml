@@ -2,8 +2,15 @@ spring:
   application:
     name: NOTIFICATION-SERVICE
 
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/notification-service?authSource=admin
+      username: root
+      password: 123456
+  kafka:
+    bootstrap-servers: localhost:9094
 server:
-  port: 8888
+  port: 8887
   servlet:
     context-path: /notification
 
@@ -11,3 +18,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+
+brevo:
+  api-key: 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
+  from: lekhanhduccc@gmail.com

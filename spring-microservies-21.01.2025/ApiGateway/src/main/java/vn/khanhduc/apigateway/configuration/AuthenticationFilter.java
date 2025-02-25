@@ -30,7 +30,8 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
     private static final String[] WHILE_LIST = {
             // .* vì dùng matches
             "/identity/api/v1/auth/.*",
-            "/identity/api/v1/users/registration"
+            "/identity/api/v1/users/registration",
+            "/notification/brevo/send"
     };
 
     private final IdentityService identityService;
