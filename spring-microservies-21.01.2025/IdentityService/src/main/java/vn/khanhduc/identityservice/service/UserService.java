@@ -13,5 +13,5 @@ public interface UserService {
     UserProfileResponse getUserProfileByIdWithRestClient(String id);
     UserProfileResponse getUserProfileByIdWithRestTemplate(String id);
     UserProfileResponse getUserProfileByIdWithWebClient(String id);
-    UserProfileResponse getUserProfileByIdWithOpenFeign(String id);
+    UserProfileResponse getUserProfileByIdWithOpenFeign(Long id);
 }

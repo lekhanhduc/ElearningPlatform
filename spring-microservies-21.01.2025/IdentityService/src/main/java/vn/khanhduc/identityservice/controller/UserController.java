@@ -74,7 +74,7 @@ public class UserController {
     }
 
     @GetMapping("/users/openfeign/{id}")
-    ResponseData<UserProfileResponse> getProfileWithOpenFeign(@PathVariable String id) {
+    ResponseData<UserProfileResponse> getProfileWithOpenFeign(@PathVariable Long id) {
         var result = userService.getUserProfileByIdWithOpenFeign(id);
         return ResponseData.<UserProfileResponse>builder()
                 .code(HttpStatus.CREATED.value())

@@ -81,4 +81,5 @@ public class EmailServiceImpl implements EmailService {
             throw new NotificationException(ErrorCode.CANNOT_SEND_EMAIL);
         }
     }
+
 }

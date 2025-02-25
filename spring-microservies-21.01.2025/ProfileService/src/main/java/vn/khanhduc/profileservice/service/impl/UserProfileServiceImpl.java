@@ -34,6 +34,7 @@ public class UserProfileServiceImpl implements UserProfileService {
         return userProfileMapper.toProfileResponse(userProfile);
     }
 
+    @PreAuthorize("isAuthenticated()")
     @Override
     public ProfileResponse getUserProfile(String id) {
         return userProfileRepository.findById(id)

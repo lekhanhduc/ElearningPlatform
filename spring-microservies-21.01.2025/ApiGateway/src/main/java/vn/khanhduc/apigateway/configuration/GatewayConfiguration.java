@@ -11,12 +11,14 @@ public class GatewayConfiguration {
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("profile-service", r -> r.path("/profile/**")
+                .route("profile-service", r -> r.path("/profile/api/v1/**")
                         .uri("lb://PROFILE-SERVICE"))
-                .route("identity-service", r -> r.path("/identity/**")
+                .route("identity-service", r -> r.path("/identity/api/v1/**")
                         .uri("lb://IDENTITY-SERVICE"))
                 .route("notification-service", r -> r.path("/notification/**")
                         .uri("lb://NOTIFICATION-SERVICE"))
+                .route("post-service", r -> r.path("/post/**")
+                        .uri("lb://POST-SERVICE"))
                 .build();
     }
 

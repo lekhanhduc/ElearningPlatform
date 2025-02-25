@@ -73,12 +73,6 @@ public class UserServiceImpl implements UserService {
                    .avatar(null)
                    .build();
 
-//           ServletRequestAttributes requestAttributes =
-//                   (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-//           assert requestAttributes != null;
-//           var authorization = requestAttributes.getRequest().getHeader("Authorization");
-//           profileClient.createProfile(authorization, profileRequest);
-
            profileClient.createProfile(profileRequest);
            log.info("Profile created");
 
@@ -149,7 +143,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserProfileResponse getUserProfileByIdWithOpenFeign(String id) {
+    public UserProfileResponse getUserProfileByIdWithOpenFeign(Long id) {
         log.info("Get user profile with open feign");
         return profileClient.getUserProfile(id);
     }
