@@ -5,50 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10628ec2-7070-42e6-87d8-03b5e1ebdc77" name="Changes" comment="Authentication and authorization with API Gate Way">
-      <change afterPath="$PROJECT_DIR$/PostService/src/main/java/com/example/postservice/configuration/JwtAccessDined.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PostService/src/main/java/com/example/postservice/configuration/JwtAuthenticationEntryPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PostService/src/main/java/com/example/postservice/configuration/JwtDecoderCustomizer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PostService/src/main/java/com/example/postservice/configuration/SecurityConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PostService/src/main/java/com/example/postservice/controller/PostController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PostService/src/main/java/com/example/postservice/dto/request/PostCreationRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PostService/src/main/java/com/example/postservice/dto/response/ErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PostService/src/main/java/com/example/postservice/dto/response/PageResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PostService/src/main/java/com/example/postservice/dto/response/PostCreationResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PostService/src/main/java/com/example/postservice/dto/response/PostDetailResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PostService/src/main/java/com/example/postservice/dto/response/ResponseData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PostService/src/main/java/com/example/postservice/exception/ErrorCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PostService/src/main/java/com/example/postservice/exception/GlobalHandlingException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PostService/src/main/java/com/example/postservice/exception/PostException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PostService/src/main/java/com/example/postservice/mapper/PostMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PostService/src/main/java/com/example/postservice/model/Post.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PostService/src/main/java/com/example/postservice/repository/PostRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PostService/src/main/java/com/example/postservice/service/DateTimeFormater.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PostService/src/main/java/com/example/postservice/service/PostService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PostService/src/main/java/com/example/postservice/service/impl/PostServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiGateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ApiGateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/GatewayConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/GatewayConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConfigServer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ConfigServer/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EventBusService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/EventBusService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/httpclient/ProfileClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/httpclient/ProfileClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/impl/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/impl/EmailServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PostService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PostService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PostService/src/main/java/com/example/postservice/PostServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/PostService/src/main/java/com/example/postservice/PostServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PostService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/PostService/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/controller/InternalUserProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/controller/InternalUserProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/controller/UserProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/controller/UserProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/service/impl/UserProfileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/service/impl/UserProfileServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistryService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistryService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,9 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="package-info" />
-        <option value="Enum" />
         <option value="Interface" />
+        <option value="package-info" />
         <option value="Class" />
       </list>
     </option>
@@ -68,6 +26,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 8
@@ -77,52 +39,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.ApiGatewayApplication.executor": "Run",
-    "Spring Boot.ConfigServerApplication.executor": "Run",
-    "Spring Boot.IdentityServiceApplication.executor": "Run",
-    "Spring Boot.NotificationServiceApplication.executor": "Run",
-    "Spring Boot.PostServiceApplication (1).executor": "Run",
-    "Spring Boot.PostServiceApplication.executor": "Run",
-    "Spring Boot.ProfileServiceApplication.executor": "Run",
-    "Spring Boot.RegistryServiceApplication.executor": "Run",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Microservices/spring-microservies-21.01.2025/PostService/src/main/java/com/example/postservice/dto/response",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.configurations.included.in.services": "true",
-    "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
-    ]
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ApiGatewayApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ConfigServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.IdentityServiceApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Spring Boot.NotificationServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ProfileServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.RegistryServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Microservices/spring-microservies-21.01.2025/NotificationService/src/main/java/vn/khanhduc/notificationservice&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Microservices\spring-microservies-21.01.2025\PostService\src\main\java\com\example\postservice\dto\response" />
-      <recent name="D:\Microservices\spring-microservies-21.01.2025\PostService\src\main\java\com\example\postservice" />
-      <recent name="D:\Microservices\spring-microservies-21.01.2025\IdentityService\src\main\java\vn\khanhduc\identityservice\configuration" />
       <recent name="D:\Microservices\spring-microservies-21.01.2025\NotificationService\src\main\java\vn\khanhduc\notificationservice" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Microservices\spring-microservies-21.01.2025" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="vn.khanhduc.notificationservice.configuration" />
@@ -139,7 +88,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.PostServiceApplication (1)">
+  <component name="RunManager" selected="Spring Boot.IdentityServiceApplication">
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="ApiGateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.apigateway.ApiGatewayApplication" />
@@ -193,19 +142,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PostServiceApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="PostService" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.postservice.PostServiceApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.postservice.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ProfileServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="ProfileService" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.profileservice.ProfileServiceApplication" />
@@ -246,19 +182,13 @@
       <item itemvalue="Spring Boot.RegistryServiceApplication" />
       <item itemvalue="Spring Boot.SearchSericeApplication" />
       <item itemvalue="Spring Boot.UserServiceApplication" />
-      <item itemvalue="Spring Boot.PostServiceApplication (1)" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Spring Boot.PostServiceApplication (1)" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.189" />
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.189" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
       </set>
     </attachedChunks>
   </component>
@@ -273,7 +203,7 @@
       <workItem from="1740223793777" duration="3835000" />
       <workItem from="1740374252347" duration="3730000" />
       <workItem from="1740378858894" duration="4670000" />
-      <workItem from="1740473668463" duration="439000" />
+      <workItem from="1740450893246" duration="2515000" />
     </task>
     <task id="LOCAL-00001" summary="Authentication and authorization with API Gate Way">
       <option name="closed" value="true" />
@@ -288,17 +218,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Authentication and authorization with API Gate Way" />
