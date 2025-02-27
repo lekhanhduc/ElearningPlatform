@@ -5,33 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e72bd7f7-8f67-4879-9699-247766e132ac" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/dto/response/PageResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/dto/response/ProfileResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/mapper/BookMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/repository/httpclient/UserClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/service/KafkaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/entity/BookIndex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/repository/BookElasticSearchRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/AuthenticationFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BookService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/BookServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/BookServiceApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/configuration/KafkaProducerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/configuration/KafkaProducerConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/configuration/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/controller/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/dto/response/BookDetailResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/dto/response/BookDetailResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/entity/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/entity/Book.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/exception/ErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/service/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/service/impl/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/service/impl/BookServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConfigServer/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ConfigServer/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/httpclient/ProfileClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/httpclient/ProfileClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/controller/InternalUserProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/controller/InternalUserProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/repository/UserProfileRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/repository/UserProfileRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/service/UserProfileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/service/UserProfileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/service/impl/UserProfileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/service/impl/UserProfileServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/service/KafkaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/service/KafkaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +23,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -248,6 +229,9 @@
       <workItem from="1740620274117" duration="7624000" />
       <workItem from="1740645908521" duration="5532000" />
       <workItem from="1740651840901" duration="6664000" />
+      <workItem from="1740672974920" duration="625000" />
+      <workItem from="1740677416716" duration="1954000" />
+      <workItem from="1740679630591" duration="1161000" />
     </task>
     <servers />
   </component>

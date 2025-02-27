@@ -9,6 +9,7 @@ public enum ErrorCode {
     UNAUTHENTICATED(401, "Unauthenticated", HttpStatus.UNAUTHORIZED),
     ACCESS_DINED(403, "Access denied", HttpStatus.FORBIDDEN),
     BOOK_EXISTED(400, "Book already existed", HttpStatus.BAD_REQUEST),
+    SAVE_ELASTIC_SEARCH_ERROR(500, "Save book to elastic search error", HttpStatus.INTERNAL_SERVER_ERROR)
     ;
 
     private final int code;

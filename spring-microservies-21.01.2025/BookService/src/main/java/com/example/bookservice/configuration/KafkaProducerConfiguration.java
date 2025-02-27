@@ -32,8 +32,8 @@ public class KafkaProducerConfiguration {
     }
 
     @Bean
-    public NewTopic bookSyncTopic() {
-        return new NewTopic("book-to-es-sync", 3, (short) 1);
+    public NewTopic saveBookToElasticSearch() {
+        return new NewTopic("book-to-elastic-search", 3, (short) 1);
     }
 
     @Bean

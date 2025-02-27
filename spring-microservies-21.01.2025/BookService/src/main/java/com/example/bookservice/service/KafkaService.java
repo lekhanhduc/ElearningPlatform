@@ -1,8 +1,10 @@
 package com.example.bookservice.service;
 
 import com.example.bookservice.entity.Book;
+import com.example.bookservice.entity.BookIndex;
 import com.example.bookservice.exception.BookException;
 import com.example.bookservice.exception.ErrorCode;
+import com.example.bookservice.repository.BookElasticSearchRepository;
 import com.example.bookservice.repository.BookRepository;
 import com.example.bookservice.repository.httpclient.UserClient;
 import feign.FeignException;
@@ -10,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +23,8 @@ public class KafkaService {
 
     private final BookRepository bookRepository;
     private final UserClient userClient;
+    private final KafkaTemplate<String, Object> kafkaTemplate;
+    private final BookElasticSearchRepository bookElasticSearchRepository;
 
     @KafkaListener(topics = "book-creation", groupId = "book-group")
     public void saveBook(Book book, Acknowledgment acknowledgment){
@@ -28,12 +33,37 @@ public class KafkaService {
             book.setAuthorName(String.format("%s %s", authorName.getFirstName(), authorName.getLastName()));
             bookRepository.save(book);
             log.info("Book saved: {}", book);
+
+            log.info("Book Id {}", book.getBookId());
+            BookIndex bookElasticSearch = BookIndex.builder()
+                    .bookId(book.getBookId())
+                    .isbn(book.getIsbn())
+                    .title(book.getTitle())
+                    .description(book.getDescription())
+                    .price(book.getPrice())
+                    .language(book.getLanguage())
+                    .authorName(book.getAuthorName())
+                    .build();
+
+            kafkaTemplate.send("book-to-elastic-search", bookElasticSearch);
             acknowledgment.acknowledge();
         }catch (DataIntegrityViolationException e){
             log.error("Error while saving book", e);
             throw new BookException(ErrorCode.BOOK_EXISTED);
         }catch (FeignException e){
             throw new BookException(ErrorCode.FEIGN_ERROR);
+        }
+    }
+
+    @KafkaListener(topics = "book-to-elastic-search", groupId = "book-group")
+    public void saveBookToElasticSearch(BookIndex bookIndex, Acknowledgment acknowledgment){
+        log.info("Book saved to elastic search: {}", bookIndex.toString());
+        try {
+            bookElasticSearchRepository.save(bookIndex);
+            acknowledgment.acknowledge();
+        }catch (Exception e){
+            log.error("Error while saving book to elastic search", e);
+            throw new BookException(ErrorCode.SAVE_ELASTIC_SEARCH_ERROR);
         }
     }
 
