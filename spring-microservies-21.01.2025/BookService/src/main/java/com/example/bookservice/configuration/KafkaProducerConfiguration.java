@@ -36,4 +36,9 @@ public class KafkaProducerConfiguration {
         return new NewTopic("book-to-es-sync", 3, (short) 1);
     }
 
+    @Bean
+    public NewTopic saveBookASync() {
+        return new NewTopic("book-creation", 3, (short) 1);
+    }
+
 }

@@ -28,10 +28,11 @@ import java.util.List;
 public class AuthenticationFilter implements GlobalFilter, Ordered {
 
     private static final String[] WHILE_LIST = {
-            // .* vì dùng matches
+            // .* vì dùng matches nó yêu cầu biểu thức regex
             "/identity/api/v1/auth/.*",
             "/identity/api/v1/users/registration",
-            "/notification/brevo/send"
+            "/notification/brevo/send",
+            "/book/fetch-all"
     };
 
     private final IdentityService identityService;

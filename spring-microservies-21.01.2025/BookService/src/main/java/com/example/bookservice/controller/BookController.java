@@ -2,13 +2,13 @@ package com.example.bookservice.controller;
 
 import com.example.bookservice.dto.request.BookCreationRequest;
 import com.example.bookservice.dto.response.BookCreationResponse;
+import com.example.bookservice.dto.response.BookDetailResponse;
+import com.example.bookservice.dto.response.PageResponse;
 import com.example.bookservice.dto.response.ResponseData;
 import com.example.bookservice.service.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
@@ -17,14 +17,26 @@ public class BookController {
 
     private final BookService bookService;
 
-    @PostMapping
+    @PostMapping("/creation")
     ResponseData<BookCreationResponse> createBook(
             @RequestPart(name = "request")BookCreationRequest request,
             @RequestPart(name = "bookCover") MultipartFile bookCover
             ) {
-        var result = bookService.createBook(request, bookCover);
+        bookService.createBook(request, bookCover);
         return ResponseData.<BookCreationResponse>builder()
                 .code(HttpStatus.CREATED.value())
+                .message("Book created successfully")
+                .build();
+    }
+
+    @GetMapping("/fetch-all")
+    ResponseData<PageResponse<BookDetailResponse>> getAll(
+            @RequestParam(name = "page", required = false, defaultValue = "1") int page,
+            @RequestParam(name = "size", required = false, defaultValue = "10") int size
+    ) {
+        var result = bookService.getAll(page, size);
+        return ResponseData.<PageResponse<BookDetailResponse>>builder()
+                .code(HttpStatus.OK.value())
                 .data(result)
                 .build();
     }

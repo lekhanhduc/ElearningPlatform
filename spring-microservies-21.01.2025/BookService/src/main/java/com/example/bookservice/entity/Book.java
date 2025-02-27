@@ -25,6 +25,9 @@ public class Book implements Serializable {
     @Column(name = "user_id", nullable = false)
     private Long userId;
 
+    @Column(name = "author_name", nullable = false)
+    private String authorName;
+
     @Column(name = "title", nullable = false)
     private String title;
 

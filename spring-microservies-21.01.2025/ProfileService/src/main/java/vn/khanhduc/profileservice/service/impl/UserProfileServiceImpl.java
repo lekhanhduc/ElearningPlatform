@@ -59,4 +59,11 @@ public class UserProfileServiceImpl implements UserProfileService {
                 .build();
     }
 
+    @Override
+    public ProfileResponse getProfileByUserId(Long userId) {
+        return userProfileRepository.findByUserId(userId)
+                .map(userProfileMapper::toProfileResponse)
+                .orElseThrow(() -> new ResourceNotFoundException("Profile Not Found"));
+    }
+
 }

@@ -5,63 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e72bd7f7-8f67-4879-9699-247766e132ac" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/configuration/CloudinaryConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/configuration/JwtAccessDined.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/configuration/JwtAuthenticationEntryPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/configuration/JwtDecoderCustomizer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/configuration/KafkaConsumerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/configuration/KafkaProducerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/configuration/SecurityConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/controller/BookController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/dto/request/BookCreationRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/dto/response/BookCreationResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/dto/response/BookDetailResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/dto/response/ErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/dto/response/ResponseData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/entity/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/exception/BookException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/exception/ErrorCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/exception/GlobalHandlingException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/repository/BookRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/service/BookService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/service/CloudinaryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/service/impl/BookServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/dto/response/PageResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/dto/response/ProfileResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/mapper/BookMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/repository/httpclient/UserClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/service/KafkaService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dc8070f6-2241-4e64-9aa2-c7fde49e6140.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dc8070f6-2241-4e64-9aa2-c7fde49e6140/storage_v2/_src_/schema/identity.vnDo9w.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dc8070f6-2241-4e64-9aa2-c7fde49e6140/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dc8070f6-2241-4e64-9aa2-c7fde49e6140/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dc8070f6-2241-4e64-9aa2-c7fde49e6140/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dc8070f6-2241-4e64-9aa2-c7fde49e6140/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/GatewayConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/GatewayConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/AuthenticationFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BookService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/BookServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/BookServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookService/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EventBusService/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EventBusService/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EventBusService/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EventBusService/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EventBusService/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EventBusService/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EventBusService/src/main/java/com/example/eventbusservice/EventBusServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EventBusService/src/main/java/com/example/eventbusservice/configuration/KafkaConsumerConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EventBusService/src/main/java/com/example/eventbusservice/configuration/KafkaProducerConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EventBusService/src/main/resources/application.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EventBusService/src/test/java/com/example/eventbusservice/EventBusServiceApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/InitApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/InitApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotificationService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/EmailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/impl/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/impl/EmailServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PostService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PostService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PostService/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/PostService/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/configuration/KafkaProducerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/configuration/KafkaProducerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/configuration/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/dto/response/BookDetailResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/dto/response/BookDetailResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/entity/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/entity/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/exception/ErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/service/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/service/impl/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/service/impl/BookServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConfigServer/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ConfigServer/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/httpclient/ProfileClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/httpclient/ProfileClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/controller/InternalUserProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/controller/InternalUserProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/repository/UserProfileRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/repository/UserProfileRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/service/UserProfileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/service/UserProfileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/service/impl/UserProfileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/service/impl/UserProfileServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,8 +41,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -96,47 +66,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
-    "Notification.DoNotAsk-Database detector": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.ApiGatewayApplication.executor": "Run",
-    "Spring Boot.BookServiceApplication.executor": "Run",
-    "Spring Boot.ConfigServerApplication.executor": "Run",
-    "Spring Boot.IdentityServiceApplication.executor": "Run",
-    "Spring Boot.NotificationServiceApplication.executor": "Run",
-    "Spring Boot.ProfileServiceApplication.executor": "Run",
-    "Spring Boot.RegistryServiceApplication.executor": "Run",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Microservies2025/spring-microservies-21.01.2025/BookService/src/main/java/com/example/bookservice/configuration",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.configurations.included.in.services": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Notification.DisplayName-DoNotAsk-Database detector&quot;: &quot;Database detector&quot;,
+    &quot;Notification.DoNotAsk-Database detector&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ApiGatewayApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.BookServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ConfigServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.IdentityServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.NotificationServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ProfileServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.RegistryServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Microservies2025/spring-microservies-21.01.2025/BookService/src/main/java/com/example/bookservice/configuration&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Microservies2025\spring-microservies-21.01.2025\BookService\src\main\java\com\example\bookservice\configuration" />
       <recent name="D:\Microservies2025\spring-microservies-21.01.2025\BookService\src\main\java\com\example\bookservice\dto\response" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.bookservice.dto.response" />
       <recent name="com.example.bookservice.configuration.configuration" />
     </key>
   </component>
@@ -150,7 +121,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.IdentityServiceApplication">
+  <component name="RunManager" selected="Spring Boot.ConfigServerApplication">
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="ApiGateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.apigateway.ApiGatewayApplication" />
@@ -166,6 +137,11 @@
       </method>
     </configuration>
     <configuration name="ConfigServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <envs>
+        <env name="Personal-Access-Token" value="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" />
+        <env name="User-Name-Github" value="lekhanhduc" />
+        <env name="Uri-Config-Server" value="https://github.com/lekhanhduc/Spring-Cloud-Config-Server" />
+      </envs>
       <module name="ConfigServer" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.configserver.ConfigServerApplication" />
       <method v="2">
@@ -269,7 +245,9 @@
       <workItem from="1740615472631" duration="278000" />
       <workItem from="1740615963296" duration="318000" />
       <workItem from="1740616490638" duration="1003000" />
-      <workItem from="1740620274117" duration="6265000" />
+      <workItem from="1740620274117" duration="7624000" />
+      <workItem from="1740645908521" duration="5532000" />
+      <workItem from="1740651840901" duration="6664000" />
     </task>
     <servers />
   </component>

@@ -30,4 +30,10 @@ public class InternalUserProfileController {
         return ResponseEntity.ok(data);
     }
 
+    @GetMapping("/get-user-id/{userId}")
+    ResponseEntity<ProfileResponse> getProfileByUserId(@PathVariable Long userId) {
+        var data = userProfileService.getProfileByUserId(userId);
+        return ResponseEntity.ok(data);
+    }
+
 }
