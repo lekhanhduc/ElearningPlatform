@@ -4,10 +4,64 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10628ec2-7070-42e6-87d8-03b5e1ebdc77" name="Changes" comment="Authentication and authorization with API Gate Way">
+    <list default="true" id="e72bd7f7-8f67-4879-9699-247766e132ac" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/configuration/CloudinaryConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/configuration/JwtAccessDined.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/configuration/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/configuration/JwtDecoderCustomizer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/configuration/KafkaConsumerConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/configuration/KafkaProducerConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/configuration/SecurityConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/controller/BookController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/dto/request/BookCreationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/dto/response/BookCreationResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/dto/response/BookDetailResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/dto/response/ErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/dto/response/ResponseData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/entity/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/exception/BookException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/exception/ErrorCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/exception/GlobalHandlingException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/repository/BookRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/service/BookService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/service/CloudinaryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/service/impl/BookServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dc8070f6-2241-4e64-9aa2-c7fde49e6140.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dc8070f6-2241-4e64-9aa2-c7fde49e6140/storage_v2/_src_/schema/identity.vnDo9w.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dc8070f6-2241-4e64-9aa2-c7fde49e6140/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dc8070f6-2241-4e64-9aa2-c7fde49e6140/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dc8070f6-2241-4e64-9aa2-c7fde49e6140/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dc8070f6-2241-4e64-9aa2-c7fde49e6140/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/GatewayConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/GatewayConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/BookServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/java/com/example/bookservice/BookServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/src/main/java/com/example/eventbusservice/EventBusServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/src/main/java/com/example/eventbusservice/configuration/KafkaConsumerConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/src/main/java/com/example/eventbusservice/configuration/KafkaProducerConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/src/main/resources/application.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/src/test/java/com/example/eventbusservice/EventBusServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/InitApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/InitApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/EmailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/impl/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/impl/EmailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PostService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/PostService/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +72,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="package-info" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -26,56 +80,64 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 8
 }</component>
-  <component name="ProjectId" id="2tOWpr764NZZU5Qw8aEObHAC0Z5" />
+  <component name="ProjectId" id="2tYWMv1ZoumbneRJglbQcklswrn" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.ApiGatewayApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.ConfigServerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.IdentityServiceApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;Spring Boot.NotificationServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.ProfileServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.RegistryServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Microservices/spring-microservies-21.01.2025/NotificationService/src/main/java/vn/khanhduc/notificationservice&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
+    "Notification.DoNotAsk-Database detector": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.ApiGatewayApplication.executor": "Run",
+    "Spring Boot.BookServiceApplication.executor": "Run",
+    "Spring Boot.ConfigServerApplication.executor": "Run",
+    "Spring Boot.IdentityServiceApplication.executor": "Run",
+    "Spring Boot.NotificationServiceApplication.executor": "Run",
+    "Spring Boot.ProfileServiceApplication.executor": "Run",
+    "Spring Boot.RegistryServiceApplication.executor": "Run",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Microservies2025/spring-microservies-21.01.2025/BookService/src/main/java/com/example/bookservice/configuration",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.configurations.included.in.services": "true",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
-}</component>
-  <component name="ReactorSettings">
-    <option name="notificationShown" value="true" />
-  </component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Microservices\spring-microservies-21.01.2025\NotificationService\src\main\java\vn\khanhduc\notificationservice" />
+      <recent name="D:\Microservies2025\spring-microservies-21.01.2025\BookService\src\main\java\com\example\bookservice\configuration" />
+      <recent name="D:\Microservies2025\spring-microservies-21.01.2025\BookService\src\main\java\com\example\bookservice\dto\response" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="vn.khanhduc.notificationservice.configuration" />
-      <recent name="vn.khanhduc.notificationservice.dto.response" />
+      <recent name="com.example.bookservice.configuration.configuration" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -89,7 +151,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.IdentityServiceApplication">
-    <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="ApiGateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.apigateway.ApiGatewayApplication" />
       <method v="2">
@@ -103,24 +165,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConfigServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="ConfigServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="ConfigServer" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.configserver.ConfigServerApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EventBusServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="EventBusService" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.eventbusservice.EventBusServiceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="IdentityServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="IdentityServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="ACTIVE_PROFILES" value="dev" />
       <envs>
-        <env name="JWT_SECRET_KEY" value="yzBxZweHfggkSTyQbM3PsllXfA7NmTaO3j8NpDVSmrL6AEGBy6FW5ZiocTXfwVyVY9evnPVGZzWKh2XHybncHCqz1bO6XrcQV2u4pJCvsS0SZJa5U2OxzArFgEMcsxkDTNfOd62Q1fomhsx8OlpWe5HOkyDDeN4SNPlMM1sCZm3j5LYLr9VzxlHG6YtMbQBbLvIBEIxR5cShyR7KMDjZJg3iE8YFhKa4UtXVMPXArxYruAx16BlET09UmuQvvkC2f8RvpJQeAZEyD6oTjHWcJfiO7UeaY2RluHn4b01TaxNdQbKlt1lBvxLVRysXIkYFPSiLWLbywBImUTXpQkY2iHFGPfBCBxvIQlCpRoAn32Yz5RdqGpHhxgHB3d5VqKly8mHIt7mCUJqKsDAIDEiQvLhxPOqFgfyyMCfhJGl69M4zlXD0DJiw3PKkFmjuI5wwyOVy8H6JSwKy7rEsmA353kwTzOwoLVdLZETvC8o6ibucvYrboRYrzAiatnu6t8Hi " />
+        <env name="JWT_SECRET_KEY" value="EEv8CoFCgRgNkhXehiRbbzJZlpSeZEkntp95Tcmrg772bBTEb1MSuRPDgJoSsGEjS6J5e3vjmqezlkd9aMnK7RTL7TDfx4V6csGQLPXDypE6QocYGAJ0QIj6d6dw4ZKyFWyTVqQVDo4fghQg8aVxF8oBVhjsuLLNIcpNvd0UwYf748UOpHdpdsWNWh8AqKVqfI1MKV0vo3Ntpb9m6xHomXvpBW7aMEaOjlWiQseYifrUnPbpSVQhu5wJ30nrHhJFyCvfm1CDQoUW1ZND72cJkcO65Ppv3Oo2VLB0t3d76oEHyYBiqIDjVUPGJsDuK37mMjOyALkognhR9EeOtMk4rJrFOaA8JZVjx7iTh18xPWb1TlbRHDT7iOGxLJXArDeQnHvYlPjJB0J6AdbCOExy3RcgKZRZczwH6akLAyjr6iPvJiekQOSGsw8mZNTKKiEer6S8xN4PRvwEGmyURR6gFEPh2Ugc9RkN8JgC3pCTqyRpFMrrFdxypMZ6aCHSqKmo " />
       </envs>
       <module name="IdentityService" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.identityservice.IdentityServiceApplication" />
@@ -138,6 +193,13 @@
     <configuration name="PaymentServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="PaymentService" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.paymentservice.PaymentServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PostServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="PostService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.postservice.PostServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -175,9 +237,9 @@
       <item itemvalue="Spring Boot.BookServiceApplication" />
       <item itemvalue="Spring Boot.ConfigServerApplication" />
       <item itemvalue="Spring Boot.IdentityServiceApplication" />
-      <item itemvalue="Spring Boot.EventBusServiceApplication" />
       <item itemvalue="Spring Boot.NotificationServiceApplication" />
       <item itemvalue="Spring Boot.PaymentServiceApplication" />
+      <item itemvalue="Spring Boot.PostServiceApplication" />
       <item itemvalue="Spring Boot.ProfileServiceApplication" />
       <item itemvalue="Spring Boot.RegistryServiceApplication" />
       <item itemvalue="Spring Boot.SearchSericeApplication" />
@@ -187,40 +249,51 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.24978.46" />
+        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-IU-243.24978.46" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="10628ec2-7070-42e6-87d8-03b5e1ebdc77" name="Changes" comment="" />
-      <created>1740223790102</created>
+      <changelist id="e72bd7f7-8f67-4879-9699-247766e132ac" name="Changes" comment="" />
+      <created>1740529446173</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1740223790102</updated>
-      <workItem from="1740223793777" duration="3835000" />
-      <workItem from="1740374252347" duration="3730000" />
-      <workItem from="1740378858894" duration="4670000" />
-      <workItem from="1740450893246" duration="2515000" />
+      <updated>1740529446173</updated>
+      <workItem from="1740529449428" duration="2324000" />
+      <workItem from="1740573816797" duration="214000" />
+      <workItem from="1740584111770" duration="20000" />
+      <workItem from="1740587688432" duration="4419000" />
+      <workItem from="1740615472631" duration="278000" />
+      <workItem from="1740615963296" duration="318000" />
+      <workItem from="1740616490638" duration="1003000" />
+      <workItem from="1740620274117" duration="6265000" />
     </task>
-    <task id="LOCAL-00001" summary="Authentication and authorization with API Gate Way">
-      <option name="closed" value="true" />
-      <created>1740232455318</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1740232455318</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Authentication and authorization with API Gate Way" />
-    <option name="LAST_COMMIT_MESSAGE" value="Authentication and authorization with API Gate Way" />
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.springframework.security:spring-security-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.kafka:kafka_2.13" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.validation:jakarta.validation-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.integration:spring-integration-core" />
+    <option featureType="dependencySupport" implementationName="java:io.projectreactor:reactor-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="dependencySupport" implementationName="executable:kubectl" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.cloud:spring-cloud-context" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate.validator:hibernate-validator" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.cloud:spring-cloud-stream" />
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.ws.rs:jakarta.ws.rs-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-messaging" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
   </component>
 </project>

@@ -19,6 +19,8 @@ public class GatewayConfiguration {
                         .uri("lb://NOTIFICATION-SERVICE"))
                 .route("post-service", r -> r.path("/post/**")
                         .uri("lb://POST-SERVICE"))
+                .route("book-service", r -> r.path("/book/**")
+                        .uri("lb://BOOK-SERVICE"))
                 .build();
     }
 
