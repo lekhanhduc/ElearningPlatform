@@ -66,6 +66,50 @@ public class SearchRepository {
                 .build();
     }
 
+    public PageResponse<BookDetailResponse> getBookWithJavaAPI(int page, int size, String keyword) {
+        if(page <= 0 ) {
+            page = 1;
+        }
+        SearchRequest.Builder searchBuilder  = new SearchRequest.Builder()
+                .index("books")
+                .from(page - 1)
+                .size(size);
+
+        if(StringUtils.hasText(keyword)) {
+            searchBuilder.query(q -> q.multiMatch(m -> m.query(keyword)
+                                    .fields("title", "authorName", "description", "language")
+                                    .fuzziness("AUTO")
+//                            .minimumShouldMatch("60%")
+                    )
+            );
+        } else {
+            searchBuilder.query(q -> q.matchAll(m -> m));
+        }
+
+        try {
+            SearchResponse<BookDetailResponse> searchResponse =
+                    elasticsearchClient.search(searchBuilder.build(), BookDetailResponse.class);
+            List<BookDetailResponse> books = searchResponse.hits().hits().stream()
+                    .map(Hit::source)
+                    .toList();
+
+            long totalElements = Optional.ofNullable(searchResponse.hits().total()) // Total Hits
+                    .map(TotalHits::value)
+                    .orElse(0L);
+            int totalPages = (int) Math.ceil((double) totalElements / size);
+
+            return PageResponse.<BookDetailResponse>builder()
+                    .currentPage(page)
+                    .pageSize(size)
+                    .totalPages(totalPages)
+                    .totalElements(totalElements)
+                    .data(books)
+                    .build();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public Mono<PageResponse<BookDetailResponse>> getBookWithSearchAsync(int page, int size, String keyword) {
         String query;
         if (StringUtils.hasText(keyword)) {
@@ -135,45 +179,5 @@ public class SearchRepository {
                 });
     }
 
-    public PageResponse<BookDetailResponse> getBookWithJavaAPI(int page, int size, String keyword) {
-        SearchRequest.Builder searchBuilder  = new SearchRequest.Builder()
-                .index("books")
-                .from(page - 1)
-                .size(size);
-
-        if(StringUtils.hasText(keyword)) {
-            searchBuilder.query(q -> q.multiMatch(m -> m.query(keyword)
-                            .fields("title", "authorName", "description", "language")
-                            .fuzziness("AUTO")
-//                            .minimumShouldMatch("60%")
-                    )
-            );
-        } else {
-            searchBuilder.query(q -> q.matchAll(m -> m));
-        }
-
-        try {
-            SearchResponse<BookDetailResponse> searchResponse =
-                    elasticsearchClient.search(searchBuilder.build(), BookDetailResponse.class);
-            List<BookDetailResponse> books = searchResponse.hits().hits().stream()
-                    .map(Hit::source)
-                    .toList();
-
-            long totalElements = Optional.ofNullable(searchResponse.hits().total()) // Total Hits
-                    .map(TotalHits::value)
-                    .orElse(0L);
-            int totalPages = (int) Math.ceil((double) totalElements / size);
-
-            return PageResponse.<BookDetailResponse>builder()
-                    .currentPage(page)
-                    .pageSize(size)
-                    .totalPages(totalPages)
-                    .totalElements(totalElements)
-                    .data(books)
-                    .build();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
 }

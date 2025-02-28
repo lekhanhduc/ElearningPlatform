@@ -1,18 +1,43 @@
+version: '3.8'
+
 services:
+  # MySQL Database
   mysql:
     image: mysql:latest
     container_name: mysql
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: identity
     ports:
       - '3306:3306'
     volumes:
       - mysql_data:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - database_network
 
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: book_service
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - database_network
+
+  # Neo4j Database
   neo4j:
     image: neo4j:latest
     container_name: neo4j
+    restart: always
     environment:
       - NEO4J_AUTH=neo4j/12345678
     ports:
@@ -20,11 +45,15 @@ services:
       - '7687:7687'
     volumes:
       - neo4j_data:/data
+    networks:
+      - database_network
 
+  # Kafka (Event Streaming)
   kafka:
     image: 'bitnami/kafka:3.7.0'
     container_name: kafka
     hostname: kafka
+    restart: always
     ports:
       - '9094:9094'
     environment:
@@ -37,10 +66,14 @@ services:
       - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
     volumes:
       - kafka-data:/tmp/kraft-combined-logs
+    networks:
+      - event_network
 
+  # Elasticsearch (Search Engine)
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.16.4
     container_name: elasticsearch
+    restart: always
     environment:
       - discovery.type=single-node
       - ELASTICSEARCH_PASSWORD=changeme
@@ -56,9 +89,11 @@ services:
     networks:
       - elastic
 
+  # Kibana (Elasticsearch Dashboard)
   kibana:
     image: docker.elastic.co/kibana/kibana:8.16.4
     container_name: kibana
+    restart: always
     environment:
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
       - xpack.security.enabled=false
@@ -68,8 +103,133 @@ services:
     networks:
       - elastic
 
+  # RabbitMQ (Message Broker)
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    restart: always
+    ports:
+      - "5672:5672"  # AMQP Protocol
+      - "15672:15672"  # UI Management
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    networks:
+      - event_network
+
+  # Redis (Caching)
+  redis:
+    image: redis:7
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - cache_network
+
+  # MongoDB (NoSQL Database)
+  mongodb:
+    image: bitnami/mongodb:8.0.5
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGODB_ROOT_USER=root
+      - MONGODB_ROOT_PASSWORD=123456
+    networks:
+      - database_network
+
+  # Zipkin (Distributed Tracing)
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    restart: always
+    ports:
+      - "9411:9411"
+    networks:
+      - monitoring_network
+
+  # Registry Service
+  registry-service:
+    image: khanhduc/registry-service:latest
+    container_name: registry-service
+    ports:
+      - "8761:8761"
+    networks:
+      - service_network
+
+  # Config Server
+  config-server:
+    image: khanhduc/config-server:latest
+    container_name: config-server
+    ports:
+      - "8888-8888"
+    depends_on:
+      - registry-service
+    environment:
+      - Uri-Config-Server=https://github.com/lekhanhduc/Spring-Cloud-Config-Server
+      - User-Name-Github=lekhanhduc
+      - Personal-Access-Token=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
+    networks:
+      - service_network
+
+  #Identity Service
+  identity-service:
+    image: khanhduc/identity-service:latest
+    container_name: identity-service
+    depends_on:
+      - mysql
+      - redis
+      - kafka
+      - rabbitmq
+      - zipkin
+      - config-server
+      - registry-service
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/identity
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=123456
+      - SPRING_DATA_REDIS_HOST=redis
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9094
+      - SPRING_RABBITMQ_HOST=rabbitmq
+      - SPRING_RABBITMQ_PORT=5672
+      - SPRING_CLOUD_CONFIG_URI=http://config-server:8888
+      - MANAGEMENT_ZIPKIN_TRACING_ENDPOINT=http://zipkin:9411/api/v2/spans
+      - JWT_SECRET_KEY=cTIoBXfVFa7ru35iamHxpYkdKXTXdUICOcltZ1TV9aMM3rIXPGlg7nDtL1tjHD2kKHb2Lqd4xdScFxC5PEYwGkzX58DtX9rRdU5WOI3MA7z0mzfLrUTNqWIrOGhWtykTEwVMx0wOUAbmvk3bITjbS2xyXcHjh1SKcImIQvQUwBucavTiCodrZEECyOA3UeHLZCBmaLbWXPCrLRQliCC0oB74mEc8YTRDVa9UQFIHJDEYrAkrZ2BxjH7Ze39N7SnjENQXxzMP7u02HVSkAU37rhasYWgth7p4MgjnJHrWEy4yBdyBb4N0oWELK9YRLJ6Z3LVh4lBjjMxqeojTppg2jBX2bFgji6TJkcUrBTsEDNldLmRf2uD4B4QPC1Z1PpqrQRFLGUE6FFUrCAg5tV7VgYTU6ieywF3Y6OIhVEDOrlXyl4qfX8XZ4VYWhDz1uGZGI5CYag8eKwjlbJ9n5QCEpIgJUU7Jf8TpsSc20dFzQBQgcIePBWysYCWhT3ixrioF
+    networks:
+      - service_network
+      - database_network
+      - cache_network
+      - event_network
+
+  # Profile Service
+  profile-service:
+    image: khanhduc/profile-service:latest
+    container_name: profile-service
+    depends_on:
+      - zipkin
+      - neo4j
+      - rabbitmq
+      - config-server
+      - registry-service
+    networks:
+      - service_network
+      - database_network
+      - event_network
+
 networks:
   elastic:
+    driver: bridge
+  database_network:
+    driver: bridge
+  event_network:
+    driver: bridge
+  cache_network:
+    driver: bridge
+  monitoring_network:
+    driver: bridge
+  service_network:
     driver: bridge
 
 volumes:
@@ -77,8 +237,9 @@ volumes:
     driver: local
   mysql_data:
     driver: local
+  postgres_data:
+    driver: local
   neo4j_data:
     driver: local
   kafka-data:
     driver: local
-
