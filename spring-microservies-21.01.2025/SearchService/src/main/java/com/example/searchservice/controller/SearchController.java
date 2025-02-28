@@ -5,6 +5,7 @@ import com.example.searchservice.dto.PageResponse;
 import com.example.searchservice.service.SearchService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
@@ -15,7 +16,7 @@ public class SearchController {
 
     private final SearchService searchService;
 
-    @GetMapping("/search")
+    @GetMapping("/books")
     PageResponse<BookDetailResponse> getBookWithSearch(
             @RequestParam(required = false, defaultValue = "1") int page,
             @RequestParam(required = false, defaultValue = "5") int size,
@@ -24,7 +25,7 @@ public class SearchController {
         return searchService.getBookWithSearch(page, size, keyword);
     }
 
-    @GetMapping("/search-async")
+    @GetMapping("/books-async")
     Mono<PageResponse<BookDetailResponse>> getBookWithSearchAsync(
             @RequestParam(required = false, defaultValue = "1") int page,
             @RequestParam(required = false, defaultValue = "5") int size,
@@ -33,7 +34,7 @@ public class SearchController {
         return searchService.getBookAndSearchWithWebClient(page, size, keyword);
     }
 
-    @GetMapping("/search-java-api")
+    @GetMapping("/books-java-api")
     PageResponse<BookDetailResponse> getBookWithJavaAPI(
             @RequestParam(required = false, defaultValue = "1") int page,
             @RequestParam(required = false, defaultValue = "5") int size,

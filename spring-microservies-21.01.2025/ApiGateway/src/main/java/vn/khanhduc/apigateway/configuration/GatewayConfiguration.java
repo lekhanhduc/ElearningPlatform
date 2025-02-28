@@ -21,26 +21,10 @@ public class GatewayConfiguration {
                         .uri("lb://POST-SERVICE"))
                 .route("book-service", r -> r.path("/book/**")
                         .uri("lb://BOOK-SERVICE"))
+                .route("search-service", r -> r.path("/search/**")
+                        .uri("lb://SEARCH-SERVICE"))
                 .build();
     }
 
 }
-
-//@Bean
-//public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
-//    return builder.routes()
-//            .route("user-service", new Function<PredicateSpec, Buildable<Route>>() {
-//                @Override
-//                public Buildable<Route> apply(PredicateSpec r) {
-//                    return r.path("/users/**").uri("lb://USER-SERVICE");
-//                }
-//            })
-//            .route("order-service", new Function<PredicateSpec, Buildable<Route>>() {
-//                @Override
-//                public Buildable<Route> apply(PredicateSpec r) {
-//                    return r.path("/orders/**").uri("lb://ORDER-SERVICE");
-//                }
-//            })
-//            .build();
-//}
 
