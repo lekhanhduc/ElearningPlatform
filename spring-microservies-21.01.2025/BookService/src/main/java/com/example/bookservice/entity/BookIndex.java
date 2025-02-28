@@ -43,5 +43,7 @@ public class BookIndex implements Serializable {
     @Field(type = FieldType.Keyword)
     private String language;
 
+    @Field(type = FieldType.Text)
+    private String bookCover;
 
 }

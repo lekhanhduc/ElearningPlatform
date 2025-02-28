@@ -34,7 +34,6 @@ public class KafkaService {
             bookRepository.save(book);
             log.info("Book saved: {}", book);
 
-            log.info("Book Id {}", book.getBookId());
             BookIndex bookElasticSearch = BookIndex.builder()
                     .bookId(book.getBookId())
                     .isbn(book.getIsbn())
