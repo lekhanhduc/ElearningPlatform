@@ -10,6 +10,7 @@ public interface UserService {
 
     UserCreationResponse createUser(UserCreationRequest request);
     List<UserDetailResponse> getAllUser(int page, int size);
+    UserDetailResponse getUserById(Long id);
     UserProfileResponse getUserProfileByIdWithRestClient(String id);
     UserProfileResponse getUserProfileByIdWithRestTemplate(String id);
     UserProfileResponse getUserProfileByIdWithWebClient(String id);

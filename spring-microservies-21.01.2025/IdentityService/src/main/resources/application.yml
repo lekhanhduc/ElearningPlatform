@@ -1,10 +1,13 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /identity
 spring:
   application:
     name: IDENTITY-SERVICE
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://mysql:3306/identity
-#    url: jdbc:mysql://localhost:3306/identity
+    url: jdbc:mysql://localhost:3306/identity
     username: root
     password: 123456
 
@@ -17,44 +20,36 @@ spring:
   data:
     redis:
       port: 6379
-      host: redis
-#      host: localhost
+      host: localhost
 
   config:
     import: optional:configserver:http://localhost:8888
     name: identity-service
 
   kafka:
-    bootstrap-servers: kafka:9094
-#    bootstrap-servers: localhost:9094
+    bootstrap-servers: localhost:9094
 
-  rabbitmq:
-    host: rabbitmq
+#  rabbitmq:
 #    host: localhost
-    port: 5672
-    username: guest
-    password: guest
-
-  cloud:
-    bus:
-      trace:
-        enabled: true
-
-
-jwt:
-  secret-key: ${JWT_SECRET_KEY}
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  tracing:
-    sampling:
-      probability: 1.0 # 100% request được tracking (nếu hệ thống lớn, có thể giảm xuống 0.5)
-  zipkin:
-    tracing:
-      endpoint: http://zipkin:9411/api/v2/spans
+#    port: 5672
+#    username: guest
+#    password: guest
+#
+#  cloud:
+#    bus:
+#      trace:
+#        enabled: true
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  tracing:
+#    sampling:
+#      probability: 1.0 # 100% request được tracking (nếu hệ thống lớn, có thể giảm xuống 0.5)
+#  zipkin:
+#    tracing:
 #      endpoint: http://localhost:9411/api/v2/spans
 
 resilience4j:
@@ -63,6 +58,8 @@ resilience4j:
       IDENTITY-SERVICE:
         maxAttempts: 3  # Số lần thử lại tối đa
         waitDuration: 1s  # Thời gian chờ giữa các lần thử lại
+jwt:
+  secret-key: ${JWT_SECRET_KEY}
 
 
 

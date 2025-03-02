@@ -1,6 +1,13 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /profile
 spring:
   application:
     name: PROFILE-SERVICE
+  config:
+    import: optional:configserver:http://localhost:8888
+    name: profile-service
   neo4j:
     authentication:
       username: neo4j
@@ -9,25 +16,3 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-
-  config:
-    import: optional:configserver:http://localhost:8888
-    name: profile-service
-
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  tracing:
-    sampling:
-      probability: 1.0 # 100% request được tracking (nếu hệ thống lớn, có thể giảm xuống 0.5)
-  zipkin:
-    tracing:
-      endpoint: http://localhost:9411/api/v2/spans

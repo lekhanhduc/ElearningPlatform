@@ -1,0 +1,35 @@
+server:
+  port: 8084
+  servlet:
+    context-path: /order
+
+spring:
+  application:
+    name: ORDER-SERVICE
+
+  config:
+    name: order-service
+    import: optional:configserver:http://localhost:8888
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 123456
+    url: jdbc:postgresql://localhost:5432/order_service
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
+#
+#  cloud:
+#    bus:
+#      trace:
+#        enabled: true
+
+  kafka:
+    bootstrap-servers: localhost:9094

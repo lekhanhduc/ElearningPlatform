@@ -30,6 +30,16 @@ public class UserController {
                 .build();
     }
 
+    @GetMapping("/fetch-users/{id}")
+    public ResponseData<UserDetailResponse> getUserById(@PathVariable Long id) {
+        var result = userService.getUserById(id);
+        return ResponseData.<UserDetailResponse>builder()
+                .code(HttpStatus.OK.value())
+                .message("Get User by Id")
+                .data(result)
+                .build();
+    }
+
     @GetMapping("/users")
     ResponseData<List<UserDetailResponse>> getAll(
             @RequestParam(name = "page", required = false, defaultValue = "1") int page,
@@ -43,17 +53,7 @@ public class UserController {
                 .build();
     }
 
-    @GetMapping("/users/{id}")
-    ResponseData<UserProfileResponse> getProfileWithRestClient(@PathVariable String id) {
-        var result = userService.getUserProfileByIdWithRestClient(id);
-        return ResponseData.<UserProfileResponse>builder()
-                .code(HttpStatus.CREATED.value())
-                .message("Get Profile User from Profile-Service")
-                .data(result)
-                .build();
-    }
-
-    @GetMapping("/users/template/{id}")
+    @GetMapping("/profile/template/{id}")
     ResponseData<UserProfileResponse> getProfileWithRestTemplate(@PathVariable String id) {
         var result = userService.getUserProfileByIdWithRestTemplate(id);
         return ResponseData.<UserProfileResponse>builder()
@@ -63,7 +63,7 @@ public class UserController {
                 .build();
     }
 
-    @GetMapping("/users/webclient/{id}")
+    @GetMapping("/profile/webclient/{id}")
     ResponseData<UserProfileResponse> getProfileWithWebClient(@PathVariable String id) {
         var result = userService.getUserProfileByIdWithWebClient(id);
         return ResponseData.<UserProfileResponse>builder()
@@ -73,7 +73,7 @@ public class UserController {
                 .build();
     }
 
-    @GetMapping("/users/openfeign/{id}")
+    @GetMapping("/profile/openfeign/{id}")
     ResponseData<UserProfileResponse> getProfileWithOpenFeign(@PathVariable Long id) {
         var result = userService.getUserProfileByIdWithOpenFeign(id);
         return ResponseData.<UserProfileResponse>builder()

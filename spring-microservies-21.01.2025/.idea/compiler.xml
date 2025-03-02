@@ -3,12 +3,21 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
+      <profile name="Annotation profile for ApiGateway" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar" />
+        </processorPath>
+        <module name="ApiGateway" />
+      </profile>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="RegistryService" />
-        <module name="PaymentService" />
         <module name="ConfigServer" />
       </profile>
       <profile name="Annotation profile for ProfileService" enabled="true">
@@ -31,9 +40,8 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar" />
         </processorPath>
         <module name="IdentityService" />
-        <module name="ApiGateway" />
       </profile>
-      <profile name="Annotation profile for SearchService" enabled="true">
+      <profile name="Annotation profile for PaymentService" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -42,14 +50,12 @@
         </processorPath>
         <module name="BookService" />
         <module name="NotificationService" />
+        <module name="OrderService" />
+        <module name="PaymentService" />
         <module name="SearchService" />
         <module name="PostService" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="SearchSerice" target="17" />
-      <module name="UserService" target="21" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
@@ -58,6 +64,7 @@
       <module name="ConfigServer" options="-parameters" />
       <module name="IdentityService" options="-parameters" />
       <module name="NotificationService" options="-parameters" />
+      <module name="OrderService" options="-parameters" />
       <module name="PaymentService" options="-parameters" />
       <module name="PostService" options="-parameters" />
       <module name="ProfileService" options="-parameters" />

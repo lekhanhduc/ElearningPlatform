@@ -23,6 +23,10 @@ public class GatewayConfiguration {
                         .uri("lb://BOOK-SERVICE"))
                 .route("search-service", r -> r.path("/search/**")
                         .uri("lb://SEARCH-SERVICE"))
+                .route("order-service", r -> r.path("/order/**")
+                        .uri("lb://ORDER-SERVICE"))
+                .route("payment-service", r -> r.path("/payment/**")
+                        .uri("lb://PAYMENT-SERVICE"))
                 .build();
     }
 

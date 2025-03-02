@@ -7,6 +7,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import vn.khanhduc.profileservice.dto.request.ProfileRequest;
 import vn.khanhduc.profileservice.dto.response.PageResponse;
@@ -48,7 +50,9 @@ public class UserProfileServiceImpl implements UserProfileService {
         Pageable pageable = PageRequest.of(page, size, Sort.by("userId").descending());
         Page<UserProfile> userProfiles = userProfileRepository.findAll(pageable);
         List<ProfileResponse> responses = userProfiles.getContent()
-                .stream().map(profile -> ProfileResponse.builder().build())
+                .stream().map(profile -> ProfileResponse.builder()
+
+                        .build())
                 .toList();
         return PageResponse.<ProfileResponse>builder()
                 .currentPage(page)
@@ -61,6 +65,7 @@ public class UserProfileServiceImpl implements UserProfileService {
 
     @Override
     public ProfileResponse getProfileByUserId(Long userId) {
+        log.info("User id: {}", userId);
         return userProfileRepository.findByUserId(userId)
                 .map(userProfileMapper::toProfileResponse)
                 .orElseThrow(() -> new ResourceNotFoundException("Profile Not Found"));

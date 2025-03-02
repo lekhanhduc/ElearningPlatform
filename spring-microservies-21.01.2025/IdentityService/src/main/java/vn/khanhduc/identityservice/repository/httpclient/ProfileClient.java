@@ -18,4 +18,7 @@ public interface ProfileClient {
     @GetMapping("/profile/api/v1/profiles")
     UserProfileResponse getAllProfile(@RequestParam(name = "page", required = false, defaultValue = "1") int page,
                                       @RequestParam(name = "page", required = false, defaultValue = "1") int size);
+
+    @GetMapping("/profile/internal/get-users/{userId}")
+    UserProfileResponse getProfileByUserId(@PathVariable("userId") Long userId);
 }

@@ -3,9 +3,7 @@ package vn.khanhduc.identityservice.configuration;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.task.TaskExecutor;
 import org.springframework.http.HttpMethod;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -31,6 +29,7 @@ public class SecurityConfiguration {
             "/api/v1/auth/**",
             "/message",
             "/api/v1/users/registration",
+            "/api/v1/fetch-users/**",
     };
 
     private final UserDetailServiceCustomizer userDetailServiceCustomizer;
@@ -47,7 +46,7 @@ public class SecurityConfiguration {
                 .cors(Customizer.withDefaults());
 
         http.authorizeHttpRequests(request -> request
-                .requestMatchers(HttpMethod.POST, WHILE_LIST).permitAll()
+                .requestMatchers(WHILE_LIST).permitAll()
                 .anyRequest().authenticated());
         http.oauth2ResourceServer(oauth2 -> oauth2
                 .jwt(jwtConfigurer -> jwtConfigurer.decoder(jwtDecoder)

@@ -1,3 +1,7 @@
+server:
+  port: 8882
+  servlet:
+    context-path: /notification
 spring:
   application:
     name: NOTIFICATION-SERVICE
@@ -6,16 +10,16 @@ spring:
     name: notification-service
     import: optional:configserver:http://localhost:8888
 
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
-
-  cloud:
-    bus:
-      trace:
-        enabled: true
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
+#
+#  cloud:
+#    bus:
+#      trace:
+#        enabled: true
 
   #  data:
 #    mongodb:

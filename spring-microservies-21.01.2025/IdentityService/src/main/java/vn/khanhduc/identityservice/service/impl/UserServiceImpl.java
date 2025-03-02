@@ -6,6 +6,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpMethod;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -114,6 +116,20 @@ public class UserServiceImpl implements UserService {
                         .phone(profiles.getPhoneNumber())
                         .build())
                 .toList();
+    }
+
+    @Override
+    public UserDetailResponse getUserById(Long id) {
+        var profile = profileClient.getProfileByUserId(id);
+        var user = userRepository.findById(id)
+                .orElseThrow(() -> new IdentityException(ErrorCode.USER_NOT_EXISTED));
+
+        return UserDetailResponse.builder()
+                .firstName(profile.getFirstName())
+                .lastName(profile.getLastName())
+                .fullName(String.format("%s %s", profile.getFirstName(), profile.getLastName()))
+                .email(user.getEmail())
+                .build();
     }
 
     @Override

@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/BookService/pom.xml" />
         <option value="$PROJECT_DIR$/PostService/pom.xml" />
         <option value="$PROJECT_DIR$/ConfigServer/pom.xml" />
+        <option value="$PROJECT_DIR$/OrderService/pom.xml" />
         <option value="$PROJECT_DIR$/SearchService/pom.xml" />
         <option value="$PROJECT_DIR$/PaymentService/pom.xml" />
         <option value="$PROJECT_DIR$/ProfileService/pom.xml" />

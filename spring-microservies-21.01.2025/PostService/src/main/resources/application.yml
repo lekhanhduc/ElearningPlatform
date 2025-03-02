@@ -1,3 +1,7 @@
+server:
+  port: 8086
+  servlet:
+    context-path: /post
 spring:
   application:
     name: POST-SERVICE

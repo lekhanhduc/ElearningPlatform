@@ -19,7 +19,7 @@ public class SecurityConfiguration {
 
     private static final String[] WHILE_LIST = {
             "/internal/users",
-            "/internal/get-user-id/**"
+            "/internal/get-users/**"
     };
 
     private final JwtDecoderCustomizer jwtDecoder;
