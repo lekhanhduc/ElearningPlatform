@@ -41,19 +41,20 @@
         </processorPath>
         <module name="IdentityService" />
       </profile>
-      <profile name="Annotation profile for PaymentService" enabled="true">
+      <profile name="Annotation profile for Review-Service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
         </processorPath>
+        <module name="Review-Service" />
+        <module name="SearchService" />
+        <module name="PostService" />
         <module name="BookService" />
         <module name="NotificationService" />
         <module name="OrderService" />
         <module name="PaymentService" />
-        <module name="SearchService" />
-        <module name="PostService" />
       </profile>
     </annotationProcessing>
   </component>
@@ -69,6 +70,7 @@
       <module name="PostService" options="-parameters" />
       <module name="ProfileService" options="-parameters" />
       <module name="RegistryService" options="-parameters" />
+      <module name="Review-Service" options="-parameters" />
       <module name="SearchService" options="-parameters" />
     </option>
   </component>
