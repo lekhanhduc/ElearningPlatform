@@ -1,0 +1,26 @@
+server:
+  port: 8086
+  servlet:
+    context-path: /post
+spring:
+  application:
+    name: POST-SERVICE
+
+  config:
+    name: post-service
+    import: optional:configserver:http://localhost:8888
+
+  data:
+    mongodb:
+      uri: mongodb://root:123456@localhost:27017/posts?authSource=admin
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+  cloud:
+    bus:
+      trace:
+        enabled: true

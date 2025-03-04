@@ -1,5 +1,6 @@
 package vn.khanhduc.profileservice.controller;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,16 +10,30 @@ import vn.khanhduc.profileservice.dto.response.ProfileResponse;
 import vn.khanhduc.profileservice.service.UserProfileService;
 
 @RestController
-@RequestMapping("/api/v1")
 @RequiredArgsConstructor
+@RequestMapping("/internal")
 public class InternalUserProfileController {
 
     private final UserProfileService userProfileService;
 
-    @PostMapping("/internal/profiles")
-    ResponseEntity<ProfileResponse> createProfile(@RequestBody ProfileRequest request) {
+    @PostMapping("/users")
+    public ResponseEntity<ProfileResponse> createProfile(@RequestBody ProfileRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(userProfileService.createProfile(request));
+    }
+
+    @GetMapping("/users/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<ProfileResponse> getProfile(@PathVariable
+                                               @NotBlank(message = "Id cannot be blank") String id) {
+        var data = userProfileService.getUserProfile(id);
+        return ResponseEntity.ok(data);
+    }
+
+    @GetMapping("/get-users/{userId}")
+    public ResponseEntity<ProfileResponse> getProfileByUserId(@PathVariable Long userId) {
+        var data = userProfileService.getProfileByUserId(userId);
+        return ResponseEntity.ok(data);
     }
 
 }

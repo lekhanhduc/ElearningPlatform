@@ -11,32 +11,24 @@ public class GatewayConfiguration {
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("profile-service", r -> r.path("/profile/**")
+                .route("profile-service", r -> r.path("/profile/api/v1/**")
                         .uri("lb://PROFILE-SERVICE"))
-                .route("identity-service", r -> r.path("/identity/**")
+                .route("identity-service", r -> r.path("/identity/api/v1/**")
                         .uri("lb://IDENTITY-SERVICE"))
                 .route("notification-service", r -> r.path("/notification/**")
                         .uri("lb://NOTIFICATION-SERVICE"))
+                .route("post-service", r -> r.path("/post/**")
+                        .uri("lb://POST-SERVICE"))
+                .route("book-service", r -> r.path("/book/**")
+                        .uri("lb://BOOK-SERVICE"))
+                .route("search-service", r -> r.path("/search/**")
+                        .uri("lb://SEARCH-SERVICE"))
+                .route("order-service", r -> r.path("/order/**")
+                        .uri("lb://ORDER-SERVICE"))
+                .route("payment-service", r -> r.path("/payment/**")
+                        .uri("lb://PAYMENT-SERVICE"))
                 .build();
     }
 
 }
-
-//@Bean
-//public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
-//    return builder.routes()
-//            .route("user-service", new Function<PredicateSpec, Buildable<Route>>() {
-//                @Override
-//                public Buildable<Route> apply(PredicateSpec r) {
-//                    return r.path("/users/**").uri("lb://USER-SERVICE");
-//                }
-//            })
-//            .route("order-service", new Function<PredicateSpec, Buildable<Route>>() {
-//                @Override
-//                public Buildable<Route> apply(PredicateSpec r) {
-//                    return r.path("/orders/**").uri("lb://ORDER-SERVICE");
-//                }
-//            })
-//            .build();
-//}
 

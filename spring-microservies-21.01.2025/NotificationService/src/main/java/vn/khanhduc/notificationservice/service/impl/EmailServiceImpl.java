@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Service;
 import vn.khanhduc.event.dto.NotificationEvent;
 import vn.khanhduc.notificationservice.dto.request.EmailRequest;
@@ -58,7 +59,7 @@ public class EmailServiceImpl implements EmailService {
 
     @KafkaListener(topics = "user-onboard-success", groupId = "notification-group")
     @Override
-    public EmailResponse sendMailWithKafka(NotificationEvent event) {
+    public EmailResponse sendMailWithKafka(NotificationEvent event, Acknowledgment acknowledgment) {
         log.info("Message received: {}", event);
 
         Map<String, Object> param = event.getParam();
@@ -75,10 +76,39 @@ public class EmailServiceImpl implements EmailService {
                 .htmlContent(param.get("body").toString())
                 .build();
         try {
-            return emailClient.sendEmailWithBrevo(apiKey, emailRequest);
+            var emailResponse = emailClient.sendEmailWithBrevo(apiKey, emailRequest);
+            acknowledgment.acknowledge();
+            return emailResponse;
         }catch (FeignException e) {
             log.error("Send email with kafka failed {}",e.getMessage());
             throw new NotificationException(ErrorCode.CANNOT_SEND_EMAIL);
         }
     }
+
+    @KafkaListener(topics = "payment-success", groupId = "payment-group")
+    public EmailResponse sendEmailPaymentSuccess (NotificationEvent event, Acknowledgment acknowledgment) {
+        log.info("Message received {}", event.toString());
+        var param = event.getParam();
+        EmailRequest emailRequest = EmailRequest.builder()
+                .sender(Sender.builder()
+                        .email(from)
+                        .name("Book Store")
+                        .build())
+                .to(List.of(Recipient.builder()
+                                .email(event.getRecipient())
+                                .name(String.format("%s", param.get("fullName")))
+                        .build()))
+                .subject("Payment success")
+                .htmlContent(String.format("Payment success for order %s", param.get("orderId")))
+                .build();
+        try {
+            var emailResponse = emailClient.sendEmailWithBrevo(apiKey, emailRequest);
+            acknowledgment.acknowledge();
+            return emailResponse;
+        }catch (FeignException e) {
+            log.error("Send email payment success failed {}",e.getMessage());
+            throw new NotificationException(ErrorCode.CANNOT_SEND_EMAIL);
+        }
+    }
+
 }

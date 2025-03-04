@@ -18,7 +18,8 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfiguration {
 
     private static final String[] WHILE_LIST = {
-        "/api/v1/internal/profiles"
+            "/internal/users",
+            "/internal/get-users/**"
     };
 
     private final JwtDecoderCustomizer jwtDecoder;

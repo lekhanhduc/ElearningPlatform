@@ -17,11 +17,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="SearchSerice" />
-        <module name="EventBusService" />
-        <module name="ConfigServer" />
         <module name="RegistryService" />
-        <module name="PaymentService" />
+        <module name="ConfigServer" />
       </profile>
       <profile name="Annotation profile for ProfileService" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -29,6 +26,7 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.5.5.Final/mapstruct-processor-1.5.5.Final.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.5.5.Final/mapstruct-1.5.5.Final.jar" />
         </processorPath>
@@ -43,37 +41,37 @@
         </processorPath>
         <module name="IdentityService" />
       </profile>
-      <profile name="Annotation profile for NotificationService" enabled="true">
+      <profile name="Annotation profile for Review-Service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
         </processorPath>
+        <module name="Review-Service" />
+        <module name="SearchService" />
+        <module name="PostService" />
         <module name="BookService" />
         <module name="NotificationService" />
-        <module name="UserService" />
-        <module name="PostService" />
+        <module name="OrderService" />
+        <module name="PaymentService" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="SearchService" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ApiGateway" options="-parameters" />
       <module name="BookService" options="-parameters" />
       <module name="ConfigServer" options="-parameters" />
-      <module name="EventBusService" options="-parameters" />
       <module name="IdentityService" options="-parameters" />
       <module name="NotificationService" options="-parameters" />
+      <module name="OrderService" options="-parameters" />
       <module name="PaymentService" options="-parameters" />
       <module name="PostService" options="-parameters" />
       <module name="ProfileService" options="-parameters" />
       <module name="RegistryService" options="-parameters" />
-      <module name="SearchSerice" options="-parameters" />
-      <module name="UserService" options="-parameters" />
+      <module name="Review-Service" options="-parameters" />
+      <module name="SearchService" options="-parameters" />
     </option>
   </component>
 </project>

@@ -36,7 +36,10 @@ public class InitApp {
     private final ProfileClient profileClient;
 
     @Bean
-    @ConditionalOnProperty(prefix = "spring", value = "driver-class-name", havingValue = "com.mysql.cj.jdbc.Driver")
+    @ConditionalOnProperty(
+            prefix = "spring",
+            value = "driver-class-name",
+            havingValue = "com.mysql.cj.jdbc.Driver")
     public ApplicationRunner init() {
         log.info("Initializing application");
         return args -> {

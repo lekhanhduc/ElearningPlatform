@@ -1,0 +1,27 @@
+server:
+  port: 8085
+  servlet:
+    context-path: /payment
+spring:
+  application:
+    name: PAYMENT-SERVICE
+
+  config:
+    import: optional:configserver:http://localhost:8888
+    name: payment-service
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 123456
+    url: jdbc:postgresql://localhost:5432/payment_service
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  kafka:
+    bootstrap-servers: localhost:9094
+
+PAYOS_CLIENT_ID: ${PAYOS_CLIENT_ID}
+PAYOS_API_KEY: ${PAYOS_API_KEY}
+PAYOS_CHECKSUM_KEY: ${PAYOS_CHECKSUM_KEY}

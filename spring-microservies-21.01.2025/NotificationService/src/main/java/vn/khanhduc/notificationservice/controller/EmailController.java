@@ -28,9 +28,9 @@ public class EmailController {
                 .build();
     }
 
-    @KafkaListener(topics = "user-onboard-success", groupId = "notification-group")
-    public void listener (String message) {
-        log.info(message);
-    }
+//    @KafkaListener(topics = "user-onboard-success", groupId = "notification-group")
+//    public void listener (String message) {
+//        log.info(message);
+//    }
 
 }

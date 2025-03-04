@@ -27,7 +27,7 @@ public class GlobalHandlingException {
         ErrorResponse errorResponse = ErrorResponse.builder()
                 .timestamp(new Date())
                 .status(HttpStatus.BAD_REQUEST.value())
-                .error(errors.size() > 1 ? String.valueOf(errors) : errors.get(0))
+                .error(errors.size() > 1 ? String.valueOf(errors) : errors.getFirst())
                 .path(request.getRequestURI())
                 .build();
 
@@ -35,7 +35,7 @@ public class GlobalHandlingException {
     }
 
     @ExceptionHandler(NotificationException.class)
-    public ResponseEntity<ErrorResponse> handleIdentityException(NotificationException exception, HttpServletRequest request) {
+    public ResponseEntity<ErrorResponse> handleNotificationException(NotificationException exception, HttpServletRequest request) {
         ErrorResponse errorResponse = ErrorResponse.builder()
                 .timestamp(new Date())
                 .status(HttpStatus.BAD_REQUEST.value())

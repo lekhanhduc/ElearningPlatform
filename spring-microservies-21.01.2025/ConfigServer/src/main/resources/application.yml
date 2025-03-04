@@ -8,9 +8,11 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/lekhanhduc/Spring-Cloud-Config-Server
+          uri: ${Uri-Config-Server}
           clone-on-start: true
           default-label: main
+          username: ${User-Name-Github}
+          password: ${Personal-Access-Token}
 eureka:
   instance:
     prefer-ip-address: true

@@ -8,4 +8,5 @@ public interface UserProfileService {
     ProfileResponse createProfile(ProfileRequest request);
     ProfileResponse getUserProfile(String id);
     PageResponse<ProfileResponse> getAllProfile(int page, int size);
+    ProfileResponse getProfileByUserId(Long userId);
 }
