@@ -1,0 +1,31 @@
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+  data:
+    mongodb:
+      uri: mongodb://root:123456@localhost:27017/file-service?authSource=admin
+
+  config:
+    import: optional:configserver:http://localhost:8888
+    name: file-service
+
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
+#
+#  cloud:
+#    bus:
+#      trace:
+#        enabled: true
+
+
+file:
+  storage-dir: C:/upload
+  download-prefix: http://localhost:9191/file/download/
+
+

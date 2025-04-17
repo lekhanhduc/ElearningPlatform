@@ -1,0 +1,10 @@
+server:
+  port: 8089
+  servlet:
+    context-path: /review
+spring:
+  application:
+    name: REVIEW-SERVICE
+  profiles:
+    active: test
+#    active: @spring.profiles.active@

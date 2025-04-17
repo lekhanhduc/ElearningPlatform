@@ -1,0 +1,10 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /file
+spring:
+  application:
+    name: FILE-SERVICE
+  profiles:
+    active: @spring.profiles.active@
+    #    active: test

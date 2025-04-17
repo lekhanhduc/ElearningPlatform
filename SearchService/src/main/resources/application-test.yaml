@@ -1,0 +1,33 @@
+spring:
+  config:
+    import: optional:configserver:http://config-server:8888
+    name: search-service
+
+  elasticsearch:
+    host: elasticsearch
+    port: 9200
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://registry-service:8761/eureka/
+
+#  rabbitmq:
+#    host: rabbitmq
+#    port: 5672
+#    username: guest
+#    password: guest
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  tracing:
+#    sampling:
+#      probability: 1.0 # 100% request được tracking (nếu hệ thống lớn, có thể giảm xuống 0.5)
+#  zipkin:
+#    tracing:
+#      endpoint: http://zipkin:9411/api/v2/spans

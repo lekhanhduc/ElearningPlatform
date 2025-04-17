@@ -1,0 +1,47 @@
+spring:
+  cloud:
+    loadbalancer:
+      cache:
+        enabled: true
+        caffeine:
+          spec: maximumSize=100,expireAfterAccess=600s
+
+eureka:
+  instance:
+    prefer-ip-address: true   # Sử dụng IP thay vì hostname
+    ip-address: 127.0.0.1  # Cố định IP thành localhost
+    hostname: localhost  # Đảm bảo Eureka sử dụng localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+identity-service:
+  base-url: http://localhost:8080/identity
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+#  tracing:
+#    sampling:
+#      probability: 1.0 # 100% request được tracking (nếu hệ thống lớn, có thể giảm xuống 0.5)
+#  zipkin:
+#    tracing:
+#      endpoint: http://localhost:9411/api/v2/spans
+
+resilience4j:
+  ratelimiter:
+    instances:
+      identityServiceRateLimiter:
+        limitForPeriod: 5        # Giới hạn 5 request
+        limitRefreshPeriod: 30s  # Trong 30 giây
+        timeoutDuration: 0s      # Từ chối ngay nếu vượt giới hạn
+        allowHealthIndicatorToFail: false
+      profileServiceRateLimiter:
+        limitForPeriod: 5
+        limitRefreshPeriod: 60s
+        timeoutDuration: 0s
+        allowHealthIndicatorToFail: false
+
+

@@ -1,0 +1,199 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+#      POSTGRES_DB: identity_service
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./initdb.sql:/docker-entrypoint-initdb.d/initdb.sql
+    networks:
+      - app_network
+
+  kafka:
+    image: 'bitnami/kafka:3.7.0'
+    container_name: kafka
+    hostname: kafka
+    restart: always
+    ports:
+      - '9092:9092'
+      - '9094:9094'
+    environment:
+      - KAFKA_CFG_NODE_ID=0
+      - KAFKA_CFG_PROCESS_ROLES=controller,broker
+      - KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=0@kafka:9093
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,PLAINTEXT_EXTERNAL://:9094,CONTROLLER://:9093
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092,PLAINTEXT_EXTERNAL://localhost:9094
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,PLAINTEXT_EXTERNAL:PLAINTEXT
+      - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
+      - ALLOW_PLAINTEXT_LISTENER=yes
+    volumes:
+      - kafka-data:/tmp/kraft-combined-logs
+    networks:
+      - app_network
+
+  neo4j:
+    image: neo4j:latest
+    container_name: neo4j
+    restart: always
+    environment:
+      - NEO4J_AUTH=neo4j/12345678
+    ports:
+      - '7474:7474'
+      - '7687:7687'
+    volumes:
+      - neo4j_data:/data
+    networks:
+      - app_network
+
+  redis:
+    image: redis:7
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - app_network
+
+  mongodb:
+    image: bitnami/mongodb:8.0.5
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGODB_ROOT_USER=root
+      - MONGODB_ROOT_PASSWORD=123456
+    networks:
+      - app_network
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.16.4
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - ELASTICSEARCH_PASSWORD=changeme
+      - ELASTICSEARCH_USERNAME=elastic
+      - xpack.security.enabled=false
+      - xpack.security.transport.ssl.enabled=false
+      - xpack.security.http.ssl.enabled=false
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+    networks:
+      - app_network
+
+  # Kibana (Elasticsearch Dashboard)
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.16.4
+    container_name: kibana
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - xpack.security.enabled=false
+      - xpack.security.transport.ssl.enabled=false
+    ports:
+      - "5601:5601"
+    networks:
+      - app_network
+
+  registry-service:
+    image: khanhduc/registry-service:1.0.0
+    container_name: registry-service
+    ports:
+      - "8761:8761"
+    networks:
+      - app_network
+
+  config-server:
+    image: khanhduc/config-server:1.0.0
+    container_name: config-server
+    ports:
+      - "8888:8888"
+    depends_on:
+      - registry-service
+    networks:
+      - app_network
+
+  identity-service:
+    image: khanhduc/identity-service:1.0.0
+    container_name: identity-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+      - redis
+      - kafka
+      - config-server
+      - registry-service
+    environment:
+      - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=123456
+      - DATABASE_HOST=postgres
+      - DATABASE_PORT=5432
+      - HIBERNATE_DDL_AUTO=update
+      - SPRING_DATA_REDIS_HOST=redis
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+      - JWT_SECRET_KEY=qEGWCystxG6FXQjPOKDyHPx7ID6u38YSfWhgdj0TWBKtHjwWJRS9myU6qtr2lBAHkNoFyij8klSvsXARgtxeKCqAdlmCvfkvCmJFvln5FrDuHGcGN43HVNkid6Hdee8HDeP8eWvRdfrc5NlwauL2DYdDeJgXClUZ6gS2Igr9tJoExsUJJ3wxZMc4jYfW2I8BgeiJRe6GElDCJHOcpRgS0SMP6nbtN1guElbzcs0YhlrG5CORdkutdrpRMZ2dX0xHeulbrUa4LdAxdDFB4DNbfSRWb2VpFTvxxpN7TGKrMASULBWecTnolRLsNbEQkGmroS1futhxGxMdQEaUIhLuNlvxfM1smNiVmdk2IOmQeT952Gn9nPUmVvkYTmx3cdZUzJsjAAq2Lb0IYQt0xOn8I65krXqtkKub5oPQrNiDEa0hon0Q9J1BNGYSJpSDwtjDsMgcgxaoBnyfT9y2iGHIZdbFWEhDcu8bJ9MY2r7s45dh4so87R4Avc1gn4OsJwLL
+    networks:
+      - app_network
+
+  profile-service:
+    image: khanhduc/profile-service:1.0.0
+    container_name: profile-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - neo4j
+      - kafka
+      - config-server
+      - registry-service
+    networks:
+      - app_network
+
+  notification-service:
+    image: khanhduc/notification-service:1.0.0
+    container_name: notification-service
+    ports:
+      - "8882:8882"
+    depends_on:
+      - mongodb
+      - kafka
+      - config-server
+      - registry-service
+    networks:
+      - app_network
+
+  api-gateway:
+    image: khanhduc/api-gateway:1.0.0
+    container_name: api-gateway
+    ports:
+      - "9191:9191"
+    depends_on:
+      - registry-service
+      - config-server
+    environment:
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://registry-service:8761/eureka/
+      - IDENTITY_SERVICE_BASE_URL=http://identity-service:8080/identity
+      - ZIPKIN_TRACING_ENDPOINT=http://zipkin:9411/api/v2/spans
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
+  neo4j_data:
+    driver: local
+  kafka-data:
+    driver: local
+  elasticsearch-data:
+    driver: local

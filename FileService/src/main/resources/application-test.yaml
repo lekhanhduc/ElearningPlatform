@@ -1,0 +1,36 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://root:root@mongodb:27017/notification-service?authSource=admin
+  #      username: root
+  #      password: 123456
+
+  config:
+    name: file-service
+    import: optional:configserver:http://config-server:8888
+
+#  rabbitmq:
+#    host: rabbitmq
+#    port: 5672
+#    username: guest
+#    password: guest
+#
+#  cloud:
+#    bus:
+#      trace:
+#        enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    metadata-map:
+      weight: 50
+  client:
+    serviceUrl:
+      defaultZone: http://registry-service:8761/eureka/

@@ -1,0 +1,9 @@
+server:
+  port: 8083
+  servlet:
+    context-path: /book
+spring:
+  application:
+    name: BOOK-SERVICE
+  profiles:
+    active: @spring.profiles.active@

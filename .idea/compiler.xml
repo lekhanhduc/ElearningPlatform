@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Annotation profile for ApiGateway" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar" />
+        </processorPath>
+        <module name="IdentityService" />
+        <module name="ApiGateway" />
+      </profile>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="RegistryService" />
+        <module name="ConfigServer" />
+      </profile>
+      <profile name="Annotation profile for ProfileService" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.5.5.Final/mapstruct-processor-1.5.5.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.5.5.Final/mapstruct-1.5.5.Final.jar" />
+        </processorPath>
+        <module name="ProfileService" />
+      </profile>
+      <profile name="Annotation profile for BookService" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
+        </processorPath>
+        <module name="FileService" />
+        <module name="SearchService" />
+        <module name="PostService" />
+        <module name="BookService" />
+        <module name="CartService" />
+        <module name="NotificationService" />
+        <module name="OrderService" />
+        <module name="ReviewService" />
+        <module name="PaymentService" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="IdentityService (1)" target="21" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ApiGateway" options="-parameters" />
+      <module name="BookService" options="-parameters" />
+      <module name="CartService" options="-parameters" />
+      <module name="ConfigServer" options="-parameters" />
+      <module name="FileService" options="-parameters" />
+      <module name="IdentityService" options="-parameters" />
+      <module name="IdentityService (1)" options="-parameters" />
+      <module name="NotificationService" options="-parameters" />
+      <module name="OrderService" options="-parameters" />
+      <module name="PaymentService" options="-parameters" />
+      <module name="PostService" options="-parameters" />
+      <module name="ProfileService" options="-parameters" />
+      <module name="RegistryService" options="-parameters" />
+      <module name="ReviewService" options="-parameters" />
+      <module name="SearchService" options="-parameters" />
+    </option>
+  </component>
+</project>

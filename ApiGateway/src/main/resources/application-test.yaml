@@ -1,0 +1,55 @@
+spring:
+  config:
+    import: optional:configserver:http://config-server:8888
+
+  cloud:
+    loadbalancer:
+      cache:
+        enabled: true
+        caffeine:
+          spec: maximumSize=100,expireAfterAccess=600s
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    metadata-map:
+      weight: 50
+  client:
+    service-url:
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE:http://registry-service:8761/eureka/}
+    fetch-registry: true
+    register-with-eureka: true
+
+identity-service:
+  base-url: ${IDENTITY_SERVICE_BASE_URL:http://identity-service:8080/identity}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+#  tracing:
+#    sampling:
+#      probability: 1.0
+#  zipkin:
+#    tracing:
+#      endpoint: ${ZIPKIN_TRACING_ENDPOINT:http://zipkin:9411/api/v2/spans}
+
+resilience4j:
+  ratelimiter:
+    instances:
+      identityServiceRateLimiter:
+        limitForPeriod: 5        # Giới hạn 5 request
+        limitRefreshPeriod: 30s  # Trong 30 giây
+        timeoutDuration: 0s      # Từ chối ngay nếu vượt giới hạn
+        allowHealthIndicatorToFail: false
+      profileServiceRateLimiter:
+        limitForPeriod: 5
+        limitRefreshPeriod: 60s
+        timeoutDuration: 0s
+        allowHealthIndicatorToFail: false

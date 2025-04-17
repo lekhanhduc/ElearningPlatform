@@ -1,0 +1,10 @@
+server:
+  port: 8882
+  servlet:
+    context-path: /notification
+spring:
+  application:
+    name: NOTIFICATION-SERVICE
+  profiles:
+#    active: test
+    active: @spring.profiles.active@

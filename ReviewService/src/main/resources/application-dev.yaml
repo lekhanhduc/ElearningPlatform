@@ -1,0 +1,37 @@
+spring:
+  config:
+    import: optional:configserver:http://localhost:8888
+    name: book-service
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 123456
+    url: jdbc:postgresql://localhost:5432/review-service
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
+#
+#  cloud:
+#    bus:
+#      trace:
+#        enabled: true
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  tracing:
+#    sampling:
+#      probability: 1.0 # 100% request ???c tracking (n?u h? th?ng l?n, c� th? gi?m xu?ng 0.5)
+#  zipkin:
+#    tracing:
+#      endpoint: http://localhost:9411/api/v2/spans

@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package bookservice;
+
+option java_package = "vn.khanhduc.bookservice.grpc";
+option java_multiple_files = true;
+
+import "google/protobuf/timestamp.proto";
+
+message BookSearchRequest {
+  string keywords = 1;
+  string language = 2;
+  string author_name = 3;
+  string min_price = 4; // BigDecimal -> string
+  string max_price = 5; // BigDecimal -> string
+  int32 page = 6;
+  int32 size = 7;
+  string sort_by = 8;
+}
+
+message BookDetailResponse {
+  string isbn = 1;
+  string title = 2;
+  string description = 3;
+  string book_cover = 4;
+  string price = 5; // BigDecimal -> string
+  int32 stock = 6;
+  string language = 7;
+  string author_name = 8;
+  google.protobuf.Timestamp publish_date = 9; // LocalDate -> Timestamp
+}
+
+message PageResponse {
+  int32 page = 1;
+  int32 size = 2;
+  int32 total_pages = 3;
+  int64 total_elements = 4;
+  repeated BookDetailResponse data = 5;
+}
+
+message ResponseData {
+  int32 code = 1;
+  string message = 2;
+  PageResponse data = 3;
+}
+
+service BookService {
+  rpc SearchBooks(BookSearchRequest) returns (ResponseData);
+}

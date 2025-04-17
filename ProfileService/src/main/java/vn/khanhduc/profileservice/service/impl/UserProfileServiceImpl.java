@@ -1,0 +1,149 @@
+package vn.khanhduc.profileservice.service.impl;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.Acknowledgment;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+import vn.khanhduc.event.dto.NotificationEvent;
+import vn.khanhduc.event.dto.ProfileEvent;
+import vn.khanhduc.profileservice.common.Channel;
+import vn.khanhduc.profileservice.dto.request.ProfileRequest;
+import vn.khanhduc.profileservice.dto.request.ProfileUpdateRequest;
+import vn.khanhduc.profileservice.dto.response.PageResponse;
+import vn.khanhduc.profileservice.dto.response.ProfileResponse;
+import vn.khanhduc.profileservice.exception.AuthenticationException;
+import vn.khanhduc.profileservice.exception.ResourceNotFoundException;
+import vn.khanhduc.profileservice.mapper.UserProfileMapper;
+import vn.khanhduc.profileservice.entity.UserProfile;
+import vn.khanhduc.profileservice.repository.UserProfileRepository;
+import vn.khanhduc.profileservice.service.S3Service;
+import vn.khanhduc.profileservice.service.UserProfileService;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Optional;
+
+@Service
+@RequiredArgsConstructor
+@Slf4j(topic = "USER-PROFILE-SERVICE")
+public class UserProfileServiceImpl implements UserProfileService {
+
+    private final UserProfileRepository userProfileRepository;
+    private final UserProfileMapper userProfileMapper;
+    private final KafkaTemplate<String, Object> kafkaTemplate;
+    private final S3Service s3Service;
+
+    @Override
+    public ProfileResponse createProfile(ProfileRequest request) {
+        UserProfile userProfile = userProfileMapper.toUserProfile(request);
+        userProfileRepository.save(userProfile);
+        log.info("Created profile successfully");
+        return userProfileMapper.toProfileResponse(userProfile);
+    }
+
+    @PreAuthorize("isAuthenticated()")
+    @Override
+    public ProfileResponse getUserProfile(String id) {
+        return userProfileRepository.findById(id)
+                .map(userProfileMapper::toProfileResponse)
+                .orElseThrow(() -> new ResourceNotFoundException("Profile Not Found"));
+    }
+
+    @PreAuthorize("isAuthenticated() && hasAuthority('ADMIN')")
+    @Override
+    public PageResponse<ProfileResponse> getAllProfile(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by("userId").descending());
+        Page<UserProfile> userProfiles = userProfileRepository.findAll(pageable);
+        List<ProfileResponse> responses = userProfiles.getContent()
+                .stream().map(profile -> ProfileResponse.builder()
+
+                        .build())
+                .toList();
+        return PageResponse.<ProfileResponse>builder()
+                .currentPage(page)
+                .pageSize(pageable.getPageSize())
+                .totalPages(userProfiles.getTotalPages())
+                .totalElements(userProfiles.getTotalElements())
+                .data(responses)
+                .build();
+    }
+
+    @Override
+    public ProfileResponse getProfileByUserId(Long userId) {
+        log.info("User id: {}", userId);
+        return userProfileRepository.findByUserId(userId)
+                .map(userProfileMapper::toProfileResponse)
+                .orElseThrow(() -> new ResourceNotFoundException("Profile Not Found"));
+    }
+
+    @KafkaListener(topics = "user-created", groupId = "profile-group")
+    @Override
+    public void createProfile(ProfileEvent profileEvent, Acknowledgment acknowledgment) {
+       try {
+           log.info("Profile event {}", profileEvent.toString());
+           userProfileRepository.save(
+                   UserProfile.builder()
+                           .userId(profileEvent.getUserId())
+                           .firstName(profileEvent.getFirstName())
+                           .lastName(profileEvent.getLastName())
+                           .phoneNumber(profileEvent.getPhoneNumber())
+                           .avatar(profileEvent.getAvatar())
+                           .build());
+           acknowledgment.acknowledge();
+
+           var param = new HashMap<String, Object>();
+           param.put("subject", "Welcome to Book Store");
+           param.put("name", String.format("%s %s", profileEvent.getFirstName(), profileEvent.getLastName()));
+           param.put("body", "Hello " + profileEvent.getFirstName() + " " + profileEvent.getLastName());
+
+           NotificationEvent notificationEvent = NotificationEvent.builder()
+                   .channel(Channel.EMAIL.name())
+                   .recipient(profileEvent.getEmail())
+                   .param(param)
+                   .build();
+
+           kafkaTemplate.send("user-onboard-success", notificationEvent);
+
+       }catch (Exception e) {
+           log.info("Create profile failed");
+           throw e;
+       }
+    }
+
+    @Override
+    @PreAuthorize("isAuthenticated()")
+    public ProfileResponse updateProfile(ProfileUpdateRequest request, MultipartFile file) {
+        Optional<String> principal = SecurityContextHolder.getContext().getAuthentication().getName().describeConstable();
+        if(principal.isEmpty())
+            throw new AuthenticationException("Unauthenticated");
+
+        Long userId = Long.parseLong(principal.get());
+        UserProfile userProfile = userProfileRepository.findByUserId(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User Not Found"));
+
+        userProfileMapper.updateProfile(request, userProfile);
+        if(file != null) {
+            String urlAvatar = s3Service.uploadFile("upload", file);
+            userProfile.setAvatar(urlAvatar);
+            log.info("Update avatar to S3 successfully");
+        }
+        userProfileRepository.save(userProfile);
+        log.info("Update profile successfully");
+        return ProfileResponse.builder()
+                .userId(userId)
+                .firstName(userProfile.getFirstName())
+                .lastName(userProfile.getLastName())
+                .phoneNumber(userProfile.getPhoneNumber())
+                .avatar(userProfile.getAvatar())
+                .build();
+    }
+
+}

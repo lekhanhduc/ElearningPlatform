@@ -1,0 +1,24 @@
+spring:
+  config:
+    import: optional:configserver:http://localhost:8888
+    name: profile-service
+  neo4j:
+    authentication:
+      username: neo4j
+      password: 12345678
+    uri: bolt://localhost:7687
+  jpa:
+    hibernate:
+      ddl-auto: update
+  kafka:
+    bootstrap-servers: localhost:9094
+
+---
+aws:
+  s3:
+    bucket-name: e-learning-application
+    region: ap-southeast-1
+    endpoint-url: https://e-learning-application.s3.ap-southeast-1.amazonaws.com
+  credentials:
+    access-key: AKIA4RCAOUBVQILODXWH
+    secret-key: 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

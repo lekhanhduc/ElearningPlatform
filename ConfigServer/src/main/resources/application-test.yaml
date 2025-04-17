@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/lekhanhduc/Spring-Cloud-Config-ServerSpring-Production
+          clone-on-start: true
+          default-label: main
+          username: lekhanhduc
+          password: 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
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://registry-service:8761/eureka/

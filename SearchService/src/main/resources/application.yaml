@@ -1,0 +1,10 @@
+server:
+  port: 8087
+spring:
+  application:
+    name: SEARCH-SERVICE
+  webflux:
+    base-path: /search
+  profiles:
+#    active: test
+    active: @spring.profiles.active@

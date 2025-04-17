@@ -1,0 +1,14 @@
+spring:
+  config:
+    name: post-service
+    import: optional:configserver:http://config-server:8888
+
+  data:
+    mongodb:
+      uri: mongodb://root:123456@mongodb:27017/posts?authSource=admin
+
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: guest
+    password: guest
