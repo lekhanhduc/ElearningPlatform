@@ -16,9 +16,9 @@ spring:
 ---
 aws:
   s3:
-    bucket-name: e-learning-application
-    region: ap-southeast-1
-    endpoint-url: https://e-learning-application.s3.ap-southeast-1.amazonaws.com
+    bucket-name:
+    region:
+    endpoint-url:
   credentials:
-    access-key: AKIA4RCAOUBVQILODXWH
-    secret-key: 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
+    access-key:
+    secret-key:
