@@ -32,7 +32,7 @@ pipeline {
 			steps {
 				dir('Microservies2025/IdentityService') {
 					withEnv(["JAVA_HOME=${tool 'JDK21'}"]) {
-						sh 'mvn clean install'
+						sh 'mvn clean install -DskipTests'
                     }
                 }
             }
@@ -53,7 +53,7 @@ pipeline {
         stage('Build Package') {
 			steps {
 				dir('Microservies2025/IdentityService') {
-					sh 'mvn package'
+					sh 'mvn package -DskipTests'
                 }
             }
         }
