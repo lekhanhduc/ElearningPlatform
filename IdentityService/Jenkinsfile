@@ -21,9 +21,7 @@ pipeline {
                         }
                     } else {
 						echo 'Cloning repository...'
-                        withCredentials([usernamePassword(credentialsId: 'github-token', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_TOKEN')]) {
-							sh "git clone https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/lekhanhduc/Microservices2025.git"
-                }
+                        sh "git clone https://${GITHUB_TOKEN}@github.com/lekhanhduc/Microservices2025"
                     }
                 }
             }
