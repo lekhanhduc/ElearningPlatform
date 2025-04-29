@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Build IdentityService') {
 			steps {
-				dir('Microservices2025/IdentityService') {
+				dir('Microservies2025/IdentityService') {
 					withEnv(["JAVA_HOME=${tool 'JDK21'}"]) {
 						sh 'mvn clean install'
                     }
@@ -52,19 +52,19 @@ pipeline {
         }
         stage('Build Package') {
 			steps {
-				dir('Microservices2025/IdentityService') {
+				dir('Microservies2025/IdentityService') {
 					sh 'mvn package'
                 }
             }
         }
         stage('Archive Artifact') {
 			steps {
-				archiveArtifacts artifacts: 'Microservices2025/IdentityService/target/*.jar', fingerprint: true
+				archiveArtifacts artifacts: 'Microservies2025/IdentityService/target/*.jar', fingerprint: true
             }
         }
         stage('Build Docker Image') {
 			steps {
-				dir('Microservices2025/IdentityService') {
+				dir('Microservies2025/IdentityService') {
 					sh "docker build -t lekhanhduc/identity-service:1.0.0 ."
                     sh "docker tag lekhanhduc/identity-service:1.0.0 lekhanhduc/identity-service:latest"
                 }
@@ -72,7 +72,7 @@ pipeline {
         }
         stage('Push Docker Image') {
 			steps {
-				dir('Microservices2025/IdentityService') {
+				dir('Microservies2025/IdentityService') {
 					withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
 						sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
                         sh "docker push lekhanhduc/identity-service:1.0.0"
