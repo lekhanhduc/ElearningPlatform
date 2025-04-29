@@ -13,7 +13,7 @@ pipeline {
 		stage('Checkout Code') {
 			steps {
 				script {
-					if (fileExists('Microservices2025')) {
+					if (fileExists('Microservies2025')) {
 						echo 'Repository already exists. Pulling latest changes...'
                         dir('Microservices2025') {
 							sh 'git reset --hard'
@@ -40,7 +40,7 @@ pipeline {
         stage('Code Quality With SonarQube') {
 			steps {
 				echo 'Running SonarQube analysis for IdentityService...'
-                dir('Microservices2025/IdentityService') {
+                dir('Microservies2025/IdentityService') {
 					sh """
                         mvn sonar:sonar \
                             -Dsonar.projectKey=IdentityService \
