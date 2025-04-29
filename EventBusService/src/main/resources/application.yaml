@@ -1,0 +1,10 @@
+server:
+  port: 9999
+  servlet:
+    context-path: /event
+
+spring:
+  application:
+    name: EVENT-BUS-SERVICE
+  profiles:
+    active: @spring.profiles.active@

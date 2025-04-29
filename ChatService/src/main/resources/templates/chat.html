@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng dụng Chat Realtime</title>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.6.1/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0/bundles/stomp.umd.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .user-list {
+            width: 300px;
+            background-color: #ffffff;
+            border-right: 1px solid #e0e0e0;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        .user-list h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .user-item {
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .user-item:hover, .user-item.active {
+            background-color: #f0f2f5;
+        }
+        .user-item.active {
+            font-weight: bold;
+        }
+        .user-item.new-message {
+            background-color: #e3f2fd;
+            font-weight: bold;
+        }
+        .chat-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+        }
+        .chat-header {
+            padding: 15px;
+            background-color: #f0f2f5;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .chat-header h3 {
+            margin: 0;
+            color: #333;
+        }
+        .messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .message {
+            max-width: 70%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            position: relative;
+            word-wrap: break-word;
+        }
+        .message.received {
+            background-color: #f0f2f5;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+        .message.sent {
+            background-color: #0084ff;
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+        .message .time {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-top: 5px;
+            display: block;
+        }
+        .input-area {
+            display: flex;
+            padding: 15px;
+            background-color: #f0f2f5;
+            border-top: 1px solid #e0e0e0;
+        }
+        .input-area input {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 20px;
+            outline: none;
+            background-color: #fff;
+            margin-right: 10px;
+        }
+        .input-area button {
+            padding: 10px 15px;
+            background-color: #0084ff;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .input-area button:hover {
+            background-color: #0073e6;
+        }
+        .status {
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        .status.connected {
+            color: #28a745;
+        }
+        .status.disconnected {
+            color: #dc3545;
+        }
+        .status.connecting {
+            color: #fd7e14;
+        }
+        .user-controls {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            background-color: #f0f2f5;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .user-controls select {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="user-list">
+        <h2>Danh sách người dùng</h2>
+        <div class="user-controls">
+            <select id="currentUser">
+                <option value="1">User ID: 1</option>
+                <option value="2">User ID: 2</option>
+                <option value="3">User ID: 3</option>
+            </select>
+            <div class="action-buttons">
+                <button id="connectBtn">Kết nối</button>
+            </div>
+        </div>
+        <div class="status" id="connectionStatus">Chưa kết nối</div>
+        <div id="usersList">
+            <div class="user-item" data-id="1">Người dùng 1</div>
+            <div class="user-item" data-id="2">Người dùng 2</div>
+            <div class="user-item" data-id="3">Người dùng 3</div>
+        </div>
+    </div>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h3 id="selectedUserName">Chọn người dùng để bắt đầu chat</h3>
+        </div>
+        <div class="messages" id="messageContainer">
+            <!-- Messages will be added here dynamically -->
+        </div>
+        <div class="input-area">
+            <input type="text" id="messageInput" placeholder="Nhập tin nhắn..." disabled>
+            <button id="sendBtn" disabled>Gửi</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let stompClient = null;
+    let currentUserId = 1;
+    let selectedUserId = null;
+    let messageHistory = {};
+
+    // Danh sách token giả lập cho từng user
+    const tokens = {
+        '1': 'eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJpZGVudGl0eS1zZXJ2aWNlIiwic3ViIjoiMSIsImV4cCI6MTc0NTE3Njg3MywiaWF0IjoxNzQ1MTczMjczLCJqdGkiOiI3ZWExOTc1NS0zYmJjLTQ3MDktOTAyOC0wMDNmNzdiOGQ4NTYiLCJhdXRob3JpdHkiOiJVU0VSIn0.UiltYbuLgGYEnMaX4oxB-WpzP1sTLFDrLvUz3p7R5ao',
+        '2': 'eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJpZGVudGl0eS1zZXJ2aWNlIiwic3ViIjoiMiIsImV4cCI6MTc0NTE3NjkwOSwiaWF0IjoxNzQ1MTczMzA5LCJqdGkiOiJkOTg2MTI4MC0zY2MzLTRiZTMtYjRhZC1hMGFiYjA5YjM4YmQiLCJhdXRob3JpdHkiOiJVU0VSIn0.Nbkb3VIvHWvZz-IX1LcyUTEWFlbzpJjgw6J0WUxm6a0',
+        '3': 'eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJpZGVudGl0eS1zZXJ2aWNlIiwic3ViIjoiMyIsImV4cCI6MTc0NTE3MjMwNiwiaWF0IjoxNzQ1MTY4NzA2LCJqdGkiOiI3YTQ5NGFiYy05OWExLTRhOGItODgwNC00NjY3MTUxOTRiODEiLCJhdXRob3JpdHkiOiJVU0VSIn0.xkYp5kL2pM7vWvW5zKzP7lKjN9fPqDzM4xL2pQ8Y5i7'
+    };
+
+    let token = tokens[currentUserId]; // Token ban đầu cho User 1
+
+    const messageContainer = document.getElementById('messageContainer');
+    const messageInput = document.getElementById('messageInput');
+    const sendBtn = document.getElementById('sendBtn');
+    const usersList = document.getElementById('usersList');
+    const selectedUserName = document.getElementById('selectedUserName');
+    const connectionStatus = document.getElementById('connectionStatus');
+    const connectBtn = document.getElementById('connectBtn');
+    const currentUserSelect = document.getElementById('currentUser');
+
+    currentUserSelect.addEventListener('change', function() {
+        if (stompClient && stompClient.connected) {
+            disconnectFromWebSocket();
+        }
+        currentUserId = this.value;
+        token = tokens[currentUserId];
+        console.log(`Selected User ID: ${currentUserId}, Token: ${token}`);
+    });
+
+    connectBtn.addEventListener('click', function() {
+        if (stompClient && stompClient.connected) {
+            disconnectFromWebSocket();
+        } else {
+            connectToWebSocket();
+        }
+    });
+
+    function connectToWebSocket() {
+        connectionStatus.className = 'status connecting';
+        connectionStatus.textContent = 'Đang kết nối...';
+
+        const socket = new SockJS('http://localhost:9191/chat/ws');
+        stompClient = new StompJs.Client({
+            webSocketFactory: () => socket,
+            connectHeaders: {
+                'Authorization': 'Bearer ' + token
+            },
+            reconnectDelay: 5000,
+            heartbeatIncoming: 4000,
+            heartbeatOutgoing: 4000,
+            debug: (str) => {
+                console.log('STOMP Debug: ', str);
+            }
+        });
+
+        stompClient.onConnect = (frame) => {
+            console.log('Connected: ' + frame);
+            connectionStatus.className = 'status connected';
+            connectionStatus.textContent = 'Đã kết nối';
+            connectBtn.textContent = 'Ngắt kết nối';
+
+            stompClient.subscribe(`/user/${currentUserId}/queue/message`, handleMessage, {
+                'Authorization': 'Bearer ' + token
+            });
+            console.log(`Subscribed to /user/${currentUserId}/queue/message`);
+
+            enableChatInterface();
+        };
+
+        stompClient.onStompError = (frame) => {
+            console.error('STOMP Error: ', frame);
+            connectionStatus.className = 'status disconnected';
+            connectionStatus.textContent = 'Lỗi kết nối: ' + (frame.headers.message || 'Unknown error');
+        };
+
+        stompClient.onDisconnect = () => {
+            console.log('Disconnected');
+            disableChatInterface();
+            connectionStatus.className = 'status disconnected';
+            connectionStatus.textContent = 'Đã ngắt kết nối';
+            connectBtn.textContent = 'Kết nối';
+        };
+
+        stompClient.onWebSocketClose = (event) => {
+            console.log('WebSocket closed: ', event);
+            console.log('Close code: ', event.code, 'Reason: ', event.reason);
+            disableChatInterface();
+            connectionStatus.className = 'status disconnected';
+            connectionStatus.textContent = 'WebSocket đã đóng: ' + (event.reason || 'Không rõ lý do');
+            connectBtn.textContent = 'Kết nối';
+        };
+
+        stompClient.onWebSocketError = (event) => {
+            console.error('WebSocket error: ', event);
+            connectionStatus.className = 'status disconnected';
+            connectionStatus.textContent = 'Lỗi WebSocket: ' + (event.message || 'Không rõ lỗi');
+        };
+
+        stompClient.activate();
+    }
+
+    function disconnectFromWebSocket() {
+        if (stompClient) {
+            stompClient.deactivate();
+            stompClient = null;
+        }
+    }
+
+    function handleMessage(message) {
+        console.log('Received raw message: ', message);
+        console.log('Message body: ', message.body);
+        try {
+            const messageData = JSON.parse(message.body);
+            console.log('Parsed message data: ', messageData);
+
+            const chatId = messageData.senderId === parseInt(currentUserId) ?
+                messageData.receiverId : messageData.senderId;
+            console.log(`Chat ID: ${chatId}, Selected User ID: ${selectedUserId}`);
+
+            if (!messageHistory[chatId]) {
+                messageHistory[chatId] = [];
+            }
+
+            const newMessage = {
+                content: messageData.content,
+                senderId: messageData.senderId,
+                receiverId: messageData.receiverId,
+                time: messageData.createdAt,
+                type: messageData.senderId === parseInt(currentUserId) ? 'sent' : 'received'
+            };
+
+            messageHistory[chatId].push(newMessage);
+
+            // Hiển thị tin nhắn real-time nếu đang ở đúng cuộc trò chuyện
+            if (selectedUserId && selectedUserId === chatId.toString()) {
+                console.log('Displaying new message real-time for chat ID: ', chatId);
+                addSingleMessage(newMessage);
+            }
+
+            // Làm nổi bật người dùng nếu tin nhắn đến từ cuộc trò chuyện khác
+            if (!selectedUserId || selectedUserId !== chatId.toString()) {
+                flashNewMessage(chatId);
+            }
+        } catch (e) {
+            console.error('Lỗi khi xử lý tin nhắn: ', e);
+            console.error('Message body that caused error: ', message.body);
+        }
+    }
+
+    function displayMessages(chatId) {
+        console.log(`Displaying messages for chat ID: ${chatId}`);
+        console.log('Message history: ', messageHistory[chatId]);
+        messageContainer.innerHTML = '';
+
+        if (messageHistory[chatId] && messageHistory[chatId].length > 0) {
+            messageHistory[chatId].forEach(msg => {
+                addSingleMessage(msg);
+            });
+        } else {
+            console.log(`No messages found for chat ID: ${chatId}`);
+        }
+    }
+
+    function addSingleMessage(msg) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', msg.type);
+
+        const messageContent = document.createElement('div');
+        messageContent.textContent = msg.content;
+
+        const messageTime = document.createElement('span');
+        messageTime.classList.add('time');
+        messageTime.textContent = formatTime(new Date(msg.time));
+
+        messageElement.appendChild(messageContent);
+        messageElement.appendChild(messageTime);
+        messageContainer.appendChild(messageElement);
+
+        messageContainer.scrollTop = messageContainer.scrollHeight;
+    }
+
+    function flashNewMessage(userId) {
+        console.log(`Flashing new message for user ID: ${userId}`);
+        const userElement = document.querySelector(`.user-item[data-id="${userId}"]`);
+        if (userElement) {
+            userElement.classList.add('new-message');
+        }
+    }
+
+    function formatTime(date) {
+        return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+
+    sendBtn.addEventListener('click', sendMessage);
+    messageInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+
+    function sendMessage() {
+        if (!messageInput.value.trim() || !selectedUserId || !stompClient) {
+            console.log('Cannot send message: ', {
+                hasContent: !!messageInput.value.trim(),
+                hasSelectedUser: !!selectedUserId,
+                hasStompClient: !!stompClient
+            });
+            return;
+        }
+
+        const messageContent = messageInput.value.trim();
+        const message = {
+            receiverId: parseInt(selectedUserId),
+            content: messageContent,
+            messageType: 'TEXT'
+        };
+
+        console.log('Sending message:', message);
+        stompClient.publish({
+            destination: '/app/message',
+            body: JSON.stringify(message),
+            headers: {
+                'Authorization': 'Bearer ' + token
+            }
+        });
+
+        // Thêm tin nhắn vào lịch sử ngay lập tức để hiển thị
+        if (!messageHistory[selectedUserId]) {
+            messageHistory[selectedUserId] = [];
+        }
+        const newMessage = {
+            content: messageContent,
+            senderId: parseInt(currentUserId),
+            receiverId: parseInt(selectedUserId),
+            time: new Date().toISOString(),
+            type: 'sent'
+        };
+        messageHistory[selectedUserId].push(newMessage);
+
+        // Hiển thị tin nhắn vừa gửi ngay lập tức
+        addSingleMessage(newMessage);
+        messageInput.value = '';
+        messageInput.focus();
+    }
+
+    function enableChatInterface() {
+        usersList.querySelectorAll('.user-item').forEach(item => {
+            item.classList.remove('disabled');
+        });
+    }
+
+    function disableChatInterface() {
+        messageInput.disabled = true;
+        sendBtn.disabled = true;
+        selectedUserName.textContent = 'Chọn người dùng để bắt đầu chat';
+        selectedUserId = null;
+
+        usersList.querySelectorAll('.user-item').forEach(item => {
+            item.classList.remove('active');
+            item.classList.remove('new-message');
+        });
+    }
+
+    usersList.addEventListener('click', async function(e) {
+        if (e.target.classList.contains('user-item') && stompClient && stompClient.connected) {
+            const userId = e.target.getAttribute('data-id');
+            console.log(`Clicked user ID: ${userId}`);
+
+            if (userId === currentUserId) {
+                alert('Không thể chat với chính mình!');
+                return;
+            }
+
+            selectedUserId = userId;
+            console.log(`Selected User ID updated to: ${selectedUserId}`);
+
+            usersList.querySelectorAll('.user-item').forEach(item => {
+                item.classList.remove('active');
+                item.classList.remove('new-message');
+            });
+            e.target.classList.add('active');
+
+            selectedUserName.textContent = e.target.textContent;
+            messageInput.disabled = false;
+            sendBtn.disabled = false;
+            messageInput.focus();
+
+            try {
+                console.log(`Fetching messages for user ID: ${userId}`);
+                const response = await fetch(`http://localhost:9191/chat/conversations/${userId}/messages`, {
+                    headers: {
+                        'Authorization': 'Bearer ' + token
+                    }
+                });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const messages = await response.json();
+                console.log('Loaded messages: ', messages);
+
+                messageHistory[userId] = messages.map(msg => ({
+                    content: msg.content,
+                    senderId: msg.senderId,
+                    receiverId: msg.receiverId,
+                    time: msg.createdAt,
+                    type: msg.senderId === parseInt(currentUserId) ? 'sent' : 'received'
+                }));
+
+                displayMessages(userId);
+            } catch (e) {
+                console.error('Lỗi khi tải lịch sử tin nhắn:', e);
+                alert('Không thể tải lịch sử tin nhắn. Vui lòng kiểm tra token hoặc kết nối.');
+            }
+        }
+    });
+
+    disableChatInterface();
+</script>
+</body>
+</html>

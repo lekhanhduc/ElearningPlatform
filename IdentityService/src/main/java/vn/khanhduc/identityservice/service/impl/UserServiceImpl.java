@@ -51,6 +51,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public UserCreationResponse createUser(UserCreationRequest request) {
+        log.info("User creation ...");
         User user = User.builder()
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
@@ -77,6 +78,7 @@ public class UserServiceImpl implements UserService {
            kafkaTemplate.send("user-created", profileEvent);
 
        } catch (DataIntegrityViolationException e) {
+           log.error("User already existed");
            throw new IdentityException(ErrorCode.USER_EXISTED);
        }
        return UserCreationResponse.builder()
@@ -90,6 +92,7 @@ public class UserServiceImpl implements UserService {
     @PreAuthorize("isAuthenticated() && hasAuthority('ADMIN')")
     @Override
     public List<UserDetailResponse> getAllUser(int page, int size) {
+        log.info("Get all user");
         var profiles = profileClient.getAllProfile(page, size);
 
         return userRepository.findAll()

@@ -41,6 +41,8 @@ eureka:
     serviceUrl:
       defaultZone: http://registry-service:8761/eureka/
 ---
+
+
 spring:
   boot:
     message: Hello Profile Service, Spring Cloud Bus

@@ -1,0 +1,10 @@
+server:
+  port: 8091
+  servlet:
+    context-path: /chat
+spring:
+  application:
+    name: CHAT-SERVICE
+  profiles:
+     active: @spring.profiles.active@
+#    active: test

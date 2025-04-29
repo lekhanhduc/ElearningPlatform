@@ -1,0 +1,10 @@
+server:
+  port: 8092
+  servlet:
+    context-path: /inventory
+
+spring:
+  application:
+    name: INVENTORY-SERVICE
+  profiles:
+    active: @spring.profiles.active@

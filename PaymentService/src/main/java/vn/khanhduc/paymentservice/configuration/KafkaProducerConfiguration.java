@@ -37,4 +37,9 @@ public class KafkaProducerConfiguration {
         return new NewTopic("payment-success", 3, (short) 1);
     }
 
+    @Bean
+    public NewTopic paymentError() {
+        return new NewTopic("payment-error", 3, (short) 1);
+    }
+
 }

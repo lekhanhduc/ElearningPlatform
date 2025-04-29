@@ -9,6 +9,7 @@ import vn.khanhduc.orderservice.dto.request.OrderCreationRequest;
 import vn.khanhduc.orderservice.dto.response.OrderCreationResponse;
 import vn.khanhduc.orderservice.dto.response.ResponseData;
 import vn.khanhduc.orderservice.service.OrderService;
+import java.util.concurrent.CompletableFuture;
 
 @RestController
 @RequiredArgsConstructor
@@ -17,13 +18,12 @@ public class OrderController {
     private final OrderService orderService;
 
     @PostMapping("/creation")
-    ResponseData<OrderCreationResponse> createOrder(@RequestBody OrderCreationRequest request) {
-        var result = orderService.createOrder(request);
-
-        return ResponseData.<OrderCreationResponse>builder()
-                .code(HttpStatus.CREATED.value())
-                .data(result)
-                .build();
+    public CompletableFuture<ResponseData<OrderCreationResponse>> createOrder(@RequestBody OrderCreationRequest request) {
+        return orderService.createOrder(request)
+                .thenApply(result -> ResponseData.<OrderCreationResponse>builder()
+                        .code(HttpStatus.CREATED.value())
+                        .data(result)
+                        .build());
     }
 
 }

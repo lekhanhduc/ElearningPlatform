@@ -82,7 +82,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                     .userId(user.getId())
                     .build();
         } catch (AuthenticationException e) {
-            log.error("Authentication exception {}", e.getMessage());
+            log.error("Authentication exception");
             throw new IdentityException(ErrorCode.UNAUTHENTICATED);
         }
     }
@@ -184,8 +184,14 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     public void signOut(String accessToken) {
         if(StringUtils.isBlank(accessToken))
             throw new IdentityException(ErrorCode.ACCESS_TOKEN_EMPTY);
+
         try {
             SignedJWT signedJWT = SignedJWT.parse(accessToken);
+            if(redisService.getToken(signedJWT.getJWTClaimsSet().getJWTID()) != null){
+                log.error("Logout error, You are logged out");
+                throw new IdentityException(ErrorCode.SIGN_OUT_FAILED);
+            }
+
             String jid = signedJWT.getJWTClaimsSet().getJWTID();
             long tokenExpired = jwtService.extractTokenExpired(accessToken);
 

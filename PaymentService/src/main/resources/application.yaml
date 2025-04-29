@@ -6,5 +6,5 @@ spring:
   application:
     name: PAYMENT-SERVICE
   profiles:
-    active: test
-#    active: @spring.profiles.active@
+#    active: test
+    active: @spring.profiles.active@

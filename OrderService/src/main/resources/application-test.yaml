@@ -25,3 +25,24 @@ spring:
 
   kafka:
     bootstrap-servers: kafka:9092
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      PAYMENT-SERVICE:
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10000
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowType: COUNT_BASED
+        minimumNumberOfCalls: 5
+        automatic-transition-from-open-to-half-open-enabled: true
+  retry:
+    instances:
+      PAYMENT-SERVICE:
+        max-attempts: 3
+        waitDuration: 500
+  timelimiter:
+    instances:
+      PAYMENT-SERVICE:
+        timeoutDuration: 5s

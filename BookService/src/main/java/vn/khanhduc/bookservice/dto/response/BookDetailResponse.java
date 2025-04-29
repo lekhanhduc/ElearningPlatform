@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @Builder
 public class BookDetailResponse implements Serializable {
     private String bookId;
+    private Long userId;
     private String isbn;
     private String title;
     private String authorName;

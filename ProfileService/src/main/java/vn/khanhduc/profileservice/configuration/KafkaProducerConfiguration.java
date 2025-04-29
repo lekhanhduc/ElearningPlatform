@@ -33,7 +33,12 @@ public class KafkaProducerConfiguration {
 
     @Bean
     public NewTopic userOnboardSuccess() {
-       return new NewTopic("user-onboard-success", 1, (short) 1);
+       return new NewTopic("profile-created", 3, (short) 1);
+    }
+
+    @Bean
+    public NewTopic createProfileFailed(){
+        return new NewTopic("profile-create-failed", 3, (short) 1);
     }
 
 }

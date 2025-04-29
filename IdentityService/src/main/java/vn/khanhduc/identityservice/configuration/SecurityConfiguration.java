@@ -34,6 +34,7 @@ public class SecurityConfiguration {
             "/message",
             "/api/v1/users/registration",
             "/api/v1/fetch-users/**",
+            "/actuator/**"
     };
 
     private final UserDetailServiceCustomizer userDetailServiceCustomizer;

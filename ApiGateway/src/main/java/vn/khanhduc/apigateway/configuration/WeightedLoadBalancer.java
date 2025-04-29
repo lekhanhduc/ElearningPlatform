@@ -23,10 +23,12 @@ public class WeightedLoadBalancer implements ReactorServiceInstanceLoadBalancer 
 
     @Override
     public Mono<Response<ServiceInstance>> choose(Request request) {
+
         return serviceInstanceListSupplier.get()
                 .next()
                 .map(serviceInstances -> {
-                    if(serviceInstances.isEmpty()) {
+                    if(serviceInstances == null || serviceInstances.isEmpty()) {
+                        log.warn("No service instances found");
                         return new DefaultResponse(null);
                     }
                     log.info("Choose service instance");
@@ -42,11 +44,11 @@ public class WeightedLoadBalancer implements ReactorServiceInstanceLoadBalancer 
 
                     int randomIndex = random.nextInt(totalWeight);
 
-                    // Duyệt qua các instance và cộng dồn trọng số
                     int currentWeight = 0;
 
                     for (ServiceInstance instance : serviceInstances) {
-                        currentWeight += getInstanceWeight(instance);
+                        int instanceWeight = getInstanceWeight(instance);
+                        currentWeight += instanceWeight;
                         if (randomIndex < currentWeight) {
                             return new DefaultResponse(instance);
                         }

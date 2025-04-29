@@ -8,6 +8,7 @@ import vn.khanhduc.orderservice.common.PaymentMethod;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -43,6 +44,6 @@ public class Order implements Serializable {
     @Column(name = "order_date", nullable = false)
     private LocalDateTime orderDate;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<OrderDetail> orderDetails;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<OrderDetail> orderDetails = new ArrayList<>();
 }

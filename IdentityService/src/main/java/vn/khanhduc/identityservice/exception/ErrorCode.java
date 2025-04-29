@@ -17,6 +17,7 @@ public enum ErrorCode {
     ACCESS_TOKEN_EMPTY(400, "Access token is empty", HttpStatus.BAD_REQUEST),
     TOKEN_EXPIRED(400, "Token expired", HttpStatus.BAD_REQUEST),
     PROFILE_SERVICE_UNAVAILABLE(503, "Hệ thống đang bảo trì, vui lòng thử lại sau", HttpStatus.SERVICE_UNAVAILABLE),
+    ROLL_BACK_ERROR(500, "Rollback error", HttpStatus.INTERNAL_SERVER_ERROR)
     ;
 
     private final int code;

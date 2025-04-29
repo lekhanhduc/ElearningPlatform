@@ -36,4 +36,5 @@ public class KafkaProducerConfiguration {
         return new NewTopic("user-created", 3, (short) 1);
     }
 
+
 }

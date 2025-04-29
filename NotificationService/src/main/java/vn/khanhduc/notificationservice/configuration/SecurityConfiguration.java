@@ -19,7 +19,7 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 public class SecurityConfiguration {
 
     private static final String[] WHILE_LIST = {
-
+            "/actuator/**"
     };
 
     private final JwtDecoderCustomizer jwtDecoder;

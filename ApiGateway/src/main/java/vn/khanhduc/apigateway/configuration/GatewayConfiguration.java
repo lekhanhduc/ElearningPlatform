@@ -51,8 +51,10 @@ public class GatewayConfiguration {
                         .uri("lb://REVIEW-SERVICE"))
                 .route("file-service", r -> r.path("/file/**")
                         .uri("lb://FILE-SERVICE"))
-                .route("cart-service", r -> r.path("/cart")
+                .route("cart-service", r -> r.path("/cart/**")
                         .uri("lb://CART-SERVICE"))
+                .route("chat-service", r -> r.path("/chat/**")
+                        .uri("lb://CHAT-SERVICE"))
                 .build();
     }
 

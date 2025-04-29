@@ -50,4 +50,10 @@ public class UserProfileController {
 
     }
 
+    @PostMapping("/upload-avatar")
+    ResponseEntity<ProfileResponse> uploadAvatar(@RequestPart(required = false, value = "avatar") MultipartFile avatar) {
+        return ResponseEntity.ok(userProfileService.uploadAvatar(avatar));
+    }
+
+
 }

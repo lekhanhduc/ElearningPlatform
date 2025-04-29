@@ -3,11 +3,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/lekhanhduc/Spring-Cloud-Config-Server
-          clone-on-start: true
-          default-label: main
-          username: lekhanhduc
-          password: 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
+
 eureka:
   instance:
     prefer-ip-address: true

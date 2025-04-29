@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Service;
 import vn.khanhduc.event.dto.NotificationEvent;
 import vn.khanhduc.notificationservice.dto.request.EmailRequest;
@@ -60,7 +59,7 @@ public class EmailServiceImpl implements EmailService {
     @KafkaListener(topics = "user-onboard-success", groupId = "notification-group")
     @Override
     public EmailResponse sendMailWithKafka(NotificationEvent event) {
-        log.info("Message received: {}", event);
+        log.info("Send email user onboard success");
 
         Map<String, Object> param = event.getParam();
         EmailRequest emailRequest = EmailRequest.builder()
@@ -86,7 +85,7 @@ public class EmailServiceImpl implements EmailService {
     @KafkaListener(topics = "payment-success", groupId = "payment-group")
     @Override
     public EmailResponse sendEmailPaymentSuccess (NotificationEvent event) {
-        log.info("Message received {}", event.toString());
+        log.info("Send Email Payment Success");
         var param = event.getParam();
         EmailRequest emailRequest = EmailRequest.builder()
                 .sender(Sender.builder()

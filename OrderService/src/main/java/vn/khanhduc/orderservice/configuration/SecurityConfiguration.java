@@ -19,17 +19,19 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 public class SecurityConfiguration {
 
     private static final String[] WHILE_LIST = {
-
     };
 
     private final JwtDecoderCustomizer jwtDecoder;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable);
 
-        http.authorizeHttpRequests(request -> request.requestMatchers(WHILE_LIST).permitAll()
+        http.authorizeHttpRequests(request ->
+                request.requestMatchers(WHILE_LIST).permitAll()
                 .anyRequest().authenticated());
-        http.oauth2ResourceServer(oauth2Resource -> oauth2Resource.jwt(jwtConfigurer -> jwtConfigurer.decoder(jwtDecoder)
+        http.oauth2ResourceServer(oauth2Resource -> oauth2Resource
+                        .jwt(jwtConfigurer -> jwtConfigurer.decoder(jwtDecoder)
                                 .jwtAuthenticationConverter(jwtAuthenticationConverter()))
                 .authenticationEntryPoint(new JwtAuthenticationEntryPoint())
                 .accessDeniedHandler(new JwtAccessDined()))

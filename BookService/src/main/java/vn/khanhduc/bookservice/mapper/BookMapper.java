@@ -36,6 +36,7 @@ public class BookMapper {
     public static BookDetailResponse toBookDetailResponse(Book book) {
         return BookDetailResponse.builder()
                 .bookId(book.getBookId())
+                .userId(book.getUserId())
                 .authorName(book.getAuthorName())
                 .isbn(book.getIsbn())
                 .title(book.getTitle())

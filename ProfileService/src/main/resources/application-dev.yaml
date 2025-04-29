@@ -14,11 +14,4 @@ spring:
     bootstrap-servers: localhost:9094
 
 ---
-aws:
-  s3:
-    bucket-name:
-    region:
-    endpoint-url:
-  credentials:
-    access-key:
-    secret-key:
+

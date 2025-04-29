@@ -2,6 +2,7 @@ package vn.khanhduc.paymentservice.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import vn.khanhduc.event.dto.NotificationEvent;
+import vn.khanhduc.event.dto.PaymentErrorEvent;
 import vn.khanhduc.paymentservice.common.Channel;
 import vn.khanhduc.paymentservice.common.PaymentStatus;
 import vn.khanhduc.paymentservice.dto.request.CreatePaymentLinkRequestBody;
@@ -70,24 +71,28 @@ public class PaymentService {
         }
     }
 
-    public ObjectNode payosTransferHandler(ObjectNode body) throws JsonProcessingException {
+    public ObjectNode payosTransferHandler(ObjectNode body) throws Exception {
         ObjectNode response = objectMapper.createObjectNode();
         Webhook webhookBody = objectMapper.treeToValue(body, Webhook.class);
+
+        WebhookData data = payOS.verifyPaymentWebhookData(webhookBody);
+        String code = data.getCode();
+        Long orderCode = data.getOrderCode();
+        Payment payment = paymentRepository.findByOrderCode(orderCode)
+                .orElseThrow(() -> new PaymentException(ErrorCode.ORDER_CODE_NOT_EXISTED));
+
+        log.info("Payment with order id = {}, orderCode= {}", payment.getOrderId(), payment.getOrderCode());
         try {
             response.put("error", 0);
             response.put("message", "Webhook delivered");
             response.set("data", null);
 
-            WebhookData data = payOS.verifyPaymentWebhookData(webhookBody);
-            String code = data.getCode();
-            Long orderCode = data.getOrderCode();
-            Payment payment = paymentRepository.findByOrderCode(orderCode)
-                    .orElseThrow(() -> new PaymentException(ErrorCode.ORDER_CODE_NOT_EXISTED));
-
             if(Objects.equals(code, "00")) {
                 payment.setPaymentStatus(PaymentStatus.SUCCESS);
+
                 var userDetail = userClient.getUserDetail(payment.getUserId());
                 var param = new HashMap<String, Object>();
+
                 param.put("orderId", orderCode);
                 param.put("fullName", userDetail.getData().getFirstName() + " " + userDetail.getData().getLastName());
                 NotificationEvent event = NotificationEvent.builder()
@@ -96,7 +101,8 @@ public class PaymentService {
                         .param(param)
                         .build();
                 kafkaTemplate.send("payment-success", event);
-                log.info("Payment success");
+
+                log.info("Payment success with orderId = {}, orderCode= {}", payment.getOrderId(), payment.getOrderCode());
             } else {
                 payment.setPaymentStatus(PaymentStatus.FAILED);
             }
@@ -106,9 +112,16 @@ public class PaymentService {
             return response;
 
         } catch (Exception e) {
+            log.error("Error when verify payment webhook: {}", e.getMessage());
             response.put("error", -1);
             response.put("message", e.getMessage());
             response.set("data", null);
+
+            PaymentErrorEvent errorEvent = PaymentErrorEvent.builder()
+                    .orderId(payment.getOrderId())
+                    .build();
+            kafkaTemplate.send("payment-error", errorEvent);
+
             return response;
         }
     }

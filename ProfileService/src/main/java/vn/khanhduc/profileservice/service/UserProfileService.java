@@ -15,4 +15,5 @@ public interface UserProfileService {
     ProfileResponse getProfileByUserId(Long userId);
     void createProfile(ProfileEvent event, Acknowledgment acknowledgment);
     ProfileResponse updateProfile(ProfileUpdateRequest request, MultipartFile file);
+    ProfileResponse uploadAvatar(MultipartFile file);
 }

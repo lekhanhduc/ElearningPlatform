@@ -12,4 +12,5 @@ public interface GoogleClient {
 
     @PostMapping(value = "/token", produces = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     ExchangeTokenResponse exchangeToken(@QueryMap ExchangeTokenRequest request);
+
 }

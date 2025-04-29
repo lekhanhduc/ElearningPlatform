@@ -15,18 +15,18 @@ public class AuthenticationRequestInterceptor implements RequestInterceptor {
     @Override
     public void apply(RequestTemplate requestTemplate) {
         String token = null;
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication != null && authentication.getPrincipal() instanceof JwtAuthenticationToken jwtAuthenticationToken) {
+        var principal = SecurityContextHolder.getContext().getAuthentication();
+        if(principal instanceof JwtAuthenticationToken jwtAuthenticationToken) {
             token = jwtAuthenticationToken.getToken().getTokenValue();
         }
-
         if(token == null) {
-            ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+            ServletRequestAttributes requestAttributes =
+                    (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
             if(requestAttributes != null) {
                 token = requestAttributes.getRequest().getHeader("Authorization");
             }
         }
-        if(token != null) {
+        if (token != null) {
             requestTemplate.header("Authorization",  "Bearer " + token);
         }
     }

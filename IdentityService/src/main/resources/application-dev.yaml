@@ -59,17 +59,7 @@ spring:
 #      trace:
 #        enabled: true
 #
-management:
-  health:
-    circuitbreakers:
-      enabled: true
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    health:
-      show-details: always
+
 #  tracing:
 #    sampling:
 #      probability: 1.0 # 100% request được tracking (nếu hệ thống lớn, có thể giảm xuống 0.5)
@@ -97,10 +87,11 @@ google:
 resilience4j.circuitbreaker:
   instances:
     IDENTITY-SERVICE:
-      slidingWindowSize: 1       # Số lượng yêu cầu để tính toán tỷ lệ lỗi
+      slidingWindowSize: 10       # Số lượng yêu cầu để tính toán tỷ lệ lỗi
       failureRateThreshold: 50       # Tỷ lệ lỗi (%) để mở Circuit Breaker
       waitDurationInOpenState: 10000 # Thời gian chờ trước khi chuyển sang trạng thái nửa mở (ms)
       permittedNumberOfCallsInHalfOpenState: 3  # Số lượng yêu cầu cho phép ở trạng thái nửa mở
       slidingWindowType: COUNT_BASED # Loại cửa sổ (dựa trên số lượng yêu cầu)
       minimumNumberOfCalls: 5        # Số lượng yêu cầu tối thiểu để kích hoạt tính toán lỗi
       automatic-transition-from-open-to-half-open-enabled: true
+  

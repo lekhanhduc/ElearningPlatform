@@ -1,0 +1,101 @@
+pipeline {
+	agent any
+    tools {
+		jdk 'JDK21'
+		maven 'Maven-3.3.9'
+    }
+    environment {
+		GITHUB_TOKEN = credentials('github-token')
+        SONAR_TOKEN = credentials('sonar-token')
+        SLACK_WEBHOOK_URL = credentials('slack-webhook-url')
+    }
+    stages {
+		stage('Checkout Code') {
+			steps {
+				script {
+					if (fileExists('Microservices2025')) {
+						echo 'Repository already exists. Pulling latest changes...'
+                        dir('Microservices2025') {
+							sh 'git reset --hard'
+                            sh 'git pull origin master'
+                        }
+                    } else {
+						echo 'Cloning repository...'
+                        sh "git clone https://${GITHUB_TOKEN}@github.com/lekhanhduc/Microservices2025.git"
+                    }
+                }
+            }
+        }
+        stage('Build IdentityService') {
+			steps {
+				dir('Microservices2025/IdentityService') {
+					sh 'mvn clean install'
+                }
+            }
+        }
+        stage('Code Quality With SonarQube') {
+			steps {
+				echo 'Running SonarQube analysis for IdentityService...'
+                dir('Microservices2025/IdentityService') {
+					sh """
+                        mvn sonar:sonar \
+                            -Dsonar.projectKey=IdentityService \
+                            -Dsonar.host.url=http://sonarqube:9000 \
+                            -Dsonar.login=${SONAR_TOKEN}
+                    """
+                }
+            }
+        }
+        stage('Build Package') {
+			steps {
+				dir('Microservices2025/IdentityService') {
+					sh 'mvn package'
+                }
+            }
+        }
+        stage('Archive Artifact') {
+			steps {
+				archiveArtifacts artifacts: 'Microservices2025/IdentityService/target/*.jar', fingerprint: true
+            }
+        }
+        stage('Build Docker Image') {
+			steps {
+				dir('Microservices2025/IdentityService') {
+					sh "docker build -t lekhanhduc/identity-service:1.0.0 ."
+                    sh "docker tag lekhanhduc/identity-service:1.0.0 lekhanhduc/identity-service:latest"
+                }
+            }
+        }
+        stage('Push Docker Image') {
+			steps {
+				dir('Microservices2025/IdentityService') {
+					withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+						sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
+                        sh "docker push lekhanhduc/identity-service:1.0.0"
+                    }
+                }
+            }
+        }
+    }
+    post {
+		success {
+			echo 'Pipeline completed successfully!'
+            slackSend(
+                channel: '#cicd-notifications',
+                color: 'good',
+                message: "✅ *Pipeline Success* | *IdentityService* \n- Version: 1.0.0 \n- Job: ${env.JOB_NAME} \n- Build: #${env.BUILD_NUMBER} \n- URL: ${env.BUILD_URL}"
+            )
+        }
+        failure {
+			echo 'Pipeline failed!'
+            slackSend(
+                channel: '#cicd-notifications',
+                color: 'danger',
+                message: "❌ *Pipeline Failed* | *IdentityService* \n- Job: ${env.JOB_NAME} \n- Build: #${env.BUILD_NUMBER} \n- URL: ${env.BUILD_URL}"
+            )
+        }
+        always {
+			cleanWs()
+        }
+    }
+}

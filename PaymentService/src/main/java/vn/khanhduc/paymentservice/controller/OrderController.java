@@ -28,7 +28,7 @@ public class OrderController {
 
     @PostMapping("/confirm-webhook")
     public ObjectNode payosTransferHandler(@RequestBody ObjectNode body)
-            throws JsonProcessingException, IllegalArgumentException {
+            throws Exception {
         return paymentService.payosTransferHandler(body);
     }
 

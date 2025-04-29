@@ -9,13 +9,14 @@ import org.springframework.data.domain.Sort;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.Acknowledgment;
+import org.springframework.retry.annotation.Backoff;
+import org.springframework.retry.annotation.Retryable;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import vn.khanhduc.event.dto.NotificationEvent;
+import vn.khanhduc.event.dto.ProfileCreationFailedEvent;
 import vn.khanhduc.event.dto.ProfileEvent;
-import vn.khanhduc.profileservice.common.Channel;
 import vn.khanhduc.profileservice.dto.request.ProfileRequest;
 import vn.khanhduc.profileservice.dto.request.ProfileUpdateRequest;
 import vn.khanhduc.profileservice.dto.response.PageResponse;
@@ -25,9 +26,9 @@ import vn.khanhduc.profileservice.exception.ResourceNotFoundException;
 import vn.khanhduc.profileservice.mapper.UserProfileMapper;
 import vn.khanhduc.profileservice.entity.UserProfile;
 import vn.khanhduc.profileservice.repository.UserProfileRepository;
+import vn.khanhduc.profileservice.repository.http.FileClient;
 import vn.khanhduc.profileservice.service.S3Service;
 import vn.khanhduc.profileservice.service.UserProfileService;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,6 +41,7 @@ public class UserProfileServiceImpl implements UserProfileService {
     private final UserProfileMapper userProfileMapper;
     private final KafkaTemplate<String, Object> kafkaTemplate;
     private final S3Service s3Service;
+    private final FileClient fileClient;
 
     @Override
     public ProfileResponse createProfile(ProfileRequest request) {
@@ -85,10 +87,15 @@ public class UserProfileServiceImpl implements UserProfileService {
     }
 
     @KafkaListener(topics = "user-created", groupId = "profile-group")
+    @Retryable(
+            retryFor = Exception.class,
+            maxAttempts = 4,
+            backoff = @Backoff(delay = 1000, multiplier = 2.0),
+            label = "createProfileRetry")
     @Override
     public void createProfile(ProfileEvent profileEvent, Acknowledgment acknowledgment) {
        try {
-           log.info("Profile event {}", profileEvent.toString());
+           log.info("Create Profile Start ");
            userProfileRepository.save(
                    UserProfile.builder()
                            .userId(profileEvent.getUserId())
@@ -98,22 +105,14 @@ public class UserProfileServiceImpl implements UserProfileService {
                            .avatar(profileEvent.getAvatar())
                            .build());
            acknowledgment.acknowledge();
-
-           var param = new HashMap<String, Object>();
-           param.put("subject", "Welcome to Book Store");
-           param.put("name", String.format("%s %s", profileEvent.getFirstName(), profileEvent.getLastName()));
-           param.put("body", "Hello " + profileEvent.getFirstName() + " " + profileEvent.getLastName());
-
-           NotificationEvent notificationEvent = NotificationEvent.builder()
-                   .channel(Channel.EMAIL.name())
-                   .recipient(profileEvent.getEmail())
-                   .param(param)
-                   .build();
-
-           kafkaTemplate.send("user-onboard-success", notificationEvent);
-
+           log.info("Create profile successfully");
+           kafkaTemplate.send("profile-created", profileEvent);
        }catch (Exception e) {
            log.info("Create profile failed");
+           ProfileCreationFailedEvent failedEvent = ProfileCreationFailedEvent.builder()
+                   .userId(profileEvent.getUserId())
+                   .build();
+           kafkaTemplate.send("profile-create-failed", failedEvent);
            throw e;
        }
     }
@@ -143,6 +142,33 @@ public class UserProfileServiceImpl implements UserProfileService {
                 .lastName(userProfile.getLastName())
                 .phoneNumber(userProfile.getPhoneNumber())
                 .avatar(userProfile.getAvatar())
+                .build();
+    }
+
+    @Override
+    public ProfileResponse uploadAvatar(MultipartFile file) {
+        var principal = SecurityContextHolder.getContext().getAuthentication().getName().describeConstable();
+        if(principal.isEmpty())
+            throw new AuthenticationException("Unauthenticated");
+
+        Long userId = Long.parseLong(principal.get());
+        UserProfile profile = userProfileRepository.findByUserId(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User Not Found"));
+
+        if(file == null) {
+            throw new IllegalArgumentException("File cannot be null");
+        }
+        var response = fileClient.uploadFile(file);
+        profile.setAvatar(response.getData().getUrl());
+
+        userProfileRepository.save(profile);
+
+        return ProfileResponse.builder()
+                .userId(userId)
+                .firstName(profile.getFirstName())
+                .lastName(profile.getLastName())
+                .avatar(profile.getAvatar())
+                .phoneNumber(profile.getPhoneNumber())
                 .build();
     }
 
