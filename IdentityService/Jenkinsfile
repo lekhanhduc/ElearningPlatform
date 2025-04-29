@@ -21,7 +21,9 @@ pipeline {
                         }
                     } else {
 						echo 'Cloning repository...'
-                        sh "git clone https://${GITHUB_TOKEN}@github.com/lekhanhduc/Microservies2025"
+                        withCredentials([usernamePassword(credentialsId: 'github-token', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_TOKEN')]) {
+							sh "git clone https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/lekhanhduc/Microservies2025.git"
+						}
                     }
                 }
             }
@@ -29,7 +31,9 @@ pipeline {
         stage('Build IdentityService') {
 			steps {
 				dir('Microservices2025/IdentityService') {
-					sh 'mvn clean install'
+					withEnv(["JAVA_HOME=${tool 'JDK21'}"]) {
+						sh 'mvn clean install'
+                    }
                 }
             }
         }
