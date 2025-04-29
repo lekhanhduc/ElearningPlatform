@@ -21,7 +21,7 @@ pipeline {
                         }
                     } else {
 						echo 'Cloning repository...'
-                        sh "git clone https://${GITHUB_TOKEN}@github.com/lekhanhduc/Microservices2025"
+                        sh "git clone https://${GITHUB_TOKEN}@github.com/lekhanhduc/Microservies2025"
                     }
                 }
             }
