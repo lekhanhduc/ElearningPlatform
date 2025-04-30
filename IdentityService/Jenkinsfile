@@ -2,7 +2,7 @@ pipeline {
 	agent any
     tools {
 		jdk 'JDK21'
-		maven 'Maven-3.3.9'
+        maven 'Maven-3.3.9'
     }
     environment {
 		GITHUB_TOKEN = credentials('github-token')
@@ -23,7 +23,7 @@ pipeline {
 						echo 'Cloning repository...'
                         withCredentials([usernamePassword(credentialsId: 'github-token', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_TOKEN')]) {
 							sh "git clone https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/lekhanhduc/Microservies2025.git"
-						}
+                        }
                     }
                 }
             }
@@ -84,21 +84,31 @@ pipeline {
     post {
 		success {
 			echo 'Pipeline completed successfully!'
-            slackSend(
-                channel: '#cicd-notifications',
-                color: 'good',
-                message: "✅ *Pipeline Success* | *IdentityService* \n- Version: 1.0.0 \n- Job: ${env.JOB_NAME} \n- Build: #${env.BUILD_NUMBER} \n- URL: ${env.BUILD_URL}",
-                webhookUrl: "${SLACK_WEBHOOK_URL}"
-            )
+            script {
+				withCredentials([string(credentialsId: 'slack-webhook-url', variable: 'WEBHOOK')]) {
+					sh """
+                        curl -X POST -H 'Content-type: application/json' --data '{
+                            "channel": "#cicd-notifications",
+                            "color": "good",
+                            "text": "✅ *Pipeline Success* | *IdentityService* \\n- Version: 1.0.0 \\n- Job: ${env.JOB_NAME} \\n- Build: #${env.BUILD_NUMBER} \\n- URL: ${env.BUILD_URL}"
+                        }' ${WEBHOOK}
+                    """
+                }
+            }
         }
         failure {
 			echo 'Pipeline failed!'
-            slackSend(
-                channel: '#cicd-notifications',
-                color: 'danger',
-                message: "❌ *Pipeline Failed* | *IdentityService* \n- Job: ${env.JOB_NAME} \n- Build: #${env.BUILD_NUMBER} \n- URL: ${env.BUILD_URL}",
-                webhookUrl: "${SLACK_WEBHOOK_URL}"
-            )
+            script {
+				withCredentials([string(credentialsId: 'slack-webhook-url', variable: 'WEBHOOK')]) {
+					sh """
+                        curl -X POST -H 'Content-type: application/json' --data '{
+                            "channel": "#cicd-notifications",
+                            "color": "danger",
+                            "text": "❌ *Pipeline Failed* | *IdentityService* \\n- Job: ${env.JOB_NAME} \\n- Build: #${env.BUILD_NUMBER} \\n- URL: ${env.BUILD_URL}"
+                        }' ${WEBHOOK}
+                    """
+                }
+            }
         }
         always {
 			cleanWs()
