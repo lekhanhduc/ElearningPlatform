@@ -65,25 +65,21 @@ pipeline {
         stage('Build Docker Image') {
 			steps {
 				dir('Microservies2025/IdentityService') {
-					script {
-						def dockerImage = docker.build("lekhanhduc/identity-service:1.0.0")
-                dockerImage.tag("latest")
-            }
-        }
-    }
-}
-      stage('Push Docker Image') {
-			steps {
-				dir('Microservies2025/IdentityService') {
-					script {
-						docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-credentials') {
-							docker.image("lekhanhduc/identity-service:1.0.0").push()
-                    docker.image("lekhanhduc/identity-service:latest").push()
+					sh "docker build -t khanhduc/identity-service:1.0.0 ."
+                    sh "docker tag khanhduc/identity-service:1.0.0 khanhduc/identity-service:latest"
                 }
             }
         }
-    }
-}
+        stage('Push Docker Image') {
+			steps {
+				dir('Microservies2025/IdentityService') {
+					withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+						sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
+                        sh "docker push khanhduc/identity-service:1.0.0"
+                    }
+                }
+            }
+        }
     }
     post {
 		success {
