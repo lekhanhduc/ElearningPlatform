@@ -2,12 +2,14 @@ pipeline {
 	agent any
     tools {
 		jdk 'JDK21'
-		maven 'Maven-3.3.9'
+        maven 'Maven-3.3.9'
     }
     environment {
 		GITHUB_TOKEN = credentials('github-token')
         SONAR_TOKEN = credentials('sonar-token')
         SLACK_WEBHOOK_URL = credentials('slack-webhook-url')
+        DOCKER_USERNAME = 'khanhduc'
+        DOCKER_PASSWORD = 'duc02102003'
     }
     stages {
 		stage('Checkout Code') {
@@ -23,7 +25,7 @@ pipeline {
 						echo 'Cloning repository...'
                         withCredentials([usernamePassword(credentialsId: 'github-token', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_TOKEN')]) {
 							sh "git clone https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/lekhanhduc/Microservies2025.git"
-						}
+                        }
                     }
                 }
             }
@@ -65,25 +67,20 @@ pipeline {
         stage('Build Docker Image') {
 			steps {
 				dir('Microservies2025/IdentityService') {
-					script {
-						def dockerImage = docker.build("khanhduc/identity-service:1.0.0")
-                dockerImage.tag("latest")
-            }
-        }
-    }
-}
-stage('Push Docker Image') {
-			steps {
-				dir('Microservies2025/IdentityService') {
-					script {
-						docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-credentials') {
-							docker.image("khanhduc/identity-service:1.0.0").push()
-                    docker.image("khanhduc/identity-service:latest").push()
+					sh "docker build -t khanhduc/identity-service:1.0.0 ."
+                    sh "docker tag khanhduc/identity-service:1.0.0 khanhduc/identity-service:latest"
                 }
             }
         }
-    }
-}
+        stage('Push Docker Image') {
+			steps {
+				dir('Microservies2025/IdentityService') {
+					sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
+                    sh "docker push khanhduc/identity-service:1.0.0"
+                    sh "docker push khanhduc/identity-service:latest"
+                }
+            }
+        }
     }
     post {
 		success {
