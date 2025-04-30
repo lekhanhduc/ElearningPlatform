@@ -87,7 +87,8 @@ pipeline {
             slackSend(
                 channel: '#cicd-notifications',
                 color: 'good',
-                message: "✅ *Pipeline Success* | *IdentityService* \n- Version: 1.0.0 \n- Job: ${env.JOB_NAME} \n- Build: #${env.BUILD_NUMBER} \n- URL: ${env.BUILD_URL}"
+                message: "✅ *Pipeline Success* | *IdentityService* \n- Version: 1.0.0 \n- Job: ${env.JOB_NAME} \n- Build: #${env.BUILD_NUMBER} \n- URL: ${env.BUILD_URL}",
+                webhookUrl: "${SLACK_WEBHOOK_URL}"
             )
         }
         failure {
@@ -95,7 +96,8 @@ pipeline {
             slackSend(
                 channel: '#cicd-notifications',
                 color: 'danger',
-                message: "❌ *Pipeline Failed* | *IdentityService* \n- Job: ${env.JOB_NAME} \n- Build: #${env.BUILD_NUMBER} \n- URL: ${env.BUILD_URL}"
+                message: "❌ *Pipeline Failed* | *IdentityService* \n- Job: ${env.JOB_NAME} \n- Build: #${env.BUILD_NUMBER} \n- URL: ${env.BUILD_URL}",
+                webhookUrl: "${SLACK_WEBHOOK_URL}"
             )
         }
         always {
