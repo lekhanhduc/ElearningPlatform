@@ -86,13 +86,11 @@ pipeline {
 			echo 'Pipeline completed successfully!'
             script {
 				withCredentials([string(credentialsId: 'slack-webhook-url', variable: 'WEBHOOK')]) {
-					sh """
+					sh '''
                         curl -X POST -H 'Content-type: application/json' --data '{
-                            "channel": "#cicd-notifications",
-                            "color": "good",
-                            "text": "✅ *Pipeline Success* | *IdentityService* \\n- Version: 1.0.0 \\n- Job: ${env.JOB_NAME} \\n- Build: #${env.BUILD_NUMBER} \\n- URL: ${env.BUILD_URL}"
+                            "text": "✅ *Pipeline Success* | *IdentityService* \\n- Version: 1.0.0 \\n- Job: '"${JOB_NAME}"' \\n- Build: #'"${BUILD_NUMBER}"' \\n- URL: '"${BUILD_URL}"'"
                         }' ${WEBHOOK}
-                    """
+                    '''
                 }
             }
         }
@@ -100,13 +98,11 @@ pipeline {
 			echo 'Pipeline failed!'
             script {
 				withCredentials([string(credentialsId: 'slack-webhook-url', variable: 'WEBHOOK')]) {
-					sh """
+					sh '''
                         curl -X POST -H 'Content-type: application/json' --data '{
-                            "channel": "#cicd-notifications",
-                            "color": "danger",
-                            "text": "❌ *Pipeline Failed* | *IdentityService* \\n- Job: ${env.JOB_NAME} \\n- Build: #${env.BUILD_NUMBER} \\n- URL: ${env.BUILD_URL}"
+                            "text": "❌ *Pipeline Failed* | *IdentityService* \\n- Job: '"${JOB_NAME}"' \\n- Build: #'"${BUILD_NUMBER}"' \\n- URL: '"${BUILD_URL}"'"
                         }' ${WEBHOOK}
-                    """
+                    '''
                 }
             }
         }
