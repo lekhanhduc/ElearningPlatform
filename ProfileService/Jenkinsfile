@@ -22,15 +22,15 @@ pipeline {
                     } else {
 						echo 'Cloning repository...'
                         withCredentials([usernamePassword(credentialsId: 'github-token', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_TOKEN')]) {
-							sh "git clone https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/lekhanhduc/BookStorePlatform.git"
+							sh "git clone https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/lekhanhduc/Microservices.git"
                         }
                     }
                 }
             }
         }
-        stage('Build IdentityService') {
+        stage('Build ProfileService') {
 			steps {
-				dir('BookStorePlatform/IdentityService') {
+				dir('BookStorePlatform/ProfileService') {
 					withEnv(["JAVA_HOME=${tool 'JDK21'}"]) {
 						sh 'mvn clean install -DskipTests'
                     }
@@ -39,8 +39,8 @@ pipeline {
         }
         stage('Code Quality With SonarQube') {
 			steps {
-				echo 'Running SonarQube analysis for IdentityService...'
-                dir('BookStorePlatform/IdentityService') {
+				echo 'Running SonarQube analysis for ProfileService...'
+                dir('BookStorePlatform/ProfileService') {
 					sh """
                         mvn sonar:sonar \
                             -Dsonar.projectKey=IdentityService \
@@ -52,30 +52,30 @@ pipeline {
         }
         stage('Build Package') {
 			steps {
-				dir('BookStorePlatform/IdentityService') {
+				dir('BookStorePlatform/ProfileService') {
 					sh 'mvn package -DskipTests'
                 }
             }
         }
         stage('Archive Artifact') {
 			steps {
-				archiveArtifacts artifacts: 'BookStorePlatform/IdentityService/target/*.jar', fingerprint: true
+				archiveArtifacts artifacts: 'BookStorePlatform/ProfileService/target/*.jar', fingerprint: true
             }
         }
         stage('Build Docker Image') {
 			steps {
-				dir('BookStorePlatform/IdentityService') {
-					sh "docker build -t khanhduc/identity-service:1.0.0 ."
-                    sh "docker tag khanhduc/identity-service:1.0.0 khanhduc/identity-service:latest"
+				dir('BookStorePlatform/ProfileService') {
+					sh "docker build -t khanhduc/profile-service:1.0.0 ."
+                    sh "docker tag khanhduc/profile-service:1.0.0 khanhduc/profile-service:latest"
                 }
             }
         }
         stage('Push Docker Image') {
 			steps {
-				dir('BookStorePlatform/IdentityService') {
+				dir('BookStorePlatform/ProfileService') {
 					withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
 						sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
-                        sh "docker push khanhduc/identity-service:1.0.0"
+                        sh "docker push khanhduc/profile-service:1.0.0"
                     }
                 }
             }
