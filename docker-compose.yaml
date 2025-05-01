@@ -214,7 +214,7 @@ services:
       - app_network
 
   identity-service:
-    image: khanhduc/identity-service:1.0.0
+    image: khanhduc/identity-service:1.0.1
     container_name: identity-service
     ports:
       - "8080:8080"
@@ -241,7 +241,7 @@ services:
       - app_network
 
   profile-service:
-    image: khanhduc/profile-service:1.0.0
+    image: vinhung/auth-service:1.0.0
     container_name: profile-service
     ports:
       - "8081:8081"
