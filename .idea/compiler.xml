@@ -3,16 +3,6 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
-      <profile name="Annotation profile for ApiGateway" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar" />
-        </processorPath>
-        <module name="ApiGateway" />
-      </profile>
       <profile name="Annotation profile for BatchService" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -20,14 +10,44 @@
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
-        <module name="BatchService" />
+        <module name="batch-service" />
       </profile>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="RegistryService" />
-        <module name="ConfigServer" />
+        <module name="config-server" />
+        <module name="eureka-server" />
+      </profile>
+      <profile name="Annotation profile for NotificationService" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
+        </processorPath>
+        <module name="post-service" />
+        <module name="cart-service" />
+        <module name="inventory-service" />
+        <module name="payment-service" />
+        <module name="book-service" />
+        <module name="search-service" />
+        <module name="review-service" />
+        <module name="chat-service" />
+        <module name="order-service" />
+        <module name="file-service" />
+        <module name="event-bus-service" />
+        <module name="notification-service" />
+      </profile>
+      <profile name="Annotation profile for ApiGateway" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar" />
+        </processorPath>
+        <module name="api-gateway" />
+        <module name="identity-service" />
       </profile>
       <profile name="Annotation profile for ProfileService" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -39,59 +59,30 @@
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.5.5.Final/mapstruct-processor-1.5.5.Final.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.5.5.Final/mapstruct-1.5.5.Final.jar" />
         </processorPath>
-        <module name="ProfileService" />
-      </profile>
-      <profile name="Annotation profile for IdentityService" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar" />
-        </processorPath>
-        <module name="IdentityService" />
-      </profile>
-      <profile name="Annotation profile for NotificationService" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
-        </processorPath>
-        <module name="EventBusService" />
-        <module name="FileService" />
-        <module name="InventoryService" />
-        <module name="SearchService" />
-        <module name="PostService" />
-        <module name="BookService" />
-        <module name="CartService" />
-        <module name="NotificationService" />
-        <module name="OrderService" />
-        <module name="ReviewService" />
-        <module name="PaymentService" />
-        <module name="ChatService" />
+        <module name="profile-service" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="ApiGateway" options="-parameters" />
-      <module name="BatchService" options="-parameters" />
-      <module name="BookService" options="-parameters" />
-      <module name="CartService" options="-parameters" />
-      <module name="ChatService" options="-parameters" />
-      <module name="ConfigServer" options="-parameters" />
-      <module name="EventBusService" options="-parameters" />
-      <module name="FileService" options="-parameters" />
-      <module name="IdentityService" options="-parameters" />
-      <module name="InventoryService" options="-parameters" />
-      <module name="NotificationService" options="-parameters" />
-      <module name="OrderService" options="-parameters" />
-      <module name="PaymentService" options="-parameters" />
-      <module name="PostService" options="-parameters" />
-      <module name="ProfileService" options="-parameters" />
-      <module name="RegistryService" options="-parameters" />
-      <module name="ReviewService" options="-parameters" />
-      <module name="SearchService" options="-parameters" />
+      <module name="api-gateway" options="-parameters" />
+      <module name="batch-service" options="-parameters" />
+      <module name="book-service" options="-parameters" />
+      <module name="cart-service" options="-parameters" />
+      <module name="chat-service" options="-parameters" />
+      <module name="config-server" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="event-bus-service" options="-parameters" />
+      <module name="file-service" options="-parameters" />
+      <module name="identity-service" options="-parameters" />
+      <module name="inventory-service" options="-parameters" />
+      <module name="notification-service" options="-parameters" />
+      <module name="order-service" options="-parameters" />
+      <module name="payment-service" options="-parameters" />
+      <module name="post-service" options="-parameters" />
+      <module name="profile-service" options="-parameters" />
+      <module name="review-service" options="-parameters" />
+      <module name="search-service" options="-parameters" />
     </option>
   </component>
 </project>

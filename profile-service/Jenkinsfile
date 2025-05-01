@@ -1,0 +1,113 @@
+pipeline {
+	agent any
+    tools {
+		jdk 'JDK21'
+        maven 'Maven-3.3.9'
+    }
+    environment {
+		GITHUB_TOKEN = credentials('github-token')
+        SONAR_TOKEN = credentials('sonar-token')
+        SLACK_WEBHOOK_URL = credentials('slack-webhook-url')
+    }
+    stages {
+		stage('Checkout Code') {
+			steps {
+				script {
+					if (fileExists('BookStorePlatform')) {
+						echo 'Repository already exists. Pulling latest changes...'
+                        dir('BookStorePlatform') {
+							sh 'git reset --hard'
+                            sh 'git pull origin master'
+                        }
+                    } else {
+						echo 'Cloning repository...'
+                        withCredentials([usernamePassword(credentialsId: 'github-token', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_TOKEN')]) {
+							sh "git clone https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/lekhanhduc/Microservices.git"
+                        }
+                    }
+                }
+            }
+        }
+        stage('Build ProfileService') {
+			steps {
+				dir('BookStorePlatform/profile-service') {
+					withEnv(["JAVA_HOME=${tool 'JDK21'}"]) {
+						sh 'mvn clean install -DskipTests'
+                    }
+                }
+            }
+        }
+        stage('Code Quality With SonarQube') {
+			steps {
+				echo 'Running SonarQube analysis for ProfileService...'
+                dir('BookStorePlatform/profile-service') {
+					sh """
+                        mvn sonar:sonar \
+                            -Dsonar.projectKey=profile-service \
+                            -Dsonar.host.url=http://sonarqube:9000 \
+                            -Dsonar.login=${SONAR_TOKEN}
+                    """
+                }
+            }
+        }
+        stage('Build Package') {
+			steps {
+				dir('BookStorePlatform/profile-service') {
+					sh 'mvn package -DskipTests'
+                }
+            }
+        }
+        stage('Archive Artifact') {
+			steps {
+				archiveArtifacts artifacts: 'BookStorePlatform/profile-service/target/*.jar', fingerprint: true
+            }
+        }
+        stage('Build Docker Image') {
+			steps {
+				dir('BookStorePlatform/profile-service') {
+					sh "docker build -t profile-service:1.0.0 ."
+                    sh "docker tag profile-service:1.0.0 khanhduc/profile-service:1.0.0"
+                }
+            }
+        }
+        stage('Push Docker Image') {
+			steps {
+				dir('BookStorePlatform/profile-service') {
+					withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+						sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
+                        sh "docker push khanhduc/profile-service:1.0.0"
+                    }
+                }
+            }
+        }
+    }
+    post {
+		success {
+			echo 'Pipeline completed successfully!'
+            script {
+				withCredentials([string(credentialsId: 'slack-webhook-url', variable: 'WEBHOOK')]) {
+					sh '''
+                        curl -X POST -H 'Content-type: application/json' --data '{
+                            "text": "✅ *Pipeline Success* | *ProfileService* \\n- Version: 1.0.0 \\n- Job: '"${JOB_NAME}"' \\n- Build: #'"${BUILD_NUMBER}"' \\n- URL: '"${BUILD_URL}"'"
+                        }' ${WEBHOOK}
+                    '''
+                }
+            }
+        }
+        failure {
+			echo 'Pipeline failed!'
+            script {
+				withCredentials([string(credentialsId: 'slack-webhook-url', variable: 'WEBHOOK')]) {
+					sh '''
+                        curl -X POST -H 'Content-type: application/json' --data '{
+                            "text": "❌ *Pipeline Failed* | *ProfileService* \\n- Job: '"${JOB_NAME}"' \\n- Build: #'"${BUILD_NUMBER}"' \\n- URL: '"${BUILD_URL}"'"
+                        }' ${WEBHOOK}
+                    '''
+                }
+            }
+        }
+        always {
+			cleanWs()
+        }
+    }
+}

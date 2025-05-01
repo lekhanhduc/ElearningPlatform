@@ -1,0 +1,20 @@
+spring:
+  config:
+    import: optional:configserver:http://localhost:8888
+    name: profile-service
+  neo4j:
+    authentication:
+      username: neo4j
+      password: 12345678
+    uri: bolt://localhost:7687
+  jpa:
+    hibernate:
+      ddl-auto: update
+  kafka:
+    bootstrap-servers: localhost:9094
+
+---
+
+
+api-gateway:
+  url: http://localhost:9191

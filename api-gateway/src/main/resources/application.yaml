@@ -1,0 +1,21 @@
+server:
+  port: 9191
+spring:
+  application:
+    name: API-GATEWAY
+  profiles:
+#    active: test
+    active: @spring.profiles.active@
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    urls:
+      - name: identity-service
+        url: /identity/v3/api-docs
+      - name: profile-service
+        url: /profile/api/v1/v3/api-docs
+      - name: notification-service
+        url: /notification/v3/api-docs
+  api-docs:
+    path: /v3/api-docs

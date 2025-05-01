@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Book Store</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background-color: #2c3e50;
+            padding: 20px;
+            text-align: center;
+        }
+        .header img {
+            max-width: 150px;
+        }
+        .content {
+            padding: 30px;
+            text-align: center;
+        }
+        .content h1 {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .content p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #e74c3c;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .button:hover {
+            background-color: #c0392b;
+        }
+        .footer {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+        .footer a {
+            color: #e74c3c;
+            text-decoration: none;
+        }
+        @media only screen and (max-width: 600px) {
+            .container {
+                width: 100%;
+            }
+            .content h1 {
+                font-size: 20px;
+            }
+            .content p {
+                font-size: 14px;
+            }
+            .button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+<table class="container">
+    <tr>
+        <td class="header">
+            <img src="https://images.template.net/450227/Bookstore-Logo-Template-edit-online.png" alt="Book Store Logo">
+        </td>
+    </tr>
+    <tr>
+        <td class="content">
+            <h1>Xin chào, <span th:text="${name}">Khách hàng</span>!</h1>
+            <p>Chào mừng bạn đã gia nhập cộng đồng yêu sách của <strong>Book Store</strong>! Chúng tôi rất vui được đồng hành cùng bạn trong hành trình khám phá những cuốn sách tuyệt vời và tri thức bất tận.</p>
+            <p>Hãy bắt đầu ngay hôm nay! Ghé thăm website của chúng tôi để khám phá hàng ngàn tựa sách từ tiểu thuyết, sách khoa học, đến sách thiếu nhi.</p>
+            <a href="https://bookstore.com" class="button">Khám phá Book Store</a>
+            <p>Có bất kỳ câu hỏi nào? Liên hệ với chúng tôi tại <a href="mailto:support@bookstore.com">support@bookstore.com</a>.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="footer">
+            <p>© 2025 Book Store. Mọi quyền được bảo lưu.</p>
+            <p><a href="https://bookstore.com">Truy cập website</a> | <a href="mailto:support@bookstore.com">Liên hệ hỗ trợ</a></p>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,61 @@
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+  config:
+    import: optional:configserver:http://config-server:8888
+    name: book-service
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 123456
+    url: jdbc:postgresql://postgres:5432/book_service
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  kafka:
+    bootstrap-servers: kafka:9092
+
+  #  rabbitmq:
+  #    host: localhost
+  #    port: 5672
+  #    username: guest
+  #    password: guest
+  #
+  #  cloud:
+  #    bus:
+  #      trace:
+  #        enabled: true
+
+  elasticsearch:
+    host: elasticsearch
+    port: 9200
+    username: root
+    password: 123456
+
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE:http://registry-service:8761/eureka/}
+    fetch-registry: true
+    register-with-eureka: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+#  tracing:
+#    sampling:
+#      probability: 1.0 # 100% request được tracking (nếu hệ thống lớn, có thể giảm xuống 0.5)
+#  zipkin:
+#    tracing:
+#      endpoint: http://localhost:9411/api/v2/spans

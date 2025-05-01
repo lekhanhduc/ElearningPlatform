@@ -1,0 +1,100 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 123456
+    url: jdbc:postgresql://localhost:5432/identity_service
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  data:
+    redis:
+      port: 6379
+      host: localhost
+
+  config:
+    import: optional:configserver:http://localhost:8888
+    name: identity-service
+
+  kafka:
+    bootstrap-servers: localhost:9094
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 441587123979-qds882ebt12bna4t4pldj9ausd2udpu2.apps.googleusercontent.com
+            client-secret: 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
+            scope: openid,profile,email
+            redirect-uri: http://localhost:4200/oauth2/callback/google
+          github:
+            client-id: Ov23liYKvBAfzCvqcWfE
+            client-secret: 4f3ab5c44757ab662c66ab305c505031448e974b
+            scope: user,user:email
+            redirect-uri: http://localhost:4200/oauth2/callback/github
+        provider:
+          google:
+            authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
+            token-uri: https://www.googleapis.com/oauth2/v4/token
+            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+            user-name-attribute: sub
+            jwk-set-uri: https://www.googleapis.com/oauth2/v3/certs
+
+          github:
+            authorization-uri: https://github.com/login/oauth/authorize
+            token-uri: https://github.com/login/oauth/access_token
+            user-info-uri: https://api.github.com/user
+
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
+#
+#  cloud:
+#    bus:
+#      trace:
+#        enabled: true
+#
+
+#  tracing:
+#    sampling:
+#      probability: 1.0 # 100% request được tracking (nếu hệ thống lớn, có thể giảm xuống 0.5)
+#  zipkin:
+#    tracing:
+#      endpoint: http://localhost:9411/api/v2/spans
+
+resilience4j:
+  retry:
+    instances:
+      IDENTITY-SERVICE:
+        maxAttempts: 3
+        waitDuration: 1s
+jwt:
+  secret-key: qEGWCystxG6FXQjPOKDyHPx7ID6u38YSfWhgdj0TWBKtHjwWJRS9myU6qtr2lBAHkNoFyij8klSvsXARgtxeKCqAdlmCvfkvCmJFvln5FrDuHGcGN43HVNkid6Hdee8HDeP8eWvRdfrc5NlwauL2DYdDeJgXClUZ6gS2Igr9tJoExsUJJ3wxZMc4jYfW2I8BgeiJRe6GElDCJHOcpRgS0SMP6nbtN1guElbzcs0YhlrG5CORdkutdrpRMZ2dX0xHeulbrUa4LdAxdDFB4DNbfSRWb2VpFTvxxpN7TGKrMASULBWecTnolRLsNbEQkGmroS1futhxGxMdQEaUIhLuNlvxfM1smNiVmdk2IOmQeT952Gn9nPUmVvkYTmx3cdZUzJsjAAq2Lb0IYQt0xOn8I65krXqtkKub5oPQrNiDEa0hon0Q9J1BNGYSJpSDwtjDsMgcgxaoBnyfT9y2iGHIZdbFWEhDcu8bJ9MY2r7s45dh4so87R4Avc1gn4OsJwLL
+
+sub-domain: localhost
+
+google:
+  client-id: 441587123979-qds882ebt12bna4t4pldj9ausd2udpu2.apps.googleusercontent.com
+  secret-key: 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
+  redirect-uri: http://localhost:4200/oauth2/callback/google
+
+---
+resilience4j.circuitbreaker:
+  instances:
+    IDENTITY-SERVICE:
+      slidingWindowSize: 10       # Số lượng yêu cầu để tính toán tỷ lệ lỗi
+      failureRateThreshold: 50       # Tỷ lệ lỗi (%) để mở Circuit Breaker
+      waitDurationInOpenState: 10000 # Thời gian chờ trước khi chuyển sang trạng thái nửa mở (ms)
+      permittedNumberOfCallsInHalfOpenState: 3  # Số lượng yêu cầu cho phép ở trạng thái nửa mở
+      slidingWindowType: COUNT_BASED # Loại cửa sổ (dựa trên số lượng yêu cầu)
+      minimumNumberOfCalls: 5        # Số lượng yêu cầu tối thiểu để kích hoạt tính toán lỗi
+      automatic-transition-from-open-to-half-open-enabled: true
+
+api-gateway:
+  url: http://localhost:9191
+  

@@ -1,0 +1,51 @@
+spring:
+  config:
+    import: optional:configserver:http://config-server:8888
+    name: profile-service
+  neo4j:
+    authentication:
+      username: neo4j
+      password: 12345678
+    uri: bolt://neo4j:7687
+  jpa:
+    hibernate:
+      ddl-auto: update
+  kafka:
+    bootstrap-servers: kafka:9092
+
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
+
+#  tracing:
+#    sampling:
+#      probability: 1.0 # 100% request được tracking (nếu hệ thống lớn, có thể giảm xuống 0.5)
+#  zipkin:
+#    tracing:
+#      endpoint: http://localhost:9411/api/v2/spans
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    metadata-map:
+      weight: 50
+  client:
+    serviceUrl:
+      defaultZone: http://registry-service:8761/eureka/
+---
+
+
+spring:
+  boot:
+    message: Hello Profile Service, Spring Cloud Bus
+
+api-gateway:
+  url: http://api-gateway:9191

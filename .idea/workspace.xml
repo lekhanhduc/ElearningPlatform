@@ -4,189 +4,588 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bf74744-6b7e-431b-8955-40ad6ad155be" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/messaging/BookConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/configuration/JwtAccessDenied.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/configuration/JwtAuthenticationEntryPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/configuration/JwtDecoderCustomizer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/configuration/SecurityConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/controller/CartController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/dto/request/CartCreationRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/dto/response/CartCreationResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/dto/response/CartDetailResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/dto/response/ErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/dto/response/PageResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/dto/response/ResponseData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/entity/Cart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/exception/CartException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/exception/ErrorCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/exception/GlobalHandlingException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/mapper/CartMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/repository/CartRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/service/CartService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/service/impl/CartServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/configuration/AuthenticationRequestInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/configuration/ChannelInterceptorConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/configuration/JwtAccessDenied.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/configuration/JwtAuthenticationEntryPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/configuration/JwtDecoderCustomizer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/configuration/OpenRouterConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/configuration/SecurityConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/configuration/WebCorsConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/configuration/WebSocketConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/controller/ChatController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/controller/ChatbotController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/dto/request/SendMessageRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/dto/response/ErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/dto/response/PageResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/dto/response/ResponseData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/dto/response/SendMessageResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/dto/response/UserProfileResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/entity/Conversation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/entity/ConversationParticipant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/entity/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/enums/ConversationType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/enums/MessageStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/enums/MessageType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/enums/ParticipantRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/exception/ChatException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/exception/ErrorCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/exception/GlobalHandlingException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/repository/ConversationParticipantRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/repository/ConversationRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/repository/MessageRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/repository/httpclient/ProfileClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/service/ChatService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/service/ChatbotService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/resources/application-test.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatService/src/main/resources/templates/chat.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EventBusService/src/main/java/vn/khanhduc/event/dto/NotificationEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EventBusService/src/main/java/vn/khanhduc/event/dto/PaymentEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EventBusService/src/main/java/vn/khanhduc/event/dto/PaymentSuccessEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EventBusService/src/main/java/vn/khanhduc/event/dto/ProfileEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EventBusService/src/main/java/vn/khanhduc/eventbusservice/configuration/KafkaConsumerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EventBusService/src/main/java/vn/khanhduc/eventbusservice/configuration/KafkaProducerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EventBusService/src/main/java/vn/khanhduc/eventbusservice/messaging/consumer/ProfileConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EventBusService/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EventBusService/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EventBusService/src/main/resources/application-test.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IdentityService/Jenkinsfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/event/dto/ProfileCreationFailedEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/KafkaConsumerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/UserRollbackConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IdentityService/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InventoryService/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InventoryService/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InventoryService/src/main/resources/application-test.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/event/dto/PaymentSuccessEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/event/dto/PaymentErrorEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/configuration/KafkaConsumerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/service/OrderRollbackConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OrderService/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/event/dto/PaymentErrorEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/event/dto/PaymentSuccessEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/messaging/PaymentConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/event/dto/ProfileCreationFailedEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/FeignFormConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProfileService/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logstash.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prometheus.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/book-store-backend.iml" beforeDir="false" />
+    <list default="true" id="38fba66d-da77-4e36-b319-fab5ee358023" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/notification-service/Jenkinsfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/configuration/OpenAPIConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/configuration/TemplateEngineConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/resources/templates/welcome-email.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/configuration/OpenAPIConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/GatewayConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/GatewayConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/WebClientConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/WebClientConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/WeightedLoadBalancer.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/WeightedLoadBalancer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ApiGateway/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/dto/response/BookDetailResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/dto/response/BookDetailResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/mapper/BookMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/mapper/BookMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/service/KafkaService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookService/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookService/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/BookService/src/main/resources/application-test.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CartService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CartService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/com/example/cartservice/CartServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/CartServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CartService/src/test/java/com/example/cartservice/CartServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/CartService/src/test/java/vn/khanhduc/cartservice/CartServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConfigServer/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ConfigServer/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/com/example/fileservice/FileServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/FileServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/com/example/fileservice/configuration/JwtAccessDenied.java" beforeDir="false" afterPath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/configuration/JwtAccessDenied.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/com/example/fileservice/configuration/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/configuration/JwtAuthenticationEntryPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/com/example/fileservice/configuration/JwtDecoderCustomizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/configuration/JwtDecoderCustomizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/com/example/fileservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/configuration/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/com/example/fileservice/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/controller/FileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/com/example/fileservice/dto/FileInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/dto/FileInformation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/com/example/fileservice/dto/FileMetadata.java" beforeDir="false" afterPath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/dto/FileMetadata.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/com/example/fileservice/dto/response/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/dto/response/ErrorResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/com/example/fileservice/dto/response/FileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/dto/response/FileResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/com/example/fileservice/dto/response/ResponseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/dto/response/ResponseData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/com/example/fileservice/entity/FileManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/entity/FileManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/com/example/fileservice/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/exception/ErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/com/example/fileservice/exception/FileException.java" beforeDir="false" afterPath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/exception/FileException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/com/example/fileservice/repository/FileManagementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/repository/FileManagementRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/com/example/fileservice/repository/FileRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/repository/FileRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/com/example/fileservice/service/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/service/FileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/com/example/fileservice/service/impl/FileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/service/impl/FileServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileService/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/FileService/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileService/src/test/java/com/example/fileservice/FileServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/FileService/src/test/java/vn/khanhduc/fileservice/FileServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/JwtDecoderCustomizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/JwtDecoderCustomizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/KafkaProducerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/KafkaProducerConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/exception/ErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/httpclient/GoogleClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/httpclient/GoogleClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/AuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/AuthenticationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/resources/application-test.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/IdentityService/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotificationService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/configuration/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/EmailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/impl/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/impl/EmailServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/configuration/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/entity/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/exception/ErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OrderService/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/src/main/resources/application-test.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/event/dto/NotificationEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/event/dto/NotificationEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/configuration/KafkaProducerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/configuration/KafkaProducerConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/configuration/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/service/KafkaService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/service/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/service/PaymentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/resources/application-test.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/common/Channel.java" beforeDir="false" afterPath="$PROJECT_DIR$/EventBusService/src/main/java/vn/khanhduc/eventbusservice/common/Channel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/AuthenticationRequestInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/AuthenticationRequestInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/KafkaProducerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/KafkaProducerConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/controller/UserProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/controller/UserProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/exception/GlobalHandlingException.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/exception/GlobalHandlingException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/repository/http/FileClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/repository/http/FileClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/service/UserProfileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/service/UserProfileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/service/impl/UserProfileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/service/impl/UserProfileServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/resources/application-test.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileService/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/ApiGatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/vn/khanhduc/apigateway/ApiGatewayApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/vn/khanhduc/apigateway/configuration/AuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/CorsGlobalConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/vn/khanhduc/apigateway/configuration/CorsGlobalConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/CustomLoadBalancerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/vn/khanhduc/apigateway/configuration/CustomLoadBalancerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/GatewayConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/vn/khanhduc/apigateway/configuration/GatewayConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/RateLimiterGatewayFilterOneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/vn/khanhduc/apigateway/configuration/RateLimiterGatewayFilterOneService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/WebClientConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/vn/khanhduc/apigateway/configuration/WebClientConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/configuration/WeightedLoadBalancer.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/vn/khanhduc/apigateway/configuration/WeightedLoadBalancer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/constant/RateLimiterName.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/vn/khanhduc/apigateway/constant/RateLimiterName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/dto/response/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/vn/khanhduc/apigateway/dto/response/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/dto/response/ResponseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/vn/khanhduc/apigateway/dto/response/ResponseData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/dto/response/TokenVerificationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/vn/khanhduc/apigateway/dto/response/TokenVerificationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/repository/IdentityClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/vn/khanhduc/apigateway/repository/IdentityClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/vn/khanhduc/apigateway/service/IdentityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/vn/khanhduc/apigateway/service/IdentityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application-test.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/test/java/vn/khanhduc/apigateway/ApiGatewayApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/test/java/vn/khanhduc/apigateway/ApiGatewayApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BatchService/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/batch-service/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BatchService/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/batch-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BatchService/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/batch-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BatchService/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/batch-service/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BatchService/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/batch-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BatchService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/batch-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BatchService/src/main/java/vn/khanhduc/batchservice/BatchServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/batch-service/src/main/java/vn/khanhduc/batchservice/BatchServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BatchService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/batch-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BatchService/src/test/java/vn/khanhduc/batchservice/BatchServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/batch-service/src/test/java/vn/khanhduc/batchservice/BatchServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/BookServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/BookServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/configuration/CloudinaryConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/configuration/CloudinaryConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/configuration/ElasticsearchConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/configuration/ElasticsearchConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/configuration/JwtAccessDined.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/configuration/JwtAccessDined.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/configuration/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/configuration/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/configuration/JwtDecoderCustomizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/configuration/JwtDecoderCustomizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/configuration/KafkaConsumerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/configuration/KafkaConsumerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/configuration/KafkaProducerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/configuration/KafkaProducerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/configuration/QueryDslConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/configuration/QueryDslConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/configuration/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/dto/request/BookCreationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/dto/request/BookCreationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/dto/response/BookCreationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/dto/response/BookCreationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/dto/response/BookDetailResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/dto/response/BookDetailResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/dto/response/BookSearchRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/dto/response/BookSearchRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/dto/response/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/dto/response/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/dto/response/PageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/dto/response/PageResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/dto/response/ProfileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/dto/response/ProfileResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/dto/response/ResponseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/dto/response/ResponseData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/entity/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/entity/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/entity/BookIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/entity/BookIndex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/exception/BookException.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/exception/BookException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/exception/ErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/exception/GlobalHandlingException.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/exception/GlobalHandlingException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/mapper/BookMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/mapper/BookMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/messaging/BookConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/messaging/BookConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/repository/BookElasticSearchRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/repository/BookElasticSearchRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/repository/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/repository/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/repository/httpclient/UserClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/repository/httpclient/UserClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/repository/querydsl/BookPredicateBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/repository/querydsl/BookPredicateBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/repository/querydsl/BookQueryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/repository/querydsl/BookQueryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/service/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/service/CloudinaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/service/CloudinaryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/java/vn/khanhduc/bookservice/service/impl/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/java/vn/khanhduc/bookservice/service/impl/BookServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/proto/book-service.proto" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/proto/book-service.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/resources/application-test.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookService/src/test/java/vn/khanhduc/bookservice/BookServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-service/src/test/java/vn/khanhduc/bookservice/BookServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/CartServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/vn/khanhduc/cartservice/CartServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/configuration/JwtAccessDenied.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/vn/khanhduc/cartservice/configuration/JwtAccessDenied.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/configuration/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/vn/khanhduc/cartservice/configuration/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/configuration/JwtDecoderCustomizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/vn/khanhduc/cartservice/configuration/JwtDecoderCustomizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/vn/khanhduc/cartservice/configuration/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/vn/khanhduc/cartservice/controller/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/dto/request/CartCreationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/vn/khanhduc/cartservice/dto/request/CartCreationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/dto/response/CartCreationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/vn/khanhduc/cartservice/dto/response/CartCreationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/dto/response/CartDetailResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/vn/khanhduc/cartservice/dto/response/CartDetailResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/dto/response/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/vn/khanhduc/cartservice/dto/response/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/dto/response/PageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/vn/khanhduc/cartservice/dto/response/PageResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/dto/response/ResponseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/vn/khanhduc/cartservice/dto/response/ResponseData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/entity/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/vn/khanhduc/cartservice/entity/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/exception/CartException.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/vn/khanhduc/cartservice/exception/CartException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/vn/khanhduc/cartservice/exception/ErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/exception/GlobalHandlingException.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/vn/khanhduc/cartservice/exception/GlobalHandlingException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/mapper/CartMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/vn/khanhduc/cartservice/mapper/CartMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/repository/CartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/vn/khanhduc/cartservice/repository/CartRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/service/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/vn/khanhduc/cartservice/service/CartService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/java/vn/khanhduc/cartservice/service/impl/CartServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/java/vn/khanhduc/cartservice/service/impl/CartServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/resources/application-test.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CartService/src/test/java/vn/khanhduc/cartservice/CartServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/src/test/java/vn/khanhduc/cartservice/CartServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/ChatServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/ChatServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/configuration/AuthenticationRequestInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/configuration/AuthenticationRequestInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/configuration/ChannelInterceptorConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/configuration/ChannelInterceptorConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/configuration/JwtAccessDenied.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/configuration/JwtAccessDenied.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/configuration/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/configuration/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/configuration/JwtDecoderCustomizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/configuration/JwtDecoderCustomizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/configuration/OpenRouterConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/configuration/OpenRouterConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/configuration/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/configuration/WebCorsConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/configuration/WebCorsConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/configuration/WebSocketConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/configuration/WebSocketConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/controller/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/controller/ChatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/controller/ChatbotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/controller/ChatbotController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/dto/request/SendMessageRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/dto/request/SendMessageRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/dto/response/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/dto/response/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/dto/response/PageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/dto/response/PageResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/dto/response/ResponseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/dto/response/ResponseData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/dto/response/SendMessageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/dto/response/SendMessageResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/dto/response/UserProfileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/dto/response/UserProfileResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/entity/Conversation.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/entity/Conversation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/entity/ConversationParticipant.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/entity/ConversationParticipant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/entity/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/entity/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/enums/ConversationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/enums/ConversationType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/enums/MessageStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/enums/MessageStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/enums/MessageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/enums/MessageType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/enums/ParticipantRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/enums/ParticipantRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/exception/ChatException.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/exception/ChatException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/exception/ErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/exception/GlobalHandlingException.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/exception/GlobalHandlingException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/repository/ConversationParticipantRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/repository/ConversationParticipantRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/repository/ConversationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/repository/ConversationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/repository/MessageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/repository/MessageRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/repository/httpclient/ProfileClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/repository/httpclient/ProfileClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/service/ChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/service/ChatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/java/vn/khanhduc/chatservice/service/ChatbotService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/java/vn/khanhduc/chatservice/service/ChatbotService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/resources/application-test.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/main/resources/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/main/resources/templates/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatService/src/test/java/vn/khanhduc/chatservice/ChatServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-service/src/test/java/vn/khanhduc/chatservice/ChatServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConfigServer/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConfigServer/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConfigServer/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConfigServer/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConfigServer/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConfigServer/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConfigServer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConfigServer/src/main/java/vn/khanhduc/configserver/ConfigServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/java/vn/khanhduc/configserver/ConfigServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConfigServer/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConfigServer/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConfigServer/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/application-test.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConfigServer/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConfigServer/src/test/java/vn/khanhduc/configserver/ConfigServerApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/test/java/vn/khanhduc/configserver/ConfigServerApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/event-bus-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/src/main/java/vn/khanhduc/event/dto/NotificationEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/event-bus-service/src/main/java/vn/khanhduc/event/dto/NotificationEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/src/main/java/vn/khanhduc/event/dto/PaymentEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/event-bus-service/src/main/java/vn/khanhduc/event/dto/PaymentEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/src/main/java/vn/khanhduc/event/dto/PaymentSuccessEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/event-bus-service/src/main/java/vn/khanhduc/event/dto/PaymentSuccessEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/src/main/java/vn/khanhduc/event/dto/ProfileEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/event-bus-service/src/main/java/vn/khanhduc/event/dto/ProfileEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/src/main/java/vn/khanhduc/eventbusservice/EventBusServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/event-bus-service/src/main/java/vn/khanhduc/eventbusservice/EventBusServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/src/main/java/vn/khanhduc/eventbusservice/common/Channel.java" beforeDir="false" afterPath="$PROJECT_DIR$/event-bus-service/src/main/java/vn/khanhduc/eventbusservice/common/Channel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/src/main/java/vn/khanhduc/eventbusservice/configuration/KafkaConsumerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/event-bus-service/src/main/java/vn/khanhduc/eventbusservice/configuration/KafkaConsumerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/src/main/java/vn/khanhduc/eventbusservice/configuration/KafkaProducerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/event-bus-service/src/main/java/vn/khanhduc/eventbusservice/configuration/KafkaProducerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/src/main/java/vn/khanhduc/eventbusservice/messaging/consumer/ProfileConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/event-bus-service/src/main/java/vn/khanhduc/eventbusservice/messaging/consumer/ProfileConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/event-bus-service/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/event-bus-service/src/main/resources/application-test.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/event-bus-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBusService/src/test/java/vn/khanhduc/eventbusservice/EventBusServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/event-bus-service/src/test/java/vn/khanhduc/eventbusservice/EventBusServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/event-bus-service/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/event-bus-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/event-bus-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/event-bus-service/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/event-bus-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/FileServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/src/main/java/vn/khanhduc/fileservice/FileServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/configuration/JwtAccessDenied.java" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/src/main/java/vn/khanhduc/fileservice/configuration/JwtAccessDenied.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/configuration/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/src/main/java/vn/khanhduc/fileservice/configuration/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/configuration/JwtDecoderCustomizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/src/main/java/vn/khanhduc/fileservice/configuration/JwtDecoderCustomizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/src/main/java/vn/khanhduc/fileservice/configuration/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/src/main/java/vn/khanhduc/fileservice/controller/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/dto/FileInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/src/main/java/vn/khanhduc/fileservice/dto/FileInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/dto/FileMetadata.java" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/src/main/java/vn/khanhduc/fileservice/dto/FileMetadata.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/dto/response/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/src/main/java/vn/khanhduc/fileservice/dto/response/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/dto/response/FileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/src/main/java/vn/khanhduc/fileservice/dto/response/FileResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/dto/response/ResponseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/src/main/java/vn/khanhduc/fileservice/dto/response/ResponseData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/entity/FileManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/src/main/java/vn/khanhduc/fileservice/entity/FileManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/src/main/java/vn/khanhduc/fileservice/exception/ErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/exception/FileException.java" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/src/main/java/vn/khanhduc/fileservice/exception/FileException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/repository/FileManagementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/src/main/java/vn/khanhduc/fileservice/repository/FileManagementRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/repository/FileRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/src/main/java/vn/khanhduc/fileservice/repository/FileRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/service/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/src/main/java/vn/khanhduc/fileservice/service/FileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/src/main/java/vn/khanhduc/fileservice/service/impl/FileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/src/main/java/vn/khanhduc/fileservice/service/impl/FileServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/event-bus-service/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/src/main/resources/application-test.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileService/src/test/java/vn/khanhduc/fileservice/FileServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/src/test/java/vn/khanhduc/fileservice/FileServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/Jenkinsfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/event/dto/ProfileCreationFailedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/event/dto/ProfileCreationFailedEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/event/dto/ProfileEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/event/dto/ProfileEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/IdentityServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/IdentityServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/common/SecurityUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/common/SecurityUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/common/UserStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/common/UserStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/common/UserType.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/common/UserType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/AuthenticationRequestInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/configuration/AuthenticationRequestInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/CommunicationConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/configuration/CommunicationConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/InitApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/configuration/InitApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/JwtAccessDined.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/configuration/JwtAccessDined.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/configuration/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/JwtDecoderCustomizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/configuration/JwtDecoderCustomizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/KafkaConsumerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/configuration/KafkaConsumerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/KafkaProducerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/configuration/KafkaProducerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/OAuth2ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/configuration/OAuth2ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/RedisConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/configuration/RedisConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/configuration/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/controller/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/request/ExchangeTokenRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/dto/request/ExchangeTokenRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/request/ProfileCreateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/dto/request/ProfileCreateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/request/SaveUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/dto/request/SaveUserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/request/SignInRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/dto/request/SignInRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/request/UserCreationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/dto/request/UserCreationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/response/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/dto/response/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/response/ExchangeTokenResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/dto/response/ExchangeTokenResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/response/OutboundUserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/dto/response/OutboundUserResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/response/PageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/dto/response/PageResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/response/RefreshTokenResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/dto/response/RefreshTokenResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/response/ResponseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/dto/response/ResponseData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/response/SignInResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/dto/response/SignInResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/response/TokenVerificationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/dto/response/TokenVerificationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/response/UserCreationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/dto/response/UserCreationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/response/UserDetailResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/dto/response/UserDetailResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/dto/response/UserProfileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/dto/response/UserProfileResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/entity/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/entity/Permission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/entity/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/entity/RoleHasPermission.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/entity/RoleHasPermission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/entity/UserHasRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/entity/UserHasRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/exception/ErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/exception/GlobalHandlingException.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/exception/GlobalHandlingException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/exception/IdentityException.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/exception/IdentityException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/PermissionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/repository/PermissionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/repository/RoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/UserHasRoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/repository/UserHasRoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/httpclient/GoogleClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/repository/httpclient/GoogleClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/httpclient/OutboundUserClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/repository/httpclient/OutboundUserClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/repository/httpclient/ProfileClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/repository/httpclient/ProfileClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/service/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/service/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/RedisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/service/RedisService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/UserDetailServiceCustomizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/service/UserDetailServiceCustomizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/UserRollbackConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/service/UserRollbackConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/AuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/service/impl/AuthenticationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/JwtServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/service/impl/JwtServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/RedisServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/service/impl/RedisServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/java/vn/khanhduc/identityservice/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/java/vn/khanhduc/identityservice/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/file-service/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/resources/application-test.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdentityService/src/test/java/vn/khanhduc/identityservice/IdentityServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/test/java/vn/khanhduc/identityservice/IdentityServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryService/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryService/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryService/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryService/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryService/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryService/src/main/java/vn/khanhduc/inventoryservice/InventoryServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/src/main/java/vn/khanhduc/inventoryservice/InventoryServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryService/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryService/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/identity-service/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryService/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/src/main/resources/application-test.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryService/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryService/src/test/java/vn/khanhduc/inventoryservice/InventoryServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/src/test/java/vn/khanhduc/inventoryservice/InventoryServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/event/dto/NotificationEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/event/dto/NotificationEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/event/dto/PaymentSuccessEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/event/dto/PaymentSuccessEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/NotificationServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/NotificationServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/common/NotificationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/common/NotificationType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/configuration/FirebaseConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/configuration/FirebaseConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/configuration/JwtAccessDined.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/configuration/JwtAccessDined.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/configuration/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/configuration/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/configuration/JwtDecoderCustomizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/configuration/JwtDecoderCustomizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/configuration/KafkaConsumerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/configuration/KafkaConsumerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/configuration/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/controller/EmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/controller/EmailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/dto/request/EmailRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/dto/request/EmailRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/dto/request/Recipient.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/dto/request/Recipient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/dto/request/SendEmailRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/dto/request/SendEmailRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/dto/request/Sender.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/dto/request/Sender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/dto/response/EmailResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/dto/response/EmailResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/dto/response/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/dto/response/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/dto/response/ResponseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/dto/response/ResponseData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/exception/ErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/exception/GlobalHandlingException.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/exception/GlobalHandlingException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/exception/NotificationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/exception/NotificationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/repository/EmailClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/repository/EmailClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/service/EmailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/service/NotificationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/impl/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/service/impl/EmailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/vn/khanhduc/notificationservice/service/impl/NotificationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/vn/khanhduc/notificationservice/service/impl/NotificationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application-test.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/resources/service-account.json" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/resources/service-account.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/test/java/vn/khanhduc/notificationservice/NotificationServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/test/java/vn/khanhduc/notificationservice/NotificationServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/event/dto/PaymentErrorEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/event/dto/PaymentErrorEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/event/dto/PaymentEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/event/dto/PaymentEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/OrderServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/OrderServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/common/OrderStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/common/OrderStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/common/PaymentMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/common/PaymentMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/configuration/JwtAccessDined.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/configuration/JwtAccessDined.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/configuration/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/configuration/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/configuration/JwtDecoderCustomizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/configuration/JwtDecoderCustomizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/configuration/KafkaConsumerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/configuration/KafkaConsumerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/configuration/KafkaProducerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/configuration/KafkaProducerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/configuration/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/dto/request/OrderCreationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/dto/request/OrderCreationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/dto/response/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/dto/response/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/dto/response/OrderCreationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/dto/response/OrderCreationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/dto/response/ResponseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/dto/response/ResponseData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/entity/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/entity/OrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/entity/OrderDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/exception/ErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/exception/GlobalHandlingException.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/exception/GlobalHandlingException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/exception/OrderException.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/exception/OrderException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/repository/OrderDetailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/repository/OrderDetailRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/repository/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/repository/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/service/OrderDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/service/OrderDetailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/service/OrderRollbackConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/service/OrderRollbackConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/service/impl/OrderDetailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/service/impl/OrderDetailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/java/vn/khanhduc/orderservice/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/vn/khanhduc/orderservice/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application-test.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/src/test/java/vn/khanhduc/orderservice/OrderServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/test/java/vn/khanhduc/orderservice/OrderServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/event/dto/NotificationEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/event/dto/NotificationEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/event/dto/PaymentErrorEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/event/dto/PaymentErrorEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/event/dto/PaymentEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/event/dto/PaymentEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/event/dto/PaymentSuccessEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/event/dto/PaymentSuccessEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/PaymentServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/PaymentServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/common/Channel.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/common/Channel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/common/Currency.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/common/Currency.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/common/PaymentGateWay.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/common/PaymentGateWay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/common/PaymentMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/common/PaymentMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/common/PaymentStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/common/PaymentStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/configuration/AuthenticationRequestInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/configuration/AuthenticationRequestInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/configuration/JwtAccessDined.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/configuration/JwtAccessDined.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/configuration/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/configuration/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/configuration/JwtDecoderCustomizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/configuration/JwtDecoderCustomizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/configuration/KafkaConsumerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/configuration/KafkaConsumerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/configuration/KafkaProducerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/configuration/KafkaProducerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/configuration/PayOSConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/configuration/PayOSConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/configuration/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/controller/PaymentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/dto/request/CreatePaymentLinkRequestBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/dto/request/CreatePaymentLinkRequestBody.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/dto/response/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/dto/response/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/dto/response/ResponseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/dto/response/ResponseData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/dto/response/UserDetailResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/dto/response/UserDetailResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/entity/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/entity/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/exception/ErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/exception/GlobalHandlingException.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/exception/GlobalHandlingException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/exception/PaymentException.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/exception/PaymentException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/messaging/PaymentConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/messaging/PaymentConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/repository/PaymentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/repository/PaymentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/repository/httpclient/UserClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/repository/httpclient/UserClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/vn/khanhduc/paymentservice/service/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/vn/khanhduc/paymentservice/service/PaymentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/resources/application-test.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/test/java/vn/khanhduc/paymentservice/PaymentServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/test/java/vn/khanhduc/paymentservice/PaymentServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/java/vn/khanhduc/postservice/PostServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/vn/khanhduc/postservice/PostServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/java/vn/khanhduc/postservice/configuration/JwtAccessDined.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/vn/khanhduc/postservice/configuration/JwtAccessDined.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/java/vn/khanhduc/postservice/configuration/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/vn/khanhduc/postservice/configuration/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/java/vn/khanhduc/postservice/configuration/JwtDecoderCustomizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/vn/khanhduc/postservice/configuration/JwtDecoderCustomizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/java/vn/khanhduc/postservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/vn/khanhduc/postservice/configuration/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/java/vn/khanhduc/postservice/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/vn/khanhduc/postservice/controller/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/java/vn/khanhduc/postservice/dto/request/PostCreationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/vn/khanhduc/postservice/dto/request/PostCreationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/java/vn/khanhduc/postservice/dto/response/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/vn/khanhduc/postservice/dto/response/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/java/vn/khanhduc/postservice/dto/response/PageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/vn/khanhduc/postservice/dto/response/PageResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/java/vn/khanhduc/postservice/dto/response/PostCreationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/vn/khanhduc/postservice/dto/response/PostCreationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/java/vn/khanhduc/postservice/dto/response/PostDetailResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/vn/khanhduc/postservice/dto/response/PostDetailResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/java/vn/khanhduc/postservice/dto/response/ResponseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/vn/khanhduc/postservice/dto/response/ResponseData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/java/vn/khanhduc/postservice/entity/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/vn/khanhduc/postservice/entity/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/java/vn/khanhduc/postservice/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/vn/khanhduc/postservice/exception/ErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/java/vn/khanhduc/postservice/exception/GlobalHandlingException.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/vn/khanhduc/postservice/exception/GlobalHandlingException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/java/vn/khanhduc/postservice/exception/PostException.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/vn/khanhduc/postservice/exception/PostException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/java/vn/khanhduc/postservice/mapper/PostMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/vn/khanhduc/postservice/mapper/PostMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/java/vn/khanhduc/postservice/repository/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/vn/khanhduc/postservice/repository/PostRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/java/vn/khanhduc/postservice/service/DateTimeFormater.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/vn/khanhduc/postservice/service/DateTimeFormater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/java/vn/khanhduc/postservice/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/vn/khanhduc/postservice/service/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/java/vn/khanhduc/postservice/service/impl/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/vn/khanhduc/postservice/service/impl/PostServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/resources/application-test.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PostService/src/test/java/vn/khanhduc/postservice/PostServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/test/java/vn/khanhduc/postservice/PostServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/Jenkinsfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/event/dto/NotificationEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/event/dto/NotificationEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/event/dto/ProfileCreationFailedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/event/dto/ProfileCreationFailedEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/event/dto/ProfileEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/event/dto/ProfileEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/ProfileServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/ProfileServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/AuthenticationRequestInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/configuration/AuthenticationRequestInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/FeignFormConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/configuration/FeignFormConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/JwtAccessDined.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/configuration/JwtAccessDined.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/configuration/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/JwtDecoderCustomizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/configuration/JwtDecoderCustomizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/KafkaConsumerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/configuration/KafkaConsumerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/KafkaProducerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/configuration/KafkaProducerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/S3Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/configuration/S3Configuration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/configuration/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/controller/InternalUserProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/controller/InternalUserProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/controller/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/controller/UserProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/controller/UserProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/dto/request/ProfileRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/dto/request/ProfileRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/dto/request/ProfileUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/dto/request/ProfileUpdateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/dto/response/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/dto/response/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/dto/response/FileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/dto/response/FileResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/dto/response/PageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/dto/response/PageResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/dto/response/ProfileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/dto/response/ProfileResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/dto/response/ResponseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/dto/response/ResponseData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/entity/UserProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/entity/UserProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/exception/AuthenticationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/exception/AuthenticationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/exception/GlobalHandlingException.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/exception/GlobalHandlingException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/exception/ResourceNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/exception/ResourceNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/mapper/UserProfileMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/mapper/UserProfileMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/repository/UserProfileRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/repository/UserProfileRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/repository/http/FileClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/repository/http/FileClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/service/S3Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/service/S3Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/service/UserProfileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/service/UserProfileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/java/vn/khanhduc/profileservice/service/impl/UserProfileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/vn/khanhduc/profileservice/service/impl/UserProfileServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/resources/application-test.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfileService/src/test/java/vn/khanhduc/profileservice/ProfileServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/test/java/vn/khanhduc/profileservice/ProfileServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistryService/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistryService/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistryService/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistryService/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistryService/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistryService/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistryService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistryService/src/main/java/vn/khanhduc/registryservice/RegistryServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/src/main/java/vn/khanhduc/registryservice/RegistryServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistryService/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistryService/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistryService/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/src/main/resources/application-test.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistryService/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistryService/src/test/java/vn/khanhduc/registryservice/RegistryServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/src/test/java/vn/khanhduc/registryservice/RegistryServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/src/main/java/vn/khanhduc/reviewservice/ReviewServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/src/main/java/vn/khanhduc/reviewservice/ReviewServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/src/main/java/vn/khanhduc/reviewservice/configuration/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/src/main/java/vn/khanhduc/reviewservice/configuration/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/src/main/java/vn/khanhduc/reviewservice/configuration/JwtDecoderCustomizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/src/main/java/vn/khanhduc/reviewservice/configuration/JwtDecoderCustomizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/src/main/java/vn/khanhduc/reviewservice/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/src/main/java/vn/khanhduc/reviewservice/configuration/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/src/main/java/vn/khanhduc/reviewservice/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/src/main/java/vn/khanhduc/reviewservice/controller/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/src/main/java/vn/khanhduc/reviewservice/dto/request/ReviewCreationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/src/main/java/vn/khanhduc/reviewservice/dto/request/ReviewCreationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/src/main/java/vn/khanhduc/reviewservice/dto/response/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/src/main/java/vn/khanhduc/reviewservice/dto/response/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/src/main/java/vn/khanhduc/reviewservice/dto/response/ReviewCreationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/src/main/java/vn/khanhduc/reviewservice/dto/response/ReviewCreationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/src/main/java/vn/khanhduc/reviewservice/entity/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/src/main/java/vn/khanhduc/reviewservice/entity/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/src/main/java/vn/khanhduc/reviewservice/mapper/ReviewMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/src/main/java/vn/khanhduc/reviewservice/mapper/ReviewMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/src/main/java/vn/khanhduc/reviewservice/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/src/main/java/vn/khanhduc/reviewservice/repository/ReviewRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/src/main/java/vn/khanhduc/reviewservice/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/src/main/java/vn/khanhduc/reviewservice/service/ReviewService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/src/main/java/vn/khanhduc/reviewservice/service/impl/ReviewServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/src/main/java/vn/khanhduc/reviewservice/service/impl/ReviewServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/src/main/resources/application-test.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/src/test/java/vn/khanhduc/reviewservice/ReviewServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/src/test/java/vn/khanhduc/reviewservice/ReviewServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchService/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/search-service/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchService/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/search-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchService/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/search-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchService/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/search-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchService/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/search-service/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchService/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/search-service/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchService/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/search-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/search-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchService/src/main/java/vn/khanhduc/searchservice/SearchServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/search-service/src/main/java/vn/khanhduc/searchservice/SearchServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchService/src/main/java/vn/khanhduc/searchservice/configuration/ElasticsearchClientConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/search-service/src/main/java/vn/khanhduc/searchservice/configuration/ElasticsearchClientConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchService/src/main/java/vn/khanhduc/searchservice/configuration/WebClientConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/search-service/src/main/java/vn/khanhduc/searchservice/configuration/WebClientConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchService/src/main/java/vn/khanhduc/searchservice/controller/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/search-service/src/main/java/vn/khanhduc/searchservice/controller/SearchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchService/src/main/java/vn/khanhduc/searchservice/dto/BookDetailResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/search-service/src/main/java/vn/khanhduc/searchservice/dto/BookDetailResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchService/src/main/java/vn/khanhduc/searchservice/dto/PageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/search-service/src/main/java/vn/khanhduc/searchservice/dto/PageResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchService/src/main/java/vn/khanhduc/searchservice/repository/SearchRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/search-service/src/main/java/vn/khanhduc/searchservice/repository/SearchRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchService/src/main/java/vn/khanhduc/searchservice/service/SearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/search-service/src/main/java/vn/khanhduc/searchservice/service/SearchService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchService/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/search-service/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchService/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/search-service/src/main/resources/application-prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchService/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/search-service/src/main/resources/application-test.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchService/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/search-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchService/src/test/java/vn/khanhduc/searchservice/SearchSericeApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/search-service/src/test/java/vn/khanhduc/searchservice/SearchSericeApplicationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/initdb.sql" beforeDir="false" afterPath="$PROJECT_DIR$/initdb.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kibana.yml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +595,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -212,71 +610,50 @@
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 4
 }</component>
-  <component name="ProjectId" id="2wFHZdxpWMxVS5r0ooUsQsb1mUf" />
+  <component name="ProjectId" id="2wRwWRpfAmTeOje2F7sBfWgeX0l" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Maven.OrderService [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.PaymentService [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.PaymentService [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.PaymentService [package].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;Database connection parameters found&quot;,
-    &quot;Notification.DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.ApiGatewayApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.ConfigServerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.EventBusServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.FileServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.IdentityServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.NotificationServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.OrderServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.PaymentServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.ProfileServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.RegistryServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Microservices/PaymentService/src/main/resources&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found": "Database connection parameters found",
+    "Notification.DoNotAsk-DatabaseConfigFileWatcher.found": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.ApiGatewayApplication.executor": "Run",
+    "Spring Boot.ConfigServerApplication.executor": "Run",
+    "Spring Boot.EventBusServiceApplication.executor": "Run",
+    "Spring Boot.IdentityServiceApplication.executor": "Run",
+    "Spring Boot.NotificationServiceApplication.executor": "Run",
+    "Spring Boot.ProfileServiceApplication.executor": "Run",
+    "Spring Boot.RegistryServiceApplication.executor": "Run",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/Microservices/notification-service",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.configurations.included.in.services": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="ReactorSettings">
-    <option name="notificationShown" value="true" />
-  </component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Microservices\PaymentService\src\main\resources" />
-      <recent name="D:\Microservices\OrderService\src\main\resources" />
-      <recent name="D:\Microservices\NotificationService\src\main\resources" />
-      <recent name="D:\Microservices\ProfileService\src\main\resources" />
+      <recent name="D:\Microservices\notification-service" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Microservices" />
-      <recent name="D:\Microservices\PaymentService\src\main" />
+      <recent name="D:\Microservices\notification-service\src\main\resources\templates" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="vn.khanhduc.event.dto" />
-      <recent name="vn.khanhduc.notificationservice.dto.response" />
       <recent name="vn.khanhduc.notificationservice.configuration" />
-      <recent name="vn.khanhduc.orderservice.configuration" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -289,143 +666,128 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.OrderServiceApplication">
-    <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="ApiGateway" />
+  <component name="RunManager" selected="Spring Boot.EventBusServiceApplication">
+    <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="api-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.apigateway.ApiGatewayApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="vn.khanhduc.apigateway.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConfigServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="ConfigServer" />
+    <configuration name="BatchServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="batch-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.batchservice.BatchServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChatServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="chat-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.chatservice.ChatServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="config-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.configserver.ConfigServerApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="vn.khanhduc.configserver.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EventBusServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="EventBusService" />
+    <configuration name="EventBusServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="event-bus-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.eventbusservice.EventBusServiceApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vn.khanhduc.eventbusservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FileServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="FileService" />
+    <configuration name="FileServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="file-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.fileservice.FileServiceApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="vn.khanhduc.fileservice.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="IdentityServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="IdentityService" />
+      <module name="identity-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.identityservice.IdentityServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="InventoryServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="InventoryService" />
+      <module name="inventory-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.inventoryservice.InventoryServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="NotificationServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="NotificationService" />
+      <module name="notification-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.notificationservice.NotificationServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="OrderService" />
+    <configuration name="OrderServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="order-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.orderservice.OrderServiceApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="vn.khanhduc.orderservice.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="PaymentServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="PaymentService" />
+      <module name="payment-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.paymentservice.PaymentServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PostServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="post-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.postservice.PostServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ProfileServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="ProfileService" />
+      <module name="profile-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.profileservice.ProfileServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="RegistryServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="RegistryService" />
+      <module name="eureka-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.registryservice.RegistryServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="ReviewServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="ReviewService" />
+      <module name="review-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.reviewservice.ReviewServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="SearchServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="SearchService" />
+      <module name="search-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="vn.khanhduc.searchservice.SearchServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Spring Boot.EventBusServiceApplication" />
-      <item itemvalue="Spring Boot.IdentityServiceApplication" />
-      <item itemvalue="Spring Boot.InventoryServiceApplication" />
-      <item itemvalue="Spring Boot.NotificationServiceApplication" />
-      <item itemvalue="Spring Boot.PaymentServiceApplication" />
-      <item itemvalue="Spring Boot.ProfileServiceApplication" />
-      <item itemvalue="Spring Boot.RegistryServiceApplication" />
-      <item itemvalue="Spring Boot.ReviewServiceApplication" />
-      <item itemvalue="Spring Boot.SearchServiceApplication" />
-      <item itemvalue="Spring Boot.ApiGatewayApplication" />
-      <item itemvalue="Spring Boot.ConfigServerApplication" />
-      <item itemvalue="Spring Boot.FileServiceApplication" />
-      <item itemvalue="Spring Boot.OrderServiceApplication" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.FileServiceApplication" />
-        <item itemvalue="Spring Boot.ApiGatewayApplication" />
-        <item itemvalue="Spring Boot.ConfigServerApplication" />
-        <item itemvalue="Spring Boot.OrderServiceApplication" />
+        <item itemvalue="Spring Boot.EventBusServiceApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -439,34 +801,23 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3bf74744-6b7e-431b-8955-40ad6ad155be" name="Changes" comment="" />
-      <created>1745630459456</created>
+      <changelist id="38fba66d-da77-4e36-b319-fab5ee358023" name="Changes" comment="" />
+      <created>1746017726818</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1745630459456</updated>
-      <workItem from="1745630461862" duration="1579000" />
-      <workItem from="1745756097367" duration="7000" />
-      <workItem from="1745833691730" duration="6494000" />
-      <workItem from="1745847379214" duration="13066000" />
-      <workItem from="1745862576997" duration="5080000" />
-      <workItem from="1745868293319" duration="2896000" />
-      <workItem from="1745916293346" duration="8026000" />
-      <workItem from="1745930725327" duration="9010000" />
-      <workItem from="1745942982686" duration="364000" />
-      <workItem from="1745943369142" duration="28000" />
-      <workItem from="1745943410522" duration="795000" />
-      <workItem from="1745956075106" duration="5709000" />
+      <updated>1746017726818</updated>
+      <workItem from="1746017728995" duration="243000" />
+      <workItem from="1746018111593" duration="216000" />
+      <workItem from="1746018764221" duration="13000" />
+      <workItem from="1746046973807" duration="806000" />
+      <workItem from="1746055107704" duration="2468000" />
+      <workItem from="1746084459546" duration="4938000" />
+      <workItem from="1746096657011" duration="4714000" />
+      <workItem from="1746106506910" duration="1342000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="UnknownFeatures">
-    <option featureType="com.intellij.fileTypeFactory" implementationName="*.conf" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

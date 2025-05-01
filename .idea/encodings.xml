@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/ApiGateway/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/BatchService/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/BookService/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/CartService/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/ChatService/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/ConfigServer/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/EventBusService/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/FileService/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/IdentityService/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/InventoryService/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/NotificationService/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/OrderService/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/PaymentService/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/PostService/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/ProfileService/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/RegistryService/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/ReviewService/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/SearchService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/api-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/batch-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/book-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cart-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chat-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/event-bus-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/file-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/identity-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/inventory-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/notification-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/order-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/payment-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/post-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/profile-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/review-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/search-service/src/main/java" charset="UTF-8" />
   </component>
 </project>
