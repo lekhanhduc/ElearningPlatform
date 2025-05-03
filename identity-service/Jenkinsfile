@@ -13,7 +13,10 @@ pipeline {
     stages {
 		stage('Checkout Code') {
 			steps {
-				script {
+				// Thêm bước checkout SCM tiêu chuẩn để Jenkins có thể theo dõi changeset
+                checkout scm
+
+                script {
 					if (fileExists('BookStorePlatform')) {
 						echo 'Repository already exists. Pulling latest changes...'
                         dir('BookStorePlatform') {
@@ -29,10 +32,13 @@ pipeline {
                 }
             }
         }
-        
+
         stage('Build IdentityService') {
 			when {
-				changeset "BookStorePlatform/identity-service/**"
+				anyOf {
+					changeset "BookStorePlatform/identity-service/**"
+                    expression { return currentBuild.number == 1 }  // Chạy trong lần build đầu tiên
+                }
             }
             steps {
 				dir('BookStorePlatform/identity-service') {
@@ -42,9 +48,13 @@ pipeline {
                 }
             }
         }
+
         stage('Code Quality With SonarQube') {
 			when {
-				changeset "BookStorePlatform/identity-service/**"
+				anyOf {
+					changeset "BookStorePlatform/identity-service/**"
+                    expression { return currentBuild.number == 1 }
+                }
             }
             steps {
 				echo 'Running SonarQube analysis for IdentityService...'
@@ -59,9 +69,13 @@ pipeline {
                 }
             }
         }
+
         stage('Build Package') {
 			when {
-				changeset "BookStorePlatform/identity-service/**"
+				anyOf {
+					changeset "BookStorePlatform/identity-service/**"
+                    expression { return currentBuild.number == 1 }
+                }
             }
             steps {
 				dir('BookStorePlatform/identity-service') {
@@ -69,17 +83,25 @@ pipeline {
                 }
             }
         }
+
         stage('Archive Artifact') {
 			when {
-				changeset "BookStorePlatform/identity-service/**"
+				anyOf {
+					changeset "BookStorePlatform/identity-service/**"
+                    expression { return currentBuild.number == 1 }
+                }
             }
             steps {
 				archiveArtifacts artifacts: 'BookStorePlatform/identity-service/target/*.jar', fingerprint: true
             }
         }
+
         stage('Build Docker Image') {
 			when {
-				changeset "BookStorePlatform/identity-service/**"
+				anyOf {
+					changeset "BookStorePlatform/identity-service/**"
+                    expression { return currentBuild.number == 1 }
+                }
             }
             steps {
 				dir('BookStorePlatform/identity-service') {
@@ -88,9 +110,13 @@ pipeline {
                 }
             }
         }
+
         stage('Push Docker Image') {
 			when {
-				changeset "BookStorePlatform/identity-service/**"
+				anyOf {
+					changeset "BookStorePlatform/identity-service/**"
+                    expression { return currentBuild.number == 1 }
+                }
             }
             steps {
 				dir('BookStorePlatform/identity-service') {
@@ -99,6 +125,7 @@ pipeline {
             }
         }
     }
+
     post {
 		success {
 			echo 'Pipeline completed successfully!'
