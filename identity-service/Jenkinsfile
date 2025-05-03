@@ -28,7 +28,6 @@ pipeline {
                 }
             }
         }
-        
         stage('Build IdentityService') {
 			when {
 				changeset "BookStorePlatform/identity-service/**"
