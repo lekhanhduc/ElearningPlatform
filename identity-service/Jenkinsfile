@@ -2,21 +2,17 @@ pipeline {
 	agent any
     tools {
 		jdk 'JDK21'
-        maven 'Maven-3.9.9'
+        maven 'Maven-3.3.9'
     }
     environment {
 		GITHUB_TOKEN = credentials('github-token')
         SONAR_TOKEN = credentials('sonar-token')
         SLACK_WEBHOOK_URL = credentials('slack-webhook-url')
     }
-
     stages {
 		stage('Checkout Code') {
 			steps {
-				// Thêm bước checkout SCM tiêu chuẩn để Jenkins có thể theo dõi changeset
-                checkout scm
-
-                script {
+				script {
 					if (fileExists('BookStorePlatform')) {
 						echo 'Repository already exists. Pulling latest changes...'
                         dir('BookStorePlatform') {
@@ -32,15 +28,8 @@ pipeline {
                 }
             }
         }
-
         stage('Build IdentityService') {
-			when {
-				anyOf {
-					changeset "BookStorePlatform/identity-service/**"
-                    expression { return currentBuild.number == 1 }  // Chạy trong lần build đầu tiên
-                }
-            }
-            steps {
+			steps {
 				dir('BookStorePlatform/identity-service') {
 					withEnv(["JAVA_HOME=${tool 'JDK21'}"]) {
 						sh 'mvn clean install -DskipTests'
@@ -48,15 +37,8 @@ pipeline {
                 }
             }
         }
-
         stage('Code Quality With SonarQube') {
-			when {
-				anyOf {
-					changeset "BookStorePlatform/identity-service/**"
-                    expression { return currentBuild.number == 1 }
-                }
-            }
-            steps {
+			steps {
 				echo 'Running SonarQube analysis for IdentityService...'
                 dir('BookStorePlatform/identity-service') {
 					sh """
@@ -69,63 +51,35 @@ pipeline {
                 }
             }
         }
-
         stage('Build Package') {
-			when {
-				anyOf {
-					changeset "BookStorePlatform/identity-service/**"
-                    expression { return currentBuild.number == 1 }
-                }
-            }
-            steps {
+			steps {
 				dir('BookStorePlatform/identity-service') {
 					sh 'mvn package -DskipTests'
                 }
             }
         }
-
         stage('Archive Artifact') {
-			when {
-				anyOf {
-					changeset "BookStorePlatform/identity-service/**"
-                    expression { return currentBuild.number == 1 }
-                }
-            }
-            steps {
+			steps {
 				archiveArtifacts artifacts: 'BookStorePlatform/identity-service/target/*.jar', fingerprint: true
             }
         }
-
         stage('Build Docker Image') {
-			when {
-				anyOf {
-					changeset "BookStorePlatform/identity-service/**"
-                    expression { return currentBuild.number == 1 }
-                }
-            }
-            steps {
+			steps {
 				dir('BookStorePlatform/identity-service') {
 					sh "docker build -t identity-service:1.0.0 ."
                     sh "docker tag identity-service:1.0.0 khanhduc/identity-service:1.0.0"
                 }
             }
         }
-
         stage('Push Docker Image') {
-			when {
-				anyOf {
-					changeset "BookStorePlatform/identity-service/**"
-                    expression { return currentBuild.number == 1 }
-                }
-            }
             steps {
 				dir('BookStorePlatform/identity-service') {
 					sh "docker push khanhduc/identity-service:1.0.0"
                 }
             }
         }
-    }
 
+    }
     post {
 		success {
 			echo 'Pipeline completed successfully!'
@@ -155,4 +109,5 @@ pipeline {
 			cleanWs()
         }
     }
+
 }
