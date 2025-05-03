@@ -29,7 +29,10 @@ pipeline {
             }
         }
         stage('Build IdentityService') {
-			steps {
+			when {
+				changeset "BookStorePlatform/identity-service/**"
+            }
+            steps {
 				dir('BookStorePlatform/identity-service') {
 					withEnv(["JAVA_HOME=${tool 'JDK21'}"]) {
 						sh 'mvn clean install -DskipTests'
@@ -38,7 +41,10 @@ pipeline {
             }
         }
         stage('Code Quality With SonarQube') {
-			steps {
+			when {
+				changeset "BookStorePlatform/identity-service/**"
+            }
+            steps {
 				echo 'Running SonarQube analysis for IdentityService...'
                 dir('BookStorePlatform/identity-service') {
 					sh """
@@ -52,19 +58,28 @@ pipeline {
             }
         }
         stage('Build Package') {
-			steps {
+			when {
+				changeset "BookStorePlatform/identity-service/**"
+            }
+            steps {
 				dir('BookStorePlatform/identity-service') {
 					sh 'mvn package -DskipTests'
                 }
             }
         }
         stage('Archive Artifact') {
-			steps {
+			when {
+				changeset "BookStorePlatform/identity-service/**"
+            }
+            steps {
 				archiveArtifacts artifacts: 'BookStorePlatform/identity-service/target/*.jar', fingerprint: true
             }
         }
         stage('Build Docker Image') {
-			steps {
+			when {
+				changeset "BookStorePlatform/identity-service/**"
+            }
+            steps {
 				dir('BookStorePlatform/identity-service') {
 					sh "docker build -t identity-service:1.0.0 ."
                     sh "docker tag identity-service:1.0.0 khanhduc/identity-service:1.0.0"
@@ -72,12 +87,12 @@ pipeline {
             }
         }
         stage('Push Docker Image') {
-			steps {
+			when {
+				changeset "BookStorePlatform/identity-service/**"
+            }
+            steps {
 				dir('BookStorePlatform/identity-service') {
-					withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-						sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
-                        sh "docker push khanhduc/identity-service:1.0.0"
-                    }
+					sh "docker push khanhduc/identity-service:1.0.0"
                 }
             }
         }
@@ -111,5 +126,4 @@ pipeline {
 			cleanWs()
         }
     }
-
 }
