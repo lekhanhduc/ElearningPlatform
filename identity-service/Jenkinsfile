@@ -9,6 +9,7 @@ pipeline {
         SONAR_TOKEN = credentials('sonar-token')
         SLACK_WEBHOOK_URL = credentials('slack-webhook-url')
     }
+
     stages {
 		stage('Checkout Code') {
 			steps {
@@ -28,6 +29,7 @@ pipeline {
                 }
             }
         }
+        
         stage('Build IdentityService') {
 			when {
 				changeset "BookStorePlatform/identity-service/**"
