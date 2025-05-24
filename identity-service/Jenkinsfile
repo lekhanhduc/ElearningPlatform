@@ -15,7 +15,7 @@ pipeline {
 				script {
 					if (fileExists('ElearningPlatform')) {
 						echo 'Repository already exists. Pulling latest changes...'
-                        dir('ElearningPlatform') {
+                        dir('BookStorePlatform') {
 							sh 'git reset --hard'
                             sh 'git pull origin master'
                         }
@@ -80,6 +80,7 @@ pipeline {
                 }
             }
         }
+
     }
     post {
 		success {
