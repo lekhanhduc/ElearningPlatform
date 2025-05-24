@@ -28,6 +28,7 @@ pipeline {
                 }
             }
         }
+
         stage('Build IdentityService') {
 			steps {
 				dir('BookStorePlatform/identity-service') {
