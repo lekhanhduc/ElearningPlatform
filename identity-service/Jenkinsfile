@@ -56,7 +56,9 @@ pipeline {
         stage('Build Package') {
 			steps {
 				dir('ElearningPlatform/identity-service') {
-					sh 'mvn package -DskipTests'
+					withEnv(["JAVA_HOME=${tool 'JDK21'}"]) {
+                        sh '${JAVA_HOME}/bin/mvn package -DskipTests'
+                    }
                 }
             }
         }
