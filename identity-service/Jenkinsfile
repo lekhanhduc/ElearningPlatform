@@ -65,25 +65,25 @@ pipeline {
 				archiveArtifacts artifacts: 'ElearningPlatform/identity-service/target/*.jar', fingerprint: true
             }
         }
-        stage('Build Docker Image') {
-			steps {
-				dir('ElearningPlatform/identity-service') {
-					sh "docker build -t identity-service:1.0.0 ."
-                    sh "docker tag identity-service:1.0.0 khanhduc/identity-service:1.0.0"
-                }
-            }
-        }
+       stage('Build Docker Image') {
+           steps {
+               dir('ElearningPlatform/identity-service') {
+                   sh "docker build -t identity-service:1.0.0 ."
+                   sh "docker tag identity-service:1.0.0 khanhduc/identity-service:1.0.0"
+               }
+           }
+       }
        stage('Push Docker Image') {
            steps {
                dir('ElearningPlatform/identity-service') {
                    withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                       sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
-                       sh "docker push khanhduc/identity-service:1.0.0"
+                       sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
+                       sh 'echo "Logged in successfully, pushing image..."'
+                       sh 'docker push khanhduc/identity-service:1.0.0'
                    }
                }
            }
        }
-
     }
     post {
 		success {
