@@ -31,13 +31,14 @@ pipeline {
         stage('Build IdentityService') {
 			steps {
 				dir('BookStorePlatform/identity-service') {
-					  sh 'echo $JAVA_HOME'
-                      sh 'java -version'
-                      sh 'mvn clean install -DskipTests'
+					withEnv(["JAVA_HOME=${tool 'JDK21'}"]) {
+					    sh 'echo $JAVA_HOME' 
+                        sh 'java -version'
+						sh 'mvn clean install -DskipTests'
+                    }
                 }
             }
         }
-
         stage('Code Quality With SonarQube') {
 			steps {
 				echo 'Running SonarQube analysis for IdentityService...'
