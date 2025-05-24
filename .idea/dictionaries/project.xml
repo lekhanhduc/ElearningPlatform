@@ -2,6 +2,14 @@
   <dictionary name="project">
     <words>
       <w>brevo</w>
+      <w>defaultzone</w>
+      <w>dskip</w>
+      <w>dsonar</w>
+      <w>javaadditionalopts</w>
+      <w>khanhduc</w>
+      <w>lekhanhduc</w>
+      <w>openzipkin</w>
+      <w>đang</w>
     </words>
   </dictionary>
 </component>

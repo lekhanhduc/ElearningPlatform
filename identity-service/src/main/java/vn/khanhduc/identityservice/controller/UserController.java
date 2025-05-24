@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import vn.khanhduc.identityservice.dto.request.ChangePasswordRequest;
 import vn.khanhduc.identityservice.dto.request.UserCreationRequest;
 import vn.khanhduc.identityservice.dto.response.ResponseData;
 import vn.khanhduc.identityservice.dto.response.UserCreationResponse;
@@ -88,6 +89,15 @@ public class UserController {
         return ResponseData.<UserProfileResponse>builder()
                 .code(HttpStatus.OK.value())
                 .data(userService.getInfoUserLogin())
+                .build();
+    }
+
+    @PostMapping("/change-password")
+    ResponseData<Void> changePassword(@RequestBody @Valid ChangePasswordRequest request) {
+        userService.changePassword(request);
+        return ResponseData.<Void>builder()
+                .code(HttpStatus.OK.value())
+                .message("Change password success")
                 .build();
     }
 

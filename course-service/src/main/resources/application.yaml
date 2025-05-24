@@ -1,0 +1,42 @@
+server:
+  port: 8899
+  servlet:
+    context-path: /courses
+
+spring:
+  application:
+    name: COURSE-SERVICE
+  profiles:
+    active: test
+#    active: @spring.profiles.active@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    health:
+      show-details: always
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+  observations:
+    http:
+      server:
+        requests:
+          name: http.server.requests
+  metrics:
+    tags:
+      context-path: ${server.servlet.context-path}
+      application: ${spring.application.name}
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+
+
+

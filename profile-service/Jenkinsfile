@@ -2,7 +2,7 @@ pipeline {
 	agent any
     tools {
 		jdk 'JDK21'
-        maven 'Maven-3.3.9'
+        maven 'Maven-3.9.9'
     }
     environment {
 		GITHUB_TOKEN = credentials('github-token')
@@ -74,10 +74,8 @@ pipeline {
         stage('Push Docker Image') {
 			steps {
 				dir('BookStorePlatform/profile-service') {
-					withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-						sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
-                        sh "docker push khanhduc/profile-service:1.0.0"
-                    }
+					echo 'Docker push'
+					sh "docker push khanhduc/profile-service:1.0.0"
                 }
             }
         }

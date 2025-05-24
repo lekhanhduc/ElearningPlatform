@@ -3,6 +3,7 @@ package vn.khanhduc.chatservice.configuration;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -21,14 +22,15 @@ public class SecurityConfiguration {
             "/ws/**",         // Cho WebSocket
             "/user/**",           // Cho các destination dạng /user/...
             "/app/**" ,            // Cho các destination dạng /app/...
-//            "/chatbot/**"
+            "/chatbot/**"
     };
 
     private final JwtDecoderCustomizer jwtDecoder;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf(AbstractHttpConfigurer::disable);
+        http.csrf(AbstractHttpConfigurer::disable)
+                        .cors(Customizer.withDefaults());
 
         http.authorizeHttpRequests(request -> request
                 .requestMatchers(WHITE_LIST).permitAll()

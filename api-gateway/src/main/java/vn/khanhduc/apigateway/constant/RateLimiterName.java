@@ -6,4 +6,5 @@ public interface RateLimiterName {
     String PROFILE_SERVICE = "profileServiceRateLimiter";
     String ORDER_SERVICE = "orderServiceRateLimiter";
     String REVIEW_SERVICE = "reviewServiceRateLimiter";
+    String PAYMENT_SERVICE = "paymentServiceRateLimiter";
 }

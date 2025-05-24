@@ -6,5 +6,5 @@ spring:
   application:
     name: CHAT-SERVICE
   profiles:
-     active: @spring.profiles.active@
-#    active: test
+#     active: @spring.profiles.active@
+    active: test

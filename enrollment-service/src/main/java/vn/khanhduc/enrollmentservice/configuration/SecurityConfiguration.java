@@ -1,4 +1,4 @@
-package vn.khanhduc.courseservice.configuration;
+package vn.khanhduc.enrollmentservice.configuration;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -24,10 +24,6 @@ public class SecurityConfiguration {
             "/swagger-ui.html",
             "/swagger-resources/**",
             "/webjars/**",
-            "/fetch-all",
-            "/categories/fetch-all",
-            "/info-detail/**",
-            "/search/**"
     };
 
     private final JwtDecoderCustomizer jwtDecoder;

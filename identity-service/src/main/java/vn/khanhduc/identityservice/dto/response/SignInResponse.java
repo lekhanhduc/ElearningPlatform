@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import java.io.Serializable;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -11,5 +12,5 @@ import java.io.Serializable;
 public class SignInResponse implements Serializable {
     private String accessToken;
     private String refreshToken;
-    private Long userId;
+    private Set<String> userType;
 }

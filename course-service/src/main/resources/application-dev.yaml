@@ -1,0 +1,35 @@
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 500MB
+      max-request-size: 550MB
+  config:
+    import: optional:configserver:http://localhost:8888
+    name: course-service
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/course_service
+    username: root
+    password: 123456
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  kafka:
+    bootstrap-servers: localhost:9094
+
+  elasticsearch:
+    host: localhost
+    port: 9200
+    username: root
+    password: 123456
+
+api-gateway:
+  url: http://localhost:9191
+
+
+minio:
+  bucket-name: bookstore-application

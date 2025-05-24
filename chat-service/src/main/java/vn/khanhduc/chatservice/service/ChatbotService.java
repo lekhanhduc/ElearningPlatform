@@ -21,14 +21,14 @@ public class ChatbotService {
 
     public Flux<String> askQuestion(String question) {
 
-        Optional<String> principal = SecurityContextHolder.getContext().getAuthentication().getName().describeConstable();
-        if(principal.isEmpty()) throw new ChatException(ErrorCode.UNAUTHENTICATED);
+//        Optional<String> principal = SecurityContextHolder.getContext().getAuthentication().getName().describeConstable();
+//        if(principal.isEmpty()) throw new ChatException(ErrorCode.UNAUTHENTICATED);
 
-        String userId = principal.get();
+//        String userId = principal.get();
 
         return chatClient.prompt()
                 .user(question)
-                .advisors(advisor -> advisor.param("chat_memory_conversation_id", userId))
+//                .advisors(advisor -> advisor.param("chat_memory_conversation_id", userId))
                 .stream()
                 .content();
     }

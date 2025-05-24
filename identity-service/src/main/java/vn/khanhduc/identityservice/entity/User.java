@@ -25,6 +25,8 @@ public class User implements UserDetails, Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+//    private String userId; userId from Keycloak, UUID
+
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 

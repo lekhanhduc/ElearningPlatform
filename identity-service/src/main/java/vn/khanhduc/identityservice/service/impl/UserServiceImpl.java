@@ -11,12 +11,13 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.client.RestClient;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 import vn.khanhduc.event.dto.ProfileEvent;
+import vn.khanhduc.identityservice.common.SecurityUtils;
 import vn.khanhduc.identityservice.common.UserStatus;
 import vn.khanhduc.identityservice.common.UserType;
+import vn.khanhduc.identityservice.dto.request.ChangePasswordRequest;
 import vn.khanhduc.identityservice.dto.request.UserCreationRequest;
 import vn.khanhduc.identityservice.dto.response.UserCreationResponse;
 import vn.khanhduc.identityservice.dto.response.UserDetailResponse;
@@ -41,7 +42,6 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    private final RestClient restClient;
     private final RestTemplate restTemplate;
     private final WebClient webClient;
     private final RoleRepository roleRepository;
@@ -122,14 +122,6 @@ public class UserServiceImpl implements UserService {
                 .build();
     }
 
-    @Override
-    public UserProfileResponse getUserProfileByIdWithRestClient(String id) {
-        log.info("Get user profile with rest client");
-        return restClient.get()
-                .uri("http://localhost:8081/api/v1/profiles/" + id)
-                .retrieve()
-                .body(UserProfileResponse.class);
-    }
 
     @Override
     public UserProfileResponse getUserProfileByIdWithRestTemplate(String id) {
@@ -163,6 +155,21 @@ public class UserServiceImpl implements UserService {
         }
         Long userId = Long.valueOf(principal.get());
         return profileClient.getProfileByUserId(userId);
+    }
+
+    @Override
+    public void changePassword(ChangePasswordRequest request) {
+        var userId = SecurityUtils.getCurrentUserLogin();
+        var user = userRepository.findById(userId)
+                .orElseThrow(() -> new IdentityException(ErrorCode.USER_NOT_EXISTED));
+
+        if(!passwordEncoder.matches(request.getOldPassword(), user.getPassword())) {
+            log.error("Old password not match");
+            throw new IdentityException(ErrorCode.OLD_PASSWORD_NOT_MATCH);
+        }
+        user.setPassword(passwordEncoder.encode(request.getNewPassword()));
+        userRepository.save(user);
+        log.info("Change password success");
     }
 
     private UserProfileResponse fallBackGetProfileByUserId(Throwable throwable) {

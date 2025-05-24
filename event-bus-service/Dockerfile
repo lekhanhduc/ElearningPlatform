@@ -7,5 +7,5 @@ RUN mvn package -DskipTests
 FROM amazoncorretto:21.0.4
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
-EXPOSE 8090
+EXPOSE 9999
 ENTRYPOINT ["java", "-jar", "app.jar"]

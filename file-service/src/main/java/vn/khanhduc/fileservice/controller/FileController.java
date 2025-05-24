@@ -12,15 +12,17 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import vn.khanhduc.fileservice.service.impl.MinioService;
 
 @RestController
 @RequiredArgsConstructor
 public class FileController {
 
     private final FileService fileService;
+    private final MinioService minioService;
 
     @PostMapping(value = "/media/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    ResponseData<FileResponse> uploadFile(@RequestPart("file") MultipartFile file) {
+    ResponseData<FileResponse> uploadFileToLocal(@RequestPart("file") MultipartFile file) {
         return ResponseData.<FileResponse>builder()
                 .code(HttpStatus.OK.value())
                 .data(fileService.uploadFile(file))
@@ -39,6 +41,15 @@ public class FileController {
         return ResponseEntity.ok()
                 .headers(httpHeaders)
                 .body(fileMetadata.getResource());
+    }
+
+    @PostMapping(value = "/minio/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    ResponseData<FileResponse> uploadFileToMinio(@RequestPart("file") MultipartFile file,
+                                                 @RequestPart("bucketName") String bucketName) throws Exception {
+        return ResponseData.<FileResponse>builder()
+                .code(HttpStatus.OK.value())
+                .data(minioService.uploadFileToMinio(file, bucketName))
+                .build();
     }
 
 }

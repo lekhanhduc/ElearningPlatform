@@ -8,3 +8,6 @@ spring:
   profiles:
     active: test
 #    active: @spring.profiles.active@
+
+logging:
+  config: classpath:logback-spring.xml

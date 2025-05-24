@@ -1,8 +1,8 @@
-package vn.khanhduc.courseservice.common;
+package vn.khanhduc.enrollmentservice.common;
 
 import org.springframework.security.core.context.SecurityContextHolder;
-import vn.khanhduc.courseservice.exception.CourseException;
-import vn.khanhduc.courseservice.exception.ErrorCode;
+import vn.khanhduc.enrollmentservice.exception.EnrollmentException;
+import vn.khanhduc.enrollmentservice.exception.ErrorCode;
 
 public class SecurityUtils {
     private SecurityUtils() {
@@ -10,7 +10,7 @@ public class SecurityUtils {
 
     public static Long getCurrentUser() {
         var principal = SecurityContextHolder.getContext().getAuthentication().getName().describeConstable();
-        if(principal.isEmpty()) throw new CourseException(ErrorCode.UNAUTHENTICATED);
+        if(principal.isEmpty()) throw new EnrollmentException(ErrorCode.UNAUTHENTICATED);
         return Long.valueOf(principal.get());
     }
 }

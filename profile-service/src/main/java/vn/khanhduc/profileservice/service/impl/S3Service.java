@@ -1,4 +1,4 @@
-package vn.khanhduc.profileservice.service;
+package vn.khanhduc.profileservice.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

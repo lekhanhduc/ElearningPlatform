@@ -19,6 +19,7 @@ import reactor.core.publisher.Mono;
 import vn.khanhduc.apigateway.dto.response.ResponseData;
 import vn.khanhduc.apigateway.service.IdentityService;
 import java.nio.charset.StandardCharsets;
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 
@@ -44,7 +45,13 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
             "/swagger-ui.html",
             "/webjars/.*",
             "/swagger-resources/.*",
-            "/profile/api/v1/v3/api-docs"
+            "/profile/api/v1/v3/api-docs",
+            "/courses/fetch-all/.*",
+            "/courses/fetch-all",
+            "/courses/info-detail/.*",
+            "/courses/categories/fetch-all",
+            "/chat/chatbot/.*",
+            "/courses/search/.*"
     };
 
     private final IdentityService identityService;
@@ -64,14 +71,18 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
 
         String token = authHeaders.getFirst().replace("Bearer ", "");
         // 3. Verify Token -> Call IdentityService to authentication -> delegated identity service
-        return identityService.verificationToken(token).flatMap(verificationResponse -> {
+        return identityService.verificationToken(token)
+                .timeout(Duration.ofSeconds(5))
+                .flatMap(verificationResponse -> {
             if(verificationResponse.getData().isValid()) {
-                log.info("verification token {}", verificationResponse.getData());
                 return chain.filter(exchange);
             } else {
                 return unauthenticated(exchange.getResponse());
             }
-        }).onErrorResume((throwable) -> unauthenticated(exchange.getResponse()));
+        }).onErrorResume((throwable) ->  {
+            log.error("Error during token verification: ", throwable);
+            return unauthenticated(exchange.getResponse());
+        });
     }
 
     @Override

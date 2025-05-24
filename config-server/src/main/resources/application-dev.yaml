@@ -7,7 +7,7 @@ spring:
           clone-on-start: true
           default-label: main
           username: lekhanhduc
-          password: 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
+          password: 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
 eureka:
   instance:
     prefer-ip-address: true

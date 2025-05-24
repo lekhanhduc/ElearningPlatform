@@ -1,6 +1,7 @@
 package vn.khanhduc.searchservice.service;
 
 import vn.khanhduc.searchservice.dto.BookDetailResponse;
+import vn.khanhduc.searchservice.dto.CourseResponse;
 import vn.khanhduc.searchservice.dto.PageResponse;
 import vn.khanhduc.searchservice.repository.SearchRepository;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +23,10 @@ public class SearchService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public PageResponse<CourseResponse> getCoursesWithSearch(int page, int size, String keyword) {
+        return searchRepository.getCourseWithSearch(page, size, keyword);
     }
 
     public Mono<PageResponse<BookDetailResponse>> getBookAndSearchWithWebClient(final int page, final int size, final String keyword) {

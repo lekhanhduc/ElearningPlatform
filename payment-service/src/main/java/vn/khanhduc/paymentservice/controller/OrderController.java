@@ -1,6 +1,5 @@
 package vn.khanhduc.paymentservice.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import vn.khanhduc.paymentservice.dto.request.CreatePaymentLinkRequestBody;
 import vn.khanhduc.paymentservice.service.PaymentService;
 import com.fasterxml.jackson.databind.node.ObjectNode;

@@ -1,6 +1,7 @@
-package vn.khanhduc.courseservice.dto.response;
+package vn.khanhduc.enrollmentservice.dto.response;
 
 import lombok.*;
+
 import java.io.Serializable;
 import java.util.Date;
 

@@ -1,8 +1,9 @@
-package vn.khanhduc.courseservice.dto.response;
+package vn.khanhduc.enrollmentservice.dto.response;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;

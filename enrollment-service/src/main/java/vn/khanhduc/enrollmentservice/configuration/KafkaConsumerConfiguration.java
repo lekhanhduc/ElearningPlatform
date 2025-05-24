@@ -1,4 +1,4 @@
-package vn.khanhduc.identityservice.configuration;
+package vn.khanhduc.enrollmentservice.configuration;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -25,7 +25,7 @@ public class KafkaConsumerConfiguration {
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         config.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
-        config.put(ConsumerConfig.GROUP_ID_CONFIG, "identity-group" );
+        config.put(ConsumerConfig.GROUP_ID_CONFIG, "enrollment-group" );
         config.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
         config.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
 

@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 import vn.khanhduc.profileservice.dto.request.ProfileRequest;
 import vn.khanhduc.profileservice.dto.request.ProfileUpdateRequest;
 import vn.khanhduc.profileservice.dto.response.PageResponse;
+import vn.khanhduc.profileservice.dto.response.ProfileDetailResponse;
 import vn.khanhduc.profileservice.dto.response.ProfileResponse;
 import vn.khanhduc.profileservice.exception.AuthenticationException;
 import vn.khanhduc.profileservice.exception.ResourceNotFoundException;
@@ -37,7 +38,7 @@ public class UserProfileController {
     }
 
     @PutMapping("/update")
-    ResponseEntity<ProfileResponse> updateProfile(@RequestPart(required = false, value = "request") ProfileUpdateRequest request,
+    ResponseEntity<ProfileDetailResponse> updateProfile(@RequestPart(required = false, value = "request") ProfileUpdateRequest request,
                                                   @RequestPart(required = false, value = "avatar") MultipartFile avatar) {
         try {
             var result = userProfileService.updateProfile(request, avatar);
@@ -55,5 +56,9 @@ public class UserProfileController {
         return ResponseEntity.ok(userProfileService.uploadAvatar(avatar));
     }
 
+    @GetMapping("/info")
+    ResponseEntity<ProfileDetailResponse> getProfileByUserLogin() {
+        return ResponseEntity.ok(userProfileService.getProfileByUserLogin());
+    }
 
 }

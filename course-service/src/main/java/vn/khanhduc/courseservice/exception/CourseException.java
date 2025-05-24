@@ -1,4 +1,14 @@
 package vn.khanhduc.courseservice.exception;
 
-public class CourseException {
+import lombok.Getter;
+
+@Getter
+public class CourseException extends RuntimeException {
+
+    private final ErrorCode errorCode;
+
+    public CourseException(ErrorCode errorCode) {
+        super(errorCode.getMessage());
+        this.errorCode = errorCode;
+    }
 }

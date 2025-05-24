@@ -3,14 +3,12 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/lekhanhduc/Spring-Cloud-Config-ServerSpring-Production
+          uri: https://github.com/lekhanhduc/Spring-Cloud-Config-Server
           clone-on-start: true
-          default-label: main
+          default-label: production
           username: lekhanhduc
-          password: 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
+          password: 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
 eureka:
-  instance:
-    prefer-ip-address: true
   client:
     serviceUrl:
       defaultZone: http://registry-service:8761/eureka/

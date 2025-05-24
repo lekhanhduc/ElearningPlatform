@@ -16,7 +16,6 @@ spring:
     bootstrap-servers: localhost:9094
 
 
-
 resilience4j.circuitbreaker:
   instances:
     PAYMENT-SERVICE:

@@ -1,4 +1,4 @@
-package vn.khanhduc.courseservice.configuration;
+package vn.khanhduc.enrollmentservice.configuration;
 
 import com.nimbusds.jwt.SignedJWT;
 import org.springframework.security.oauth2.jwt.Jwt;

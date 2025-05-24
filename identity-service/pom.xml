@@ -54,6 +54,11 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-oauth2-client</artifactId>
         </dependency>
 
@@ -92,11 +97,11 @@
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>net.logstash.logback</groupId>
-            <artifactId>logstash-logback-encoder</artifactId>
-            <version>6.6</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>net.logstash.logback</groupId>-->
+<!--            <artifactId>logstash-logback-encoder</artifactId>-->
+<!--            <version>6.6</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>io.micrometer</groupId>
@@ -115,23 +120,23 @@
 <!--            <artifactId>spring-cloud-starter-bus-amqp</artifactId>-->
 <!--        </dependency>-->
 
-<!--        &lt;!&ndash; Thư viện chính thực hiện tracing &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>io.micrometer</groupId>-->
-<!--            <artifactId>micrometer-tracing</artifactId>-->
-<!--        </dependency>-->
+        <!-- Thư viện chính thực hiện tracing -->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-tracing</artifactId>
+        </dependency>
 
-<!--        &lt;!&ndash;Bridge kết nối với Brave, Brave chủ yếu được dùng với Zipkin &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>io.micrometer</groupId>-->
-<!--            <artifactId>micrometer-tracing-bridge-brave</artifactId>-->
-<!--        </dependency>-->
+        <!--Bridge kết nối với Brave, Brave chủ yếu được dùng với Zipkin -->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-tracing-bridge-brave</artifactId>
+        </dependency>
 
-<!--&lt;!&ndash;     Gửi dữ liệu tracing từ Micrometer Tracing + Brave đến Zipkin Server&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>io.zipkin.reporter2</groupId>-->
-<!--            <artifactId>zipkin-reporter-brave</artifactId>-->
-<!--        </dependency>-->
+<!--     Gửi dữ liệu tracing từ Micrometer Tracing + Brave đến Zipkin Server-->
+        <dependency>
+            <groupId>io.zipkin.reporter2</groupId>
+            <artifactId>zipkin-reporter-brave</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -139,8 +144,8 @@
         </dependency>
 
         <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
             <scope>runtime</scope>
         </dependency>
 

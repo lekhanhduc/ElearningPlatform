@@ -33,7 +33,7 @@ public class KafkaProducerConfiguration {
 
     @Bean
     public NewTopic orderTopic() {
-        return new NewTopic("order-pending", 3, (short) 1);
+        return new NewTopic("enrollment-pending", 3, (short) 1);
     }
 
 }

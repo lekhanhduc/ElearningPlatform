@@ -1,4 +1,4 @@
-package vn.khanhduc.courseservice.configuration;
+package vn.khanhduc.enrollmentservice.configuration;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.servers.Server;

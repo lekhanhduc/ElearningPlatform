@@ -7,6 +7,7 @@ import co.elastic.clients.elasticsearch.core.search.Hit;
 import co.elastic.clients.elasticsearch.core.search.TotalHits;
 import org.springframework.stereotype.Repository;
 import vn.khanhduc.searchservice.dto.BookDetailResponse;
+import vn.khanhduc.searchservice.dto.CourseResponse;
 import vn.khanhduc.searchservice.dto.PageResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -64,6 +65,46 @@ public class SearchRepository {
                 .totalElements(totalElements)
                 .data(books)
                 .build();
+    }
+
+    public PageResponse<CourseResponse> getCourseWithSearch(int page, int size, String keyword) {
+        if(page <= 0 ) {
+            page = 1;
+        }
+        SearchRequest.Builder searchBuilder  = new SearchRequest.Builder()
+                .index("courses")
+                .from(page - 1)
+                .size(size);
+
+        if(StringUtils.hasText(keyword)) {
+            searchBuilder.query(q -> q.multiMatch(m -> m.query(keyword)
+                                    .fields("name", "description", "categoryName")
+                                    .fuzziness("AUTO")
+            ));
+        } else {
+            searchBuilder.query(q -> q.matchAll(m -> m));
+        }
+
+        try {
+            SearchResponse<CourseResponse> searchResponse = elasticsearchClient.search(searchBuilder.build(), CourseResponse.class);
+            List<CourseResponse> courses = searchResponse.hits().hits().stream()
+                    .map(Hit::source)
+                    .toList();
+
+            long totalElements = searchResponse.hits().total() != null ? searchResponse.hits().total().value() : 0L;
+            int totalPages = (int) Math.ceil((double) totalElements / size);
+
+            return PageResponse.<CourseResponse>builder()
+                    .currentPage(page)
+                    .pageSize(size)
+                    .totalPages(totalPages)
+                    .totalElements(totalElements)
+                    .data(courses)
+                    .build();
+            
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public PageResponse<BookDetailResponse> getBookWithJavaAPI(int page, int size, String keyword) {

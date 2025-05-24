@@ -1,0 +1,9 @@
+server:
+  port: 9411
+zipkin:
+  storage:
+    type: elasticsearch
+    elasticsearch:
+      hosts: http://elasticsearch:9200
+      index: zipkin-index
+      index-date-separator: false

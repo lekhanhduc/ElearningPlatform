@@ -11,9 +11,11 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import vn.khanhduc.event.dto.ProfileEvent;
+import vn.khanhduc.identityservice.common.TokenType;
 import vn.khanhduc.identityservice.common.UserStatus;
 import vn.khanhduc.identityservice.common.UserType;
 import vn.khanhduc.identityservice.dto.request.ExchangeTokenRequest;
@@ -28,7 +30,6 @@ import vn.khanhduc.identityservice.repository.RoleRepository;
 import vn.khanhduc.identityservice.repository.UserRepository;
 import vn.khanhduc.identityservice.repository.httpclient.GoogleClient;
 import vn.khanhduc.identityservice.repository.httpclient.OutboundUserClient;
-import vn.khanhduc.identityservice.repository.httpclient.ProfileClient;
 import vn.khanhduc.identityservice.service.AuthenticationService;
 import vn.khanhduc.identityservice.service.JwtService;
 import vn.khanhduc.identityservice.service.RedisService;
@@ -36,6 +37,7 @@ import java.text.ParseException;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -71,15 +73,17 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                     new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
             User user = (User) authentication.getPrincipal();
 
-            String accessToken = jwtService.generateAccessToken(user);
-            String refreshToken = jwtService.generateRefreshToken(user);
+            String accessToken = jwtService.generateToken(user, TokenType.ACCESS_TOKEN);
+            String refreshToken = jwtService.generateToken(user, TokenType.REFRESH_TOKEN);
 
             redisService.save(user.getId().toString(), refreshToken, 14, TimeUnit.DAYS);
 
             return SignInResponse.builder()
                     .accessToken(accessToken)
                     .refreshToken(refreshToken)
-                    .userId(user.getId())
+                    .userType(user.getAuthorities().stream()
+                            .map(GrantedAuthority::getAuthority)
+                            .collect(Collectors.toSet()))
                     .build();
         } catch (AuthenticationException e) {
             log.error("Authentication exception");
@@ -125,14 +129,16 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                     return newUser;
                 });
 
-        String accessToken = jwtService.generateAccessToken(user);
-        String refreshToken = jwtService.generateRefreshToken(user);
+        var accessToken = jwtService.generateToken(user, TokenType.ACCESS_TOKEN);
+        var refreshToken = jwtService.generateToken(user, TokenType.REFRESH_TOKEN);
         redisService.save(user.getId().toString(), refreshToken, 14, TimeUnit.DAYS);
 
         return SignInResponse.builder()
                 .accessToken(accessToken)
                 .refreshToken(refreshToken)
-                .userId(user.getId())
+                .userType(user.getAuthorities().stream()
+                        .map(GrantedAuthority::getAuthority)
+                        .collect(Collectors.toSet()))
                 .build();
     }
 
@@ -140,7 +146,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     public TokenVerificationResponse introspect(String token) {
         boolean isValid = true;
         try {
-            jwtService.verificationToken(token);
+            jwtService.verificationToken(token, false);
         } catch (ParseException | JOSEException e) {
             isValid = false;
         }
@@ -154,7 +160,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         if(StringUtils.isBlank(refreshToken))
             throw new IdentityException(ErrorCode.REFRESH_TOKEN_INVALID);
 
-        SignedJWT signedJWT = jwtService.verificationToken(refreshToken);
+        SignedJWT signedJWT = jwtService.verificationToken(refreshToken, true);
 
         String userId = signedJWT.getJWTClaimsSet().getSubject();
         String storedRefreshToken = redisService.getToken(userId);
@@ -174,7 +180,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
             redisService.save(jwtTid, accessToken, accessTokenExp, TimeUnit.MILLISECONDS);
         }
         // 4. gửi về client accessToken mới
-        String newAccessToken = jwtService.generateAccessToken(user);
+        String newAccessToken = jwtService.generateToken(user, TokenType.ACCESS_TOKEN);
         return RefreshTokenResponse.builder()
                 .accessToken(newAccessToken)
                 .build();
@@ -197,6 +203,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
             redisService.save(jid, accessToken, tokenExpired, TimeUnit.MILLISECONDS);
             redisService.delete(signedJWT.getJWTClaimsSet().getSubject());
+            log.info("Logout successfully");
         } catch (ParseException e) {
             log.error(e.getMessage());
             throw new IdentityException(ErrorCode.SIGN_OUT_FAILED);

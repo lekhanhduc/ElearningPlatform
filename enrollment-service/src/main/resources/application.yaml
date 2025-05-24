@@ -1,0 +1,42 @@
+server:
+  port: 8898
+  servlet:
+    context-path: /enrollment
+
+spring:
+  application:
+    name: ENROLLMENT-SERVICE
+  profiles:
+    active: @spring.profiles.active@
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    health:
+      show-details: always
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+  observations:
+    http:
+      server:
+        requests:
+          name: http.server.requests
+  metrics:
+    tags:
+      context-path: ${server.servlet.context-path}
+      application: ${spring.application.name}
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+
+
+

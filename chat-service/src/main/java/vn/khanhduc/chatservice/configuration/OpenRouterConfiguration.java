@@ -55,7 +55,7 @@ public class OpenRouterConfiguration {
         return chatClientBuilder
                 .defaultSystem("You are a helpful AI assistant.")
                 .defaultAdvisors(
-                        new PromptChatMemoryAdvisor(chatMemory()),
+                            new PromptChatMemoryAdvisor(chatMemory()),
                         new MessageChatMemoryAdvisor(chatMemory()))
                 .build();
     }

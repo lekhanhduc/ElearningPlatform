@@ -8,11 +8,11 @@ import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 
+import java.net.URI;
+
 @Configuration
 public class S3Configuration {
 
-    @Value("${aws.s3.region}")
-    private String region;
 
     @Value("${aws.credentials.access-key}")
     private String accessKey;
@@ -20,12 +20,18 @@ public class S3Configuration {
     @Value("${aws.credentials.secret-key}")
     private String secretKey;
 
+    @Value("${aws.s3.endpoint-url}")
+    private String endpointUrl;
+
     @Bean
     public S3Client s3Client() {
         return S3Client.builder()
-                .region(Region.of(region))
+                .endpointOverride(URI.create(endpointUrl))
                 .credentialsProvider(StaticCredentialsProvider
                         .create(AwsBasicCredentials.create(accessKey, secretKey)))
+                .region(Region.AP_SOUTHEAST_1)
+                .forcePathStyle(true)
                 .build();
     }
+
 }

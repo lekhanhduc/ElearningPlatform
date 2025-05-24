@@ -1,4 +1,4 @@
-package vn.khanhduc.courseservice.dto.response;
+package vn.khanhduc.enrollmentservice.dto.response;
 
 import lombok.Builder;
 import lombok.Getter;

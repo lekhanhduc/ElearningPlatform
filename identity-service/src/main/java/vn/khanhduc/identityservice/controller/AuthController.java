@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.MissingRequestCookieException;
 import org.springframework.web.bind.annotation.*;
 import vn.khanhduc.identityservice.dto.request.SignInRequest;
 import vn.khanhduc.identityservice.dto.response.RefreshTokenResponse;

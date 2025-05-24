@@ -5,9 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.resilience4j.ratelimiter.RateLimiter;
 import io.github.resilience4j.ratelimiter.RateLimiterRegistry;
 import lombok.RequiredArgsConstructor;
-import org.springdoc.core.models.GroupedOpenApi;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
-import org.springframework.cloud.gateway.route.RouteDefinitionLocator;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
@@ -16,12 +14,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import reactor.core.publisher.Mono;
 import vn.khanhduc.apigateway.dto.response.ErrorResponse;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-import static vn.khanhduc.apigateway.constant.RateLimiterName.IDENTITY_SERVICE;
-import static vn.khanhduc.apigateway.constant.RateLimiterName.PROFILE_SERVICE;
+import static vn.khanhduc.apigateway.constant.RateLimiterName.*;
 
 @Configuration
 @RequiredArgsConstructor
@@ -29,18 +24,15 @@ public class GatewayConfiguration {
 
     private final RateLimiterRegistry rateLimiterRegistry;
     private final ObjectMapper objectMapper;
-    private final RouteDefinitionLocator routeDefinitionLocator;
 
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route("profile-service", r -> r.path("/profile/api/v1/**")
-                        .filters(f -> f
-                                .filter(createRateLimiterFilter(PROFILE_SERVICE)))
+//                        .filters(f -> f
+//                                .filter(createRateLimiterFilter(PROFILE_SERVICE)))
                         .uri("lb://PROFILE-SERVICE"))
                 .route("identity-service", r -> r.path("/identity/**")
-                        .filters(f -> f
-                                .filter(createRateLimiterFilter(IDENTITY_SERVICE)))
                         .uri("lb://IDENTITY-SERVICE"))
                 .route("notification-service", r -> r.path("/notification/**")
                         .uri("lb://NOTIFICATION-SERVICE"))
@@ -53,15 +45,18 @@ public class GatewayConfiguration {
                 .route("order-service", r -> r.path("/order/**")
                         .uri("lb://ORDER-SERVICE"))
                 .route("payment-service", r -> r.path("/payment/**")
+                        .filters(f -> f.filter(createRateLimiterFilter(PAYMENT_SERVICE)))
                         .uri("lb://PAYMENT-SERVICE"))
                 .route("review-service", r -> r.path("/review/**")
                         .uri("lb://REVIEW-SERVICE"))
                 .route("file-service", r -> r.path("/file/**")
                         .uri("lb://FILE-SERVICE"))
-                .route("cart-service", r -> r.path("/cart/**")
-                        .uri("lb://CART-SERVICE"))
                 .route("chat-service", r -> r.path("/chat/**")
                         .uri("lb://CHAT-SERVICE"))
+                .route("course-service", r -> r.path("/courses/**")
+                        .uri("lb://COURSE-SERVICE"))
+                .route("enrollment-service", r -> r.path("/enrollment/**")
+                        .uri("lb://ENROLLMENT-SERVICE"))
                 .build();
     }
 

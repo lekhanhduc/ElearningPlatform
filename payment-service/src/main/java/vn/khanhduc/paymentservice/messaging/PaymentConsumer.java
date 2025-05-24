@@ -48,4 +48,8 @@ public class PaymentConsumer {
         }
     }
 
+    @KafkaListener(topics = "enrollment-pending", groupId = "payment-group")
+    public void enrollmentPending(PaymentEvent event, Acknowledgment acknowledgment) {
+        log.info("Enrollment Pending");
+    }
 }

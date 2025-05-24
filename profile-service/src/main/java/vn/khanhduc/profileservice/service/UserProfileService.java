@@ -6,6 +6,7 @@ import vn.khanhduc.event.dto.ProfileEvent;
 import vn.khanhduc.profileservice.dto.request.ProfileRequest;
 import vn.khanhduc.profileservice.dto.request.ProfileUpdateRequest;
 import vn.khanhduc.profileservice.dto.response.PageResponse;
+import vn.khanhduc.profileservice.dto.response.ProfileDetailResponse;
 import vn.khanhduc.profileservice.dto.response.ProfileResponse;
 
 public interface UserProfileService {
@@ -14,6 +15,8 @@ public interface UserProfileService {
     PageResponse<ProfileResponse> getAllProfile(int page, int size);
     ProfileResponse getProfileByUserId(Long userId);
     void createProfile(ProfileEvent event, Acknowledgment acknowledgment);
-    ProfileResponse updateProfile(ProfileUpdateRequest request, MultipartFile file);
+    ProfileDetailResponse updateProfile(ProfileUpdateRequest request, MultipartFile file);
     ProfileResponse uploadAvatar(MultipartFile file);
+    ProfileDetailResponse getProfileByUserLogin();
+
 }

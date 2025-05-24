@@ -16,7 +16,7 @@ public class ChatbotController {
 
     private final ChatbotService chatbotService;
 
-    @GetMapping(value = "/chatbot/ask", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    @GetMapping(value = "/chatbot/ask", produces = "text/plain;charset=UTF-8")
     public Flux<String> askQuestion(@RequestParam(name = "question") String question) {
         return chatbotService.askQuestion(question);
     }

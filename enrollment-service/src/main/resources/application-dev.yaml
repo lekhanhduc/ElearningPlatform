@@ -1,0 +1,20 @@
+spring:
+  config:
+    import: optional:configserver:http://localhost:8888
+    name: enrollment-service
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/enrollment_service
+    username: root
+    password: 123456
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  kafka:
+    bootstrap-servers: localhost:9094
+
+api-gateway:
+  url: http://localhost:9191

@@ -14,7 +14,6 @@ import vn.khanhduc.identityservice.entity.Role;
 import vn.khanhduc.identityservice.entity.User;
 import vn.khanhduc.identityservice.entity.UserHasRole;
 import vn.khanhduc.identityservice.repository.RoleRepository;
-import vn.khanhduc.identityservice.repository.UserHasRoleRepository;
 import vn.khanhduc.identityservice.repository.UserRepository;
 import vn.khanhduc.identityservice.repository.httpclient.ProfileClient;
 import java.util.Optional;
@@ -29,7 +28,6 @@ public class InitApp {
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
-    private final UserHasRoleRepository userHasRoleRepository;
     private final PasswordEncoder passwordEncoder;
     private final ProfileClient profileClient;
 

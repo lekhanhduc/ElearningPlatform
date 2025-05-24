@@ -1,24 +1,23 @@
 spring:
   application:
     name: IDENTITY-SERVICE
-  boot:
-    message: Hello, Identity Service, Spring Cloud Bus (Test Environment)
 
   config:
     import: optional:configserver:http://config-server:8888
+    name: identity-service
 
   datasource:
-    driver-class-name: org.postgresql.Driver
-    username: ${DATABASE_USERNAME:postgres}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${DATABASE_USERNAME:root}
     password: ${DATABASE_PASSWORD:123456}
-    url: jdbc:postgresql://${DATABASE_HOST:postgres}:${DATABASE_PORT:5433}/identity_service
+    url: jdbc:mysql://${DATABASE_HOST:root}:${DATABASE_PORT:3306}/identity_service
 
   jpa:
     hibernate:
       ddl-auto: ${HIBERNATE_DDL_AUTO:update}
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+        dialect: org.hibernate.dialect.MySQL8Dialect
 
   security:
     oauth2:
@@ -55,15 +54,6 @@ spring:
   kafka:
     bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:kafka:9092}
 
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    service-url:
-      defaultZone: ${EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE:http://registry-service:8761/eureka/}
-    fetch-registry: true
-    register-with-eureka: true
-
 logging:
   level:
     org.springframework.cloud.config: DEBUG
@@ -71,28 +61,6 @@ logging:
 
 jwt:
   secret-key: ${JWT_SECRET_KEY}
-
-resilience4j:
-  circuitbreaker:
-    instances:
-      IDENTITY-SERVICE:
-        failureRateThreshold: 50
-        slowCallRateThreshold: 50
-        slowCallDurationThreshold: 4000ms
-        permittedNumberOfCallsInHalfOpenState: 3
-        slidingWindowSize: 10
-        waitDurationInOpenState: 5000ms
-  retry:
-    instances:
-      IDENTITY-SERVICE:
-        maxAttempts: 3
-        waitDuration: 1000ms
-  ratelimiter:
-    instances:
-      identityService:
-        limitForPeriod: 500
-        limitRefreshPeriod: 1s
-        timeoutDuration: 500ms
 
 sub-domain: ${SUB_DOMAIN}
 
@@ -103,3 +71,36 @@ google:
 
 api-gateway:
   url: http://api-gateway:9191
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://registry-service:8761/eureka/
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      identityService:
+        failureRateThreshold: 50  # Nếu tỷ lệ lỗi > 50%, Circuit Breaker sẽ mở
+        slowCallRateThreshold: 50 # Nếu tỷ lệ gọi chậm > 50%, Circuit Breaker sẽ mở
+        slowCallDurationThreshold: 4000ms # Nếu thời gian gọi > 2 giây, được xem là chậm
+        permittedNumberOfCallsInHalfOpenState: 3 # Số request thử lại khi Circuit Breaker đang ở trạng thái HALF-OPEN
+        slidingWindowSize: 10  # Số request được xem xét mở hay đóng Circuit Breaker, ở đây là 10 request gần nhất
+        waitDurationInOpenState: 5000ms # Thời gian Circuit Breaker sẽ mở trước khi thử lại (5 giây)
+  retry:
+    instances:
+      IDENTITY-SERVICE:
+        maxAttempts: 3 # Nếu request gặp lỗi, hệ thống sẽ thử lại tối đa 3 lần trước khi từ bỏ và kích hoạt phương thức fallback.
+        waitDuration: 1000ms  # Mỗi lần thử lại, hệ thống sẽ chờ 1 giây trước khi thử tiếp.
+  ratelimiter:
+    instances:
+      identityService:
+        limitForPeriod: 1000 #  1000 request là giới hạn tối đa mà service identityService có thể xử lý trong 1 giây.
+        limitRefreshPeriod: 1s  # Sau mỗi giây, hệ thống sẽ cho phép thêm 10 request.
+        timeoutDuration: 500ms  # Nếu vượt quá giới hạn, đợi tối đa 500ms trước khi từ chối request
+
+---
+
+spring:
+  boot:
+    message: Hello, Identity Service, Spring Cloud Bus

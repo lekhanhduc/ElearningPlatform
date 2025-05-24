@@ -1,4 +1,4 @@
-package vn.khanhduc.courseservice.utils;
+package vn.khanhduc.courseservice.common;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import vn.khanhduc.courseservice.exception.CourseException;

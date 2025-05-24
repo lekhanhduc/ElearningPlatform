@@ -1,4 +1,9 @@
 spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 500MB
+      max-request-size: 550MB
   data:
     mongodb:
       uri: mongodb://root:root@mongodb:27017/notification-service?authSource=admin
@@ -6,8 +11,8 @@ spring:
   #      password: 123456
 
   config:
-    name: file-service
     import: optional:configserver:http://config-server:8888
+    name: file-service
 
 #  rabbitmq:
 #    host: rabbitmq
@@ -34,3 +39,12 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://registry-service:8761/eureka/
+
+file:
+  storage-dir: C:/upload
+  download-prefix: http://localhost:9191/file/download/
+
+minio:
+  endpoint-url: ${MINIO_DOMAIN}
+  access-key: minioadmin
+  secret-key: 12345678

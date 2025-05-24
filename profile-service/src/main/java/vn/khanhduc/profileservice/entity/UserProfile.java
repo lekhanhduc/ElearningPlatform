@@ -1,14 +1,11 @@
 package vn.khanhduc.profileservice.entity;
 
+import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.neo4j.core.schema.GeneratedValue;
-import org.springframework.data.neo4j.core.schema.Id;
-import org.springframework.data.neo4j.core.schema.Node;
-import org.springframework.data.neo4j.core.schema.Property;
-import org.springframework.data.neo4j.core.support.UUIDStringGenerator;
 import java.io.Serializable;
 
-@Node("user-profile")
+@Entity
+@Table(name = "user_profile")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -17,21 +14,25 @@ import java.io.Serializable;
 public class UserProfile implements Serializable {
 
     @Id
-    @GeneratedValue(generatorClass = UUIDStringGenerator.class)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Property(name = "user_id")
+    @Column(name = "user_id", nullable = false, unique = true)
     private Long userId;
 
-    @Property(name = "first_name")
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Property(name = "last_name")
+    @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Property(name = "avatar")
+    @Column(name = "avatar")
     private String avatar;
 
-    @Property(name = "phone_number")
+    @Column(name = "phone_number")
     private String phoneNumber;
+
+    private String linkFacebook;
+    private String linkLinkedIn;
+    private String linkYoutube;
 }

@@ -6,8 +6,8 @@ spring:
   application:
     name: NOTIFICATION-SERVICE
   profiles:
-#    active: test
-    active: @spring.profiles.active@
+    active: test
+#    active: @spring.profiles.active@
 
 management:
   endpoints:

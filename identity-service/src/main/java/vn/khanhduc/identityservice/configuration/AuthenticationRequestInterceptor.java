@@ -29,4 +29,5 @@ public class AuthenticationRequestInterceptor implements RequestInterceptor {
             requestTemplate.header("Authorization",  "Bearer " + token);
         }
     }
+
 }

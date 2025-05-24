@@ -1,9 +1,14 @@
 spring:
-  data:
-    mongodb:
-      uri: mongodb://root:root@mongodb:27017/notification-service?authSource=admin
-  #      username: root
-  #      password: 123456
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql:3306/notification_service
+    username: root
+    password: 123456
+
+  jpa:
+    hibernate:
+      ddl-auto: update
 
   config:
     name: notification-service
@@ -22,7 +27,6 @@ spring:
 
   kafka:
     bootstrap-servers: kafka:9092
-
 
 management:
   endpoints:

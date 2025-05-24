@@ -50,6 +50,19 @@ public class GlobalHandlingException {
         return ResponseEntity.status(errorCode.getHttpStatus()).body(errorResponse);
     }
 
+    @ExceptionHandler(AuthenticationException.class)
+    public ResponseEntity<ErrorResponse> handleAuthenticationException(AuthenticationException ex, HttpServletRequest request) {
+        ErrorCode errorCode = ex.getErrorCode();
+        ErrorResponse errorResponse = ErrorResponse.builder()
+                .timestamp(new Date())
+                .status(errorCode.getHttpStatus().value())
+                .error(errorCode.getMessage())
+                .path(request.getRequestURI())
+                .build();
+
+        return ResponseEntity.status(errorCode.getHttpStatus()).body(errorResponse);
+    }
+
     @ExceptionHandler(MissingRequestCookieException.class)
     public ResponseEntity<ErrorResponse> handleMissingRequestCookieException(MissingRequestCookieException exception, HttpServletRequest request) {
         log.error(exception.getMessage());

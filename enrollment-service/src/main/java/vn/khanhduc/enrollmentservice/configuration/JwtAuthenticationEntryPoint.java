@@ -1,4 +1,4 @@
-package vn.khanhduc.courseservice.configuration;
+package vn.khanhduc.enrollmentservice.configuration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.ServletException;
@@ -7,8 +7,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
-import vn.khanhduc.courseservice.dto.response.ErrorResponse;
-import vn.khanhduc.courseservice.exception.ErrorCode;
+import vn.khanhduc.enrollmentservice.dto.response.ErrorResponse;
+import vn.khanhduc.enrollmentservice.exception.ErrorCode;
 import java.io.IOException;
 import java.util.Date;
 

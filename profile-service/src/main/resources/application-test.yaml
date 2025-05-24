@@ -2,11 +2,13 @@ spring:
   config:
     import: optional:configserver:http://config-server:8888
     name: profile-service
-  neo4j:
-    authentication:
-      username: neo4j
-      password: 12345678
-    uri: bolt://neo4j:7687
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql:3306/profile_service
+    username: root
+    password: 123456
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -24,7 +26,7 @@ spring:
 #      probability: 1.0 # 100% request được tracking (nếu hệ thống lớn, có thể giảm xuống 0.5)
 #  zipkin:
 #    tracing:
-#      endpoint: http://localhost:9411/api/v2/spans
+#      endpoint: http://zipkin:9411/api/v2/spans
 
 management:
   endpoints:
@@ -42,6 +44,14 @@ eureka:
       defaultZone: http://registry-service:8761/eureka/
 ---
 
+
+aws:
+  s3:
+    bucket-name: bookstore-application
+    endpoint-url: http://minio:9002
+  credentials:
+    access-key: minioadmin
+    secret-key: 12345678
 
 spring:
   boot:

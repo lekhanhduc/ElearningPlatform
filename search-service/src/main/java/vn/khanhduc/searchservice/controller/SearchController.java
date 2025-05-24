@@ -1,6 +1,7 @@
 package vn.khanhduc.searchservice.controller;
 
 import vn.khanhduc.searchservice.dto.BookDetailResponse;
+import vn.khanhduc.searchservice.dto.CourseResponse;
 import vn.khanhduc.searchservice.dto.PageResponse;
 import vn.khanhduc.searchservice.service.SearchService;
 import lombok.RequiredArgsConstructor;
@@ -40,5 +41,14 @@ public class SearchController {
             @RequestParam(required = false, defaultValue = "") String keyword) {
 
         return searchService.getBookWithJavaAPI(page, size, keyword);
+    }
+
+    @GetMapping("/courses")
+    PageResponse<CourseResponse> getCoursesWithSearch(
+            @RequestParam(required = false, defaultValue = "1") int page,
+            @RequestParam(required = false, defaultValue = "5") int size,
+            @RequestParam(required = false, defaultValue = "") String keyword) {
+
+        return searchService.getCoursesWithSearch(page, size, keyword);
     }
 }

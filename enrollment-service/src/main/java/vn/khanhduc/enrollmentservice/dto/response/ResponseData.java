@@ -1,7 +1,8 @@
-package vn.khanhduc.courseservice.dto.response;
+package vn.khanhduc.enrollmentservice.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
+
 import java.io.Serializable;
 
 @NoArgsConstructor

@@ -20,6 +20,7 @@ import vn.khanhduc.event.dto.ProfileEvent;
 import vn.khanhduc.profileservice.dto.request.ProfileRequest;
 import vn.khanhduc.profileservice.dto.request.ProfileUpdateRequest;
 import vn.khanhduc.profileservice.dto.response.PageResponse;
+import vn.khanhduc.profileservice.dto.response.ProfileDetailResponse;
 import vn.khanhduc.profileservice.dto.response.ProfileResponse;
 import vn.khanhduc.profileservice.exception.AuthenticationException;
 import vn.khanhduc.profileservice.exception.ResourceNotFoundException;
@@ -27,7 +28,6 @@ import vn.khanhduc.profileservice.mapper.UserProfileMapper;
 import vn.khanhduc.profileservice.entity.UserProfile;
 import vn.khanhduc.profileservice.repository.UserProfileRepository;
 import vn.khanhduc.profileservice.repository.http.FileClient;
-import vn.khanhduc.profileservice.service.S3Service;
 import vn.khanhduc.profileservice.service.UserProfileService;
 import java.util.List;
 import java.util.Optional;
@@ -119,7 +119,7 @@ public class UserProfileServiceImpl implements UserProfileService {
 
     @Override
     @PreAuthorize("isAuthenticated()")
-    public ProfileResponse updateProfile(ProfileUpdateRequest request, MultipartFile file) {
+    public ProfileDetailResponse updateProfile(ProfileUpdateRequest request, MultipartFile file) {
         Optional<String> principal = SecurityContextHolder.getContext().getAuthentication().getName().describeConstable();
         if(principal.isEmpty())
             throw new AuthenticationException("Unauthenticated");
@@ -129,19 +129,23 @@ public class UserProfileServiceImpl implements UserProfileService {
                 .orElseThrow(() -> new ResourceNotFoundException("User Not Found"));
 
         userProfileMapper.updateProfile(request, userProfile);
+
         if(file != null) {
-            String urlAvatar = s3Service.uploadFile("upload", file);
+            String urlAvatar = s3Service.uploadFileToMinIO("upload", file);
             userProfile.setAvatar(urlAvatar);
             log.info("Update avatar to S3 successfully");
         }
         userProfileRepository.save(userProfile);
         log.info("Update profile successfully");
-        return ProfileResponse.builder()
-                .userId(userId)
+        return ProfileDetailResponse.builder()
+                .profileId(userProfile.getId())
                 .firstName(userProfile.getFirstName())
                 .lastName(userProfile.getLastName())
                 .phoneNumber(userProfile.getPhoneNumber())
                 .avatar(userProfile.getAvatar())
+                .linkYoutube(userProfile.getLinkYoutube())
+                .linkFacebook(userProfile.getLinkFacebook())
+                .linkLinkedIn(userProfile.getLinkLinkedIn())
                 .build();
     }
 
@@ -169,6 +173,29 @@ public class UserProfileServiceImpl implements UserProfileService {
                 .lastName(profile.getLastName())
                 .avatar(profile.getAvatar())
                 .phoneNumber(profile.getPhoneNumber())
+                .build();
+    }
+
+    @Override
+    @PreAuthorize("isAuthenticated()")
+    public ProfileDetailResponse getProfileByUserLogin() {
+        var principal = SecurityContextHolder.getContext().getAuthentication().getName().describeConstable();
+        if(principal.isEmpty())
+            throw new AuthenticationException("Unauthenticated");
+        Long userId = Long.parseLong(principal.get());
+
+        UserProfile profile = userProfileRepository.findByUserId(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("Profile not existed"));
+
+        return ProfileDetailResponse.builder()
+                .profileId(profile.getId())
+                .firstName(profile.getFirstName())
+                .lastName(profile.getLastName())
+                .phoneNumber(profile.getPhoneNumber())
+                .avatar(profile.getAvatar())
+                .linkFacebook(profile.getLinkFacebook())
+                .linkLinkedIn(profile.getLinkLinkedIn())
+                .linkYoutube(profile.getLinkYoutube())
                 .build();
     }
 

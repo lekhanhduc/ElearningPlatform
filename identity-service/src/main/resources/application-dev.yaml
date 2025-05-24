@@ -1,9 +1,10 @@
 spring:
+
   datasource:
-    driver-class-name: org.postgresql.Driver
-    username: postgres
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/identity_service
+    username: root
     password: 123456
-    url: jdbc:postgresql://localhost:5432/identity_service
 
   jpa:
     hibernate:
@@ -74,7 +75,7 @@ resilience4j:
         maxAttempts: 3
         waitDuration: 1s
 jwt:
-  secret-key: qEGWCystxG6FXQjPOKDyHPx7ID6u38YSfWhgdj0TWBKtHjwWJRS9myU6qtr2lBAHkNoFyij8klSvsXARgtxeKCqAdlmCvfkvCmJFvln5FrDuHGcGN43HVNkid6Hdee8HDeP8eWvRdfrc5NlwauL2DYdDeJgXClUZ6gS2Igr9tJoExsUJJ3wxZMc4jYfW2I8BgeiJRe6GElDCJHOcpRgS0SMP6nbtN1guElbzcs0YhlrG5CORdkutdrpRMZ2dX0xHeulbrUa4LdAxdDFB4DNbfSRWb2VpFTvxxpN7TGKrMASULBWecTnolRLsNbEQkGmroS1futhxGxMdQEaUIhLuNlvxfM1smNiVmdk2IOmQeT952Gn9nPUmVvkYTmx3cdZUzJsjAAq2Lb0IYQt0xOn8I65krXqtkKub5oPQrNiDEa0hon0Q9J1BNGYSJpSDwtjDsMgcgxaoBnyfT9y2iGHIZdbFWEhDcu8bJ9MY2r7s45dh4so87R4Avc1gn4OsJwLL
+  secret-key: LlXbOuam4UBLZOg9uylp4Bp4IzL0p9Vb/leiOexBiXBZnHGkzH/lVxamrIjm/pv6rDDsqLmFhlfTC2rGzLf603+SkhUFr4OTh/rAcCPfx1Y=
 
 sub-domain: localhost
 

@@ -14,8 +14,10 @@ import java.text.ParseException;
 @Slf4j(topic = "JWT-DECODER")
 public class JwtDecoderCustomizer implements JwtDecoder {
 
+
     @Override
     public Jwt decode(String token) throws JwtException {
+
         try {
             SignedJWT signedJWT = SignedJWT.parse(token);
             var header = signedJWT.getHeader().toJSONObject();

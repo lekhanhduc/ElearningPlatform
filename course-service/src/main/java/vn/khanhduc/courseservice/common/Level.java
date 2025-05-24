@@ -1,4 +1,5 @@
-package vn.khanhduc.courseservice.utils;
+package vn.khanhduc.courseservice.common;
 
 public enum Level {
+    BEGINNER, INTERMEDIATE, ADVANCED, EXPERT, PROFESSIONAL
 }

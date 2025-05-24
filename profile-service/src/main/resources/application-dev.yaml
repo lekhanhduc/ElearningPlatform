@@ -2,19 +2,37 @@ spring:
   config:
     import: optional:configserver:http://localhost:8888
     name: profile-service
-  neo4j:
-    authentication:
-      username: neo4j
-      password: 12345678
-    uri: bolt://localhost:7687
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/profile_service
+    username: root
+    password: 123456
+
   jpa:
     hibernate:
       ddl-auto: update
+
   kafka:
     bootstrap-servers: localhost:9094
 
 ---
+#aws:
+#  s3:
+#    bucket-name:
+#    region: ap-southeast-1
+#    endpoint-url:
+#  credentials:
+#    access-key:
+#    secret-key:
 
+aws:
+  s3:
+    bucket-name: bookstore-application
+    endpoint-url: http://localhost:9002
+  credentials:
+    access-key: minioadmin
+    secret-key: 12345678
 
 api-gateway:
   url: http://localhost:9191

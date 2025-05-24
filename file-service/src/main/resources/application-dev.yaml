@@ -2,8 +2,8 @@ spring:
   servlet:
     multipart:
       enabled: true
-      max-file-size: 20MB
-      max-request-size: 20MB
+      max-file-size: 500MB
+      max-request-size: 550MB
   data:
     mongodb:
       uri: mongodb://root:123456@localhost:27017/file-service?authSource=admin
@@ -27,5 +27,10 @@ spring:
 file:
   storage-dir: C:/upload
   download-prefix: http://localhost:9191/file/download/
+
+minio:
+  endpoint-url: http://localhost:9002
+  access-key: minioadmin
+  secret-key: 12345678
 
 
