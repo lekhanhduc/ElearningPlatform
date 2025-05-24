@@ -13,16 +13,16 @@ pipeline {
 		stage('Checkout Code') {
 			steps {
 				script {
-					if (fileExists('BookStorePlatform')) {
+					if (fileExists('ElearningPlatform')) {
 						echo 'Repository already exists. Pulling latest changes...'
-                        dir('BookStorePlatform') {
+                        dir('ElearningPlatform') {
 							sh 'git reset --hard'
                             sh 'git pull origin master'
                         }
                     } else {
 						echo 'Cloning repository...'
                         withCredentials([usernamePassword(credentialsId: 'github-token', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_TOKEN')]) {
-							sh "git clone https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/lekhanhduc/BookStorePlatform.git"
+							sh "git clone https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/lekhanhduc/ElearningPlatform.git"
                         }
                     }
                 }
@@ -30,9 +30,9 @@ pipeline {
         }
         stage('Build IdentityService') {
 			steps {
-				dir('BookStorePlatform/identity-service') {
+				dir('ElearningPlatform/identity-service') {
 					withEnv(["JAVA_HOME=${tool 'JDK21'}"]) {
-					    sh 'echo $JAVA_HOME' 
+					    sh 'echo $JAVA_HOME'
                         sh 'java -version'
 						sh 'mvn clean install -DskipTests'
                     }
@@ -55,19 +55,19 @@ pipeline {
         }
         stage('Build Package') {
 			steps {
-				dir('BookStorePlatform/identity-service') {
+				dir('ElearningPlatform/identity-service') {
 					sh 'mvn package -DskipTests'
                 }
             }
         }
         stage('Archive Artifact') {
 			steps {
-				archiveArtifacts artifacts: 'BookStorePlatform/identity-service/target/*.jar', fingerprint: true
+				archiveArtifacts artifacts: 'ElearningPlatform/identity-service/target/*.jar', fingerprint: true
             }
         }
         stage('Build Docker Image') {
 			steps {
-				dir('BookStorePlatform/identity-service') {
+				dir('ElearningPlatform/identity-service') {
 					sh "docker build -t identity-service:1.0.0 ."
                     sh "docker tag identity-service:1.0.0 khanhduc/identity-service:1.0.0"
                 }
@@ -75,7 +75,7 @@ pipeline {
         }
         stage('Push Docker Image') {
             steps {
-				dir('BookStorePlatform/identity-service') {
+				dir('ElearningPlatform/identity-service') {
 					sh "docker push khanhduc/identity-service:1.0.0"
                 }
             }
